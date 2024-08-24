@@ -1,5 +1,12 @@
 import { style } from '@vanilla-extract/css'
 
+export const container = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4px',
+  alignItems: 'center',
+})
+
 export const button = style({
   position: 'relative',
   width: '100px',
@@ -44,3 +51,24 @@ export const selectedImage = style([
     opacity: 0.5,
   },
 ])
+
+export const owned = style({
+  fontSize: '12px',
+  fontWeight: 600,
+  color: '#D9DCE6',
+  letterSpacing: '-0.48px',
+})
+
+export const price = style({
+  display: 'flex',
+  fontSize: '14px',
+  fontWeight: 600,
+  color: '#5F5F71',
+  letterSpacing: '-0.56px',
+})
+
+export const priceIcon = style({
+  width: '16px',
+  height: '16px',
+  color: '#FFC700',
+})

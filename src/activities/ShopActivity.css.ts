@@ -16,7 +16,7 @@ export const tags = style({
 export const buttons = style({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '20px',
+  rowGap: '20px',
   justifyContent: 'space-between',
   maxHeight: 'calc(100% - 481.5px)',
   padding: '12px 27px',
