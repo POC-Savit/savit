@@ -1,5 +1,7 @@
 import { type SavitMission } from 'types/SavitMission'
 
+import { useFlow } from '~/stackflow'
+
 import CheckBox from '../common/CheckBox'
 import Title from '../common/Title'
 import * as css from './NextMissions.css'
@@ -28,8 +30,8 @@ const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
               <Quiz
                 currentQuizCount={mission.currentQuizCount}
                 key={mission.text}
+                quizIds={mission.quizsIds}
                 text={mission.text}
-                totalQuizCount={mission.totalQuizCount}
               />
             )
         }
@@ -52,19 +54,37 @@ const Mission = ({ isComplete, text }: MissionProps) => {
         <CheckBox isChecked={isComplete} />
         {text}
       </div>
-      <div></div>
+      <div
+        className={css.missionRight}
+        style={{
+          color: isComplete ? '#5F5F71' : '#5872FF',
+          textDecorationLine: isComplete ? 'none' : 'underline',
+        }}
+      >
+        {isComplete ? '달성완료' : '미션수행'}
+      </div>
     </div>
   )
 }
 
 interface QuizProps {
   currentQuizCount: number
+  quizIds: string[]
   text: string
-  totalQuizCount: number
 }
 
-const Quiz = ({ text, currentQuizCount, totalQuizCount }: QuizProps) => {
+const Quiz = ({ text, currentQuizCount, quizIds }: QuizProps) => {
+  const totalQuizCount = quizIds.length
   const isComplete = currentQuizCount === totalQuizCount
+
+  const { push } = useFlow()
+
+  const handleQuizClick = () => {
+    push('QuizModal', {
+      quizId: quizIds[currentQuizCount - 1],
+    })
+  }
+
   return (
     <div className={css.mission}>
       <div className={css.missionLeft}>
@@ -88,6 +108,16 @@ const Quiz = ({ text, currentQuizCount, totalQuizCount }: QuizProps) => {
             /{totalQuizCount}
           </span>
         </span>
+      </div>
+      <div
+        className={css.missionRight}
+        onClick={handleQuizClick}
+        style={{
+          color: isComplete ? '#5F5F71' : '#5872FF',
+          textDecorationLine: isComplete ? 'none' : 'underline',
+        }}
+      >
+        {isComplete ? '달성완료' : '퀴즈풀기'}
       </div>
     </div>
   )
