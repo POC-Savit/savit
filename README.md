@@ -1,25 +1,20 @@
-## AWS Amplify React+Vite Starter Template
 
-This repository provides a starter template for creating applications using React+Vite and AWS Amplify, emphasizing easy setup for authentication, API, and database capabilities.
+# Savit
 
-## Overview
+## Project Overview
 
-This template equips you with a foundational React application integrated with AWS Amplify, streamlined for scalability and performance. It is ideal for developers looking to jumpstart their project with pre-configured AWS services like Cognito, AppSync, and DynamoDB.
+**Savit** is an interactive and educational platform designed to teach users important financial knowledge tailored to their age group through an engaging gaming experience. The platform provides personalized financial guidelines based on current economic conditions, making it easier for users to understand and apply essential financial concepts.
 
-## Features
+## Key Features
 
-- **Authentication**: Setup with Amazon Cognito for secure user authentication.
-- **API**: Ready-to-use GraphQL endpoint with AWS AppSync.
-- **Database**: Real-time database powered by Amazon DynamoDB.
+- **Age-Specific Guidelines:** Savit offers tailored financial guidelines to users based on their age cohort. This ensures that the information is relevant and appropriate for each stage of life.
+  
+- **Economic Insights:** The platform provides up-to-date financial knowledge that reflects the current economic situation. Users will learn essential financial skills that are timely and practical.
 
-## Deploying to AWS
+- **Character Customization:** Users can personalize their in-game characters by earning credits through savings. These credits can be spent in the in-game shop to purchase items and customize their characters, adding a fun and rewarding aspect to the learning process.
 
-For detailed instructions on deploying your application, refer to the [deployment section](https://docs.amplify.aws/react/start/quickstart/#deploy-a-fullstack-app-to-aws) of our documentation.
+## How It Works
 
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
+1. **Engage in Interactive Games:** Users participate in games that are designed to teach financial principles in a fun and engaging way.
+2. **Learn and Earn:** As users progress through the game, they earn credits based on their in-game savings, which are tied to real-world financial concepts.
+3. **Customize Your Character:** Users can use the credits they've earned to buy items from the in-game shop and customize their characters, making their learning experience both educational and enjoyable.
