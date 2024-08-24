@@ -1,6 +1,11 @@
 
 # Savit
 
+| Service URL    | https://savit.yahoconut.com |
+|----------------|-----------------------------|
+| Front Source   | [link](/src/)               |
+| Backend Source | [link](amplify/)            |
+
 ## Project Overview
 
 **Savit** is an interactive and educational platform designed to teach users important financial knowledge tailored to their age group through an engaging gaming experience. The platform provides personalized financial guidelines based on current economic conditions, making it easier for users to understand and apply essential financial concepts.
