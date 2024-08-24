@@ -1,9 +1,9 @@
-import { useAtomValue } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import CountUp from 'react-countup'
 
 import MiniSquareButton from '~/components/common/MiniSquareButton'
 import { useFlow } from '~/stackflow'
-import { User } from '~/stores'
+import { UI, User } from '~/stores'
 
 import ShowRoomNormal from '../3d/ShowRoomNormal'
 import * as css from './Root.css'
@@ -13,11 +13,13 @@ interface ShopProps {}
 const Root = ({}: ShopProps) => {
   const { push } = useFlow()
   const currentLevel = useAtomValue(User.currentLevel)
+  const setShareStatus = useSetAtom(UI.shareStatus)
 
   const handleStairClick = () => {
     push('LevelActivity', {})
   }
   const handleDownloadCLik = () => {
+    setShareStatus(true)
     push('DownloadModalActivity', {})
   }
 
@@ -36,7 +38,7 @@ const Root = ({}: ShopProps) => {
         <CountUp
           decimal=","
           duration={10}
-          end={currentLevel}
+          end={currentLevel + 1}
           start={1}
           suffix="F"
         >

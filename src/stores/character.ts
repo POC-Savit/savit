@@ -2,6 +2,10 @@ import type { Nullable } from 'type-util'
 
 import { atom } from 'jotai'
 
+import { fetchItems, fetchItemsWithUserinfo, ItemWithOwn } from '~/hooks/queris'
+
+import { User } from '.'
+
 export type HeadType =
   | 'BeachHat'
   | 'Bulb'
@@ -78,9 +82,6 @@ export type EventType = 'Bomb' | 'UFO'
 
 // export const jotaiStore = createStore()
 
-export const faceItem = atom<Nullable<FaceType>>(null)
-export const headItem = atom<Nullable<HeadType>>(null)
-
 export const position = atom({ x: 0, y: 0, z: 3 })
 export const level = atom(0)
 export const isAnimation = atom(true)
@@ -96,3 +97,24 @@ export const reset = atom(null, (_get, set) => {
   set(isRotate, false)
   set(isOutline, true)
 })
+
+export const faceItem = atom<Nullable<FaceType>>(null)
+export const headItem = atom<Nullable<HeadType>>(null)
+
+export const items = atom<ItemWithOwn[]>([])
+export const getItems = atom(null, async (_get, set) => {
+  const response = await fetchItems()
+  set(items, response)
+  await set(User.getUserInfo)
+  response.forEach((item) => {
+    if (item.equipped) {
+      if (item.type === 0) {
+        set(headItem, item.name as HeadType)
+        return
+      }
+      set(faceItem, item.name as FaceType)
+    }
+  })
+})
+
+export const currentSelected = atom<Nullable<ItemWithOwn>>(null)

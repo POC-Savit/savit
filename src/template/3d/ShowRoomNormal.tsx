@@ -12,8 +12,8 @@ import { ReactElement, useEffect, useRef, useState } from 'react'
 import { ObjectType } from 'type-util'
 
 import BaseBody from '~/components/models/Body/BaseBody'
-import Bomb from '~/components/models/Event/Bomb'
-import UFO from '~/components/models/Event/UFO'
+// import Bomb from '~/components/models/Event/Bomb'
+// import UFO from '~/components/models/Event/UFO'
 import Band from '~/components/models/Face/Band'
 import Bubble from '~/components/models/Face/Bubble'
 import Earphone from '~/components/models/Face/Earphone'
@@ -54,12 +54,12 @@ const FACE_ITEM = {
   Sunglasses: <Sunglasses />,
 } as ObjectType<ReactElement>
 
-const EVENT_ITEM = {
-  Bomb: <Bomb />,
-  UFO: <UFO />,
-} as ObjectType<ReactElement>
+// const EVENT_ITEM = {
+//   Bomb: <Bomb />,
+//   UFO: <UFO />,
+// } as ObjectType<ReactElement>
 
-const EVENT_ITEM_ARR = Object.keys(EVENT_ITEM)
+// const EVENT_ITEM_ARR = Object.keys(EVENT_ITEM)
 const FLOOR = ['1F', '2F', '3F', '4F', '5F'].reverse()
 
 const ShowRoomNormal = () => {
@@ -88,7 +88,7 @@ const ShowRoomNormal = () => {
           />
         ))}
       </div>
-      <Canvas camera={{ position: [0, 0, 3], fov: 60 }} shadows>
+      <Canvas camera={{ fov: 60 }} shadows>
         <Inner />
       </Canvas>
     </div>
@@ -98,43 +98,59 @@ const ShowRoomNormal = () => {
 const Inner = () => {
   const ref = useRef(null)
   const { gl, scene, camera } = useThree()
-  const [isClick, setIsClick] = useState(false)
-  const [position, setPosition] = useState({ x: 0, y: 0, z: 3 })
+  const [position] = useState({ x: 0.5, y: 0.2, z: 1.7 })
   const isOutline = false
   const headItem = useAtomValue(Character.headItem)
   const faceItem = useAtomValue(Character.faceItem)
 
-  const [eventStep, setEventStep] = useState(2)
+  useEffect(() => {
+    gsap.timeline().to(camera.position, {
+      duration: 0.5,
+      repeat: 0,
+      x: 0.5,
+      y: 0.2,
+      z: 1.7,
+      ease: 'power3.inOut',
+    })
+  }, [])
 
   const setCurrentImage = useSetAtom(UI.currentImage)
+  const shareStatus = useAtomValue(UI.shareStatus)
   useEffect(() => {
     gl.render(scene, camera)
     const screenshot = gl.domElement.toDataURL()
     setCurrentImage(screenshot)
-  }, [headItem, faceItem])
+  }, [headItem, faceItem, camera.position, position, gl, scene, shareStatus])
 
-  useEffect(() => {
-    function cameraAnimate() {
-      if (ref.current) {
-        gsap.timeline().to(camera.position, {
-          duration: 0.5,
-          repeat: 0,
-          x: position.x,
-          y: position.y,
-          z: position.z,
-          ease: 'power3.inOut',
-        })
-      }
-    }
-    cameraAnimate()
-  }, [camera.position, position])
+  // useEffect(() => {
+  //   function cameraAnimate() {
+  //     if (ref.current) {
+  //       gsap.timeline().to(camera.position, {
+  //         duration: 0.5,
+  //         repeat: 0,
+  //         x: position.x,
+  //         y: position.y,
+  //         z: position.z,
+  //         ease: 'power3.inOut',
+  //       })
+  //     }
+  //   }
+  //   cameraAnimate()
+  // }, [camera.position, position])
 
+  // useEffect(() => {
+  //   function handleOnclick() {
+  //     setPosition({ x: 0, y: 0, z: isClick ? 2 : 3 })
+  //   }
+  //   if (isClick) {
+  //     handleOnclick()
+  //   }
+  // }, [isClick])
+
+  const getItems = useSetAtom(Character.getItems)
   useEffect(() => {
-    function handleOnclick() {
-      setPosition({ x: 0, y: 0, z: isClick ? 2 : 3 })
-    }
-    handleOnclick()
-  }, [isClick])
+    getItems()
+  }, [])
 
   return (
     <>
@@ -168,16 +184,16 @@ const Inner = () => {
           <group
             castShadow
             onClick={() => {
-              setIsClick((prev) => !prev)
-              setEventStep((prev) => (prev + 1) % 2)
+              // setIsClick((prev) => !prev)
+              // setEventStep((prev) => (prev + 1) % 2)
             }}
-            onPointerOut={() => setIsClick(false)}
+            // onPointerOut={() => setIsClick(false)}
             receiveShadow
           >
             <BaseBody />
             {headItem && HEAD_ITEM[headItem]}
             {faceItem && FACE_ITEM[faceItem]}
-            {eventStep !== 2 && EVENT_ITEM[EVENT_ITEM_ARR[eventStep]]}
+            {/* {eventStep !== 2 && EVENT_ITEM[EVENT_ITEM_ARR[eventStep]]} */}
           </group>
         </Select>
       </Selection>

@@ -1,15 +1,14 @@
-
+import { useSetAtom } from 'jotai'
 import { useEffect } from 'react'
+
 import * as css from './App.css'
-import { useSignIn } from './hooks/login.hook'
 import { Stack } from './stackflow'
+import { User } from './stores'
 
 function App() {
-  
-  const userInfo = useSignIn()
-  console.log(userInfo)
+  const getUserInfo = useSetAtom(User.getUserInfo)
   useEffect(() => {
-    // buyItem()
+    getUserInfo()
   }, [])
   return (
     <main className={css.container}>

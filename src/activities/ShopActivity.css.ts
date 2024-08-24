@@ -18,7 +18,7 @@ export const buttons = style({
   flexWrap: 'wrap',
   rowGap: '20px',
   justifyContent: 'space-between',
-  maxHeight: 'calc(100% - 481.5px)',
+  maxHeight: 'calc(100% - 446.5px)',
   padding: '12px 27px',
   overflow: 'auto',
   ':after': {

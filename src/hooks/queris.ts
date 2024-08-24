@@ -14,9 +14,35 @@ export const fetchUserInfo = () =>
 export const fetchItems = () =>
   client.queries
     .allItem()
-    .then((resp) => JSON.parse(resp.data!!) as AllItem)
+    .then((resp) => JSON.parse(resp.data!!) as ItemWithOwn[])
 
-type ItemWithOwn = { isOwned: boolean; equipped: boolean } & Item
+export type ItemWithOwn = { isOwned: boolean; equipped: boolean } & Item
+
+export const fetchItemsWithUserinfo = () =>
+  Promise.all([fetchItems(), fetchUserInfo()]).then(([items, userIfno]) => {
+    return [
+      ...items.face.map(
+        (item) =>
+          ({
+            ...item,
+            isOwned: new Set(userIfno.character?.own?.face ?? []).has(
+              item.name
+            ),
+            equipped: item.name === userIfno.character?.current?.face,
+          }) as ItemWithOwn
+      ),
+      ...items.head.map(
+        (item) =>
+          ({
+            ...item,
+            isOwned: new Set(userIfno.character?.own?.head ?? []).has(
+              item.name
+            ),
+            equipped: item.name === userIfno.character?.current?.head,
+          }) as ItemWithOwn
+      ),
+    ]
+  })
 
 const hasItem = (userInfo: Schema['UserInfo']['type'], item: ItemWithOwn) => {
   const property = item.type === ItemType.FACE ? 'face' : 'head'
@@ -46,19 +72,18 @@ export const equiItem = async (item: ItemWithOwn) => {
   })
 }
 
-export const changeLevel = async (desired: number) => fetchUserInfo()
-    .then(userInfo => {
-        userInfo.currentLevel = desired
-        
-        return client.models.UserInfo.update(userInfo)
-    })
+export const unequipItem = async (type: ItemType) => {
+  return fetchUserInfo().then((userInfo) => {
+    const property = type === ItemType.FACE ? 'face' : 'head'
+    if (userInfo.character?.current)
+      userInfo.character!!.current!![property] = null
+    return client.models.UserInfo.update(userInfo)
+  })
+}
 
-  export const unequipItem = async (type: ItemType) => {
-    return fetchUserInfo().then((userInfo) => {
-      const property = type === ItemType.FACE ? 'face' : 'head'
-      if (userInfo.character?.current)
-        userInfo.character!!.current!![property] = null
-      return client.models.UserInfo.update(userInfo)
-    })
-  }
-    
+export const changeLevel = async (desired: number) =>
+  fetchUserInfo().then((userInfo) => {
+    userInfo.currentLevel = desired
+
+    return client.models.UserInfo.update(userInfo)
+  })

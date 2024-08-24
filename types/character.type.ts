@@ -1,5 +1,4 @@
-
 export enum ItemType {
   HEAD,
-  FACE
+  FACE,
 }

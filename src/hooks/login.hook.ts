@@ -20,10 +20,19 @@ const autoSignIn = (userName: string, password: string) => {
     .then((resp) => resp.isSignedIn)
 }
 const userName = `${uuid()}@naver.com`
+const password = (generate(5) as string[]).join('')
+
+export const getCurrentUserInfo = async () => {
+  return await getCurrentUser()
+    .catch(() => autoSignIn(userName, password))
+    .then(() => client.models.UserInfo.list({ authMode: 'userPool' }))
+    .then((resp) => {
+      return resp.data[0]
+    })
+}
 export const useSignIn = () => {
   const [userInfo, setUser] = useState<Schema['UserInfo']['type']>()
   const [asset, setAsset] = useState<{}>()
-  const password = (generate(5) as string[]).join('')
 
   useEffect(() => {
     getCurrentUser()

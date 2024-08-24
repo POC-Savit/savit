@@ -1,12 +1,14 @@
 import { AppScreen } from '@stackflow/plugin-basic-ui'
-import { useAtom } from 'jotai'
-import { useState } from 'react'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { useEffect, useState } from 'react'
+import { ItemType } from 'types/character.type'
 
 import BuyItemDrawer from '~/components/common/BuyItemDrawer'
 import SquareButton from '~/components/common/SquareButton'
 import Tab from '~/components/common/Tab'
 import Tag from '~/components/common/Tag'
-import { Character } from '~/stores'
+import { equiItem, unequipItem } from '~/hooks/queris'
+import { Character, UI } from '~/stores'
 import Shop from '~/template/layer/Shop'
 
 import * as css from './ShopActivity.css'
@@ -40,13 +42,22 @@ const FACE_ITEMS: Character.FaceType[] = [
 ]
 
 const ShopActivity = ({}: ShopActivityProps) => {
-  const [headItem, setHeadItem] = useAtom(Character.headItem)
-  const [faceItem, setFaceItem] = useAtom(Character.faceItem)
-
-  const [selectedTag, setSelectedTag] = useState(TAGS[0])
+  const [selectedTag, setSelectedTag] = useState<string>(TAGS[0])
 
   const [selectedTabItem, setSelectedTabItem] = useState(TAB_TEXT.WHOLE_ITEMS)
   const isOnlyBuyItems = selectedTabItem === TAB_TEXT.BUY_ITEMS
+
+  const items = useAtomValue(Character.items)
+  const getItems = useSetAtom(Character.getItems)
+
+  useEffect(() => {
+    getItems()
+  }, [])
+
+  const [currentSelected, setCurrentSelected] = useAtom(
+    Character.currentSelected
+  )
+  console.log(items)
 
   return (
     <AppScreen appBar={{ title: '상점', backgroundColor: '#E3ECFF' }}>
@@ -69,7 +80,40 @@ const ShopActivity = ({}: ShopActivityProps) => {
             ))}
           </div>
           <div className={css.buttons}>
-            {selectedTag !== '얼굴' &&
+            {(items || []).map((item) => (
+              <SquareButton
+                isHide={
+                  (isOnlyBuyItems && !item.isOwned) ||
+                  (selectedTag === '얼굴' && item.type !== ItemType.FACE) ||
+                  (selectedTag === '머리' && item.type !== ItemType.HEAD)
+                }
+                isOwned={item.isOwned}
+                isSelected={item.equipped}
+                key={item.name}
+                onClick={async () => {
+                  if (!item.isOwned) {
+                    setCurrentSelected(
+                      item.name === currentSelected?.name ? null : item
+                    )
+                    return
+                  }
+                  if (item.equipped) {
+                    await unequipItem(
+                      item.type === ItemType.HEAD
+                        ? ItemType.HEAD
+                        : ItemType.FACE
+                    )
+                  } else {
+                    await equiItem(item)
+                  }
+
+                  getItems()
+                }}
+                price={item.price}
+                title={item.name}
+              />
+            ))}
+            {/* {selectedTag !== '얼굴' &&
               HEAD_ITEMS.map((item) =>
                 !isOnlyBuyItems ? (
                   <SquareButton
@@ -112,10 +156,10 @@ const ShopActivity = ({}: ShopActivityProps) => {
                     />
                   )
                 )
-              )}
+              )} */}
           </div>
+          <BuyItemDrawer />
         </div>
-        <BuyItemDrawer />
       </div>
     </AppScreen>
   )

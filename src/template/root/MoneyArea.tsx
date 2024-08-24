@@ -1,13 +1,16 @@
+import { useAtomValue } from 'jotai'
 import CountUp from 'react-countup'
 
 import IconPoint from '~/asset/icons/IconPoint'
 import BankContainer from '~/components/root/BankContainer'
 import Banner from '~/components/root/Banner'
+import { User } from '~/stores'
 
 import * as css from './MoneyArea.css'
 interface MoneyAreaProps {}
 
 const MoneyArea = ({}: MoneyAreaProps) => {
+  const credit = useAtomValue(User.credit)
   return (
     <div className={css.container}>
       <div className={css.topContainer}>
@@ -19,7 +22,7 @@ const MoneyArea = ({}: MoneyAreaProps) => {
           <CountUp
             decimal=","
             duration={0.5}
-            end={1000}
+            end={credit}
             start={0}
             suffix="머니"
           >

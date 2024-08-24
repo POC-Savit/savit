@@ -8,6 +8,7 @@ type Props = {
   isSelected?: boolean
   isOwned?: boolean
   price?: number
+  isHide?: boolean
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 function SquareButton({
@@ -15,8 +16,12 @@ function SquareButton({
   isSelected,
   isOwned = false,
   price = 20,
+  isHide,
   ...props
 }: Props) {
+  if (isHide) {
+    return null
+  }
   return (
     <div className={css.container}>
       <button

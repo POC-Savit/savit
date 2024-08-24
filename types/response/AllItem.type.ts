@@ -1,6 +1,6 @@
 import { Item } from '../Item.type'
 
 export interface AllItem {
-    head: Item[]
-    face: Item[]
+  face: Item[]
+  head: Item[]
 }
