@@ -1,16 +1,14 @@
 export interface Asset {
-    stockAsset: StockAsset[],
-    savingAsset: SavingAsset[],
+  savingAsset: SavingAsset[]
+  stockAsset: StockAsset[]
 }
 
 export interface StockAsset {
-    name: string,
-    amount: number
-    
-
+  amount: number
+  name: string
 }
 
 export interface SavingAsset {
-    name: string,
-    balance: number
+  balance: number
+  name: string
 }

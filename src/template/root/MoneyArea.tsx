@@ -11,6 +11,8 @@ interface MoneyAreaProps {}
 
 const MoneyArea = ({}: MoneyAreaProps) => {
   const credit = useAtomValue(User.credit)
+  const asset = useAtomValue(User.asset)
+
   return (
     <div className={css.container}>
       <div className={css.topContainer}>
@@ -44,12 +46,34 @@ const MoneyArea = ({}: MoneyAreaProps) => {
             계좌 추가
           </button>
         </div>
-        {[0, 1, 2, 3, 4].map((item) => (
+        {[
+          {
+            name: 'kakao',
+            balance: 30,
+            title: '26주 적금',
+          },
+          {
+            name: 'hana',
+            balance: 30,
+            title: '청년내일저축계좌',
+          },
+          {
+            name: 'toss',
+            balance: 30,
+            title: '키워봐요 적금',
+          },
+          {
+            name: 'kb',
+            balance: 30,
+            title: 'KB 특별한 적금',
+          },
+          ...asset,
+        ].map((item) => (
           <BankContainer
-            imgLink={'/BankKakao.png'}
-            key={item}
-            mainText={'26주 적금'}
-            plusMoney={'10'}
+            imgLink={`/${item.name}.png`}
+            key={item.name}
+            mainText={item.title}
+            plusMoney={item.balance}
             subText={'적금 성공'}
           />
         ))}
