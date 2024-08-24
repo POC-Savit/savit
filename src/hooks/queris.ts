@@ -67,3 +67,10 @@ export const equiItem = async (item: ItemWithOwn) => {
     return client.models.UserInfo.update(userInfo)
   })
 }
+
+export const changeLevel = async (desired: number) => fetchUserInfo()
+    .then(userInfo => {
+        userInfo.currentLevel = desired
+        
+        return client.models.UserInfo.update(userInfo)
+    })
