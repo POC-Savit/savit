@@ -8,7 +8,6 @@ export type SavitLevel = {
   group: LevelGroup
 }
 
-
 export type LevelGroupKey =
     | 'MyAsset' // 나의 자산 파헤치기
     | 'ShortTermGoal' // 단기 목표 설정하기 - 적금
@@ -19,7 +18,6 @@ export type LevelGroup = {
   key: LevelGroupKey
   title: string
 }
-
 
 export const MockLevelGroup: Record<LevelGroupKey, LevelGroup> = {
   MyAsset: {
@@ -44,19 +42,44 @@ export const MockSavitLevels: SavitLevel[] = [
   {
     level: 1,
     name: 'Savit 시작하기',
-    missions: [],
+    missions: [
+      {
+        type: 'mission',
+        text: '저축 배분 목표 정하기',
+        isComplete: false,
+      }
+    ],
     group: MockLevelGroup.MyAsset
   },
   {
     level: 2,
     name: '나의 수익 알아보기',
-    missions: [],
+    missions: [
+      {
+        type: 'mission',
+        text: '나의 수익 알아보기',
+        isComplete: false,
+      }
+    ],
     group: MockLevelGroup.MyAsset
   },
   {
     level: 3,
     name: '나의 소비 알아보기',
-    missions: [],
+    missions: [
+      {
+        type: 'mission',
+        text: '저축 배분 목표 정하기',
+        isComplete: true,
+      },
+      {
+        type: 'quiz',
+        text: '금융지식 퀴즈',
+        currentQuizCount: 2,
+        totalQuizCount: 3,
+        quizsIds: ['1', '2', '3'],
+      },
+    ],
     group: MockLevelGroup.MyAsset
   },
   {
