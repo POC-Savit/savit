@@ -1,11 +1,9 @@
 import { receive } from '@stackflow/compat-await-push'
-import { useSetAtom } from 'jotai'
 import { useState } from 'react'
 import Confetti from 'react-confetti'
 import { type SavitMission } from 'types/SavitMission'
 
 import { useFlow } from '~/stackflow'
-import { User } from '~/stores'
 
 import CheckBox from '../common/CheckBox'
 import Title from '../common/Title'
