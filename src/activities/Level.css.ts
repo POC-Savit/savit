@@ -11,9 +11,9 @@ export const container = style([
 export const topLayer = style({
   display: 'flex',
   flexDirection: 'column',
+  gap: '35px',
   alignItems: 'center',
-  justifyContent: 'center',
-  height: '50%',
+  padding: '33px 20px 26px',
 })
 
 export const bottomLayer = style({

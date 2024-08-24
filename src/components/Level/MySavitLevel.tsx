@@ -4,7 +4,6 @@ import MyLevelImg from '../../asset/images/myLevelImage.png'
 import * as css from './MySavitLevel.css'
 
 interface MySavitLevelProps {
-  mission?: any[]
   myLevel: number
 }
 

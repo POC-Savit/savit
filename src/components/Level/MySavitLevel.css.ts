@@ -5,6 +5,7 @@ export const container = style([
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
+    alignItems: 'center',
   },
 ])
 
@@ -28,6 +29,7 @@ export const levelBox = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
+  width: 'fit-content',
   padding: '8px 16px',
   fontSize: '18px',
   fontStyle: 'normal',
