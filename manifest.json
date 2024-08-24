@@ -1,0 +1,26 @@
+{
+  "name": "Savit",
+  "short_name": "Savit",
+  "start_url": "/index.html",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#5872FF",
+  "description": "즐거운 저축의 시작, Savit",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon/app-icon-32x32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "icon/app-icon-64x64.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "icon/app-icon-192x192.png",
+      "sizes": "192x192"
+    }
+  ]
+}
