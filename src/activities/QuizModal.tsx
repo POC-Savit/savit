@@ -36,7 +36,6 @@ const QuizModal = ({ params: { quizId } }: QuizModalProps) => {
   const handleSubmited = (isCorrect: boolean) => {
     setIsSubmitted(true)
     isCorrectRef.current = isCorrect
-    console.log('isCorrect', isCorrect)
   }
 
   const handleClose: MouseEventHandler<Element> = (e) => {

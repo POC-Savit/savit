@@ -42,4 +42,5 @@ export const missionRight = style({
   fontWeight: '600',
   lineHeight: 'normal',
   letterSpacing: '-0.56px',
+  cursor: 'pointer',
 })

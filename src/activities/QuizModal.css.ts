@@ -51,4 +51,9 @@ export const closeButton = style({
   color: '#A2A3B0',
   textAlign: 'right',
   letterSpacing: '-0.72px',
+  cursor: 'pointer',
+  transition: 'all 0.2s ease-in-out',
+  ':hover': {
+    transform: 'scale(1.1)',
+  },
 })
