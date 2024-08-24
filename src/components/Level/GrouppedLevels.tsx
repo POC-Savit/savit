@@ -1,10 +1,10 @@
+import LongTermGoalIMG from 'public/LevelImages/longTermGoal.png'
+import MidTermGoalIMG from 'public/LevelImages/midTermGoal.png'
+import MyAssetIMG from 'public/LevelImages/myAsset.png'
+import ShortTermGoalIMG from 'public/LevelImages/shortTermGoal.png'
 import { LevelGroupKey, SavitLevel } from 'types/SavitLevel'
 
 import * as css from './GrouppedLevels.css'
-import LongTermGoalIMG from './images/longTermGoal.png'
-import MidTermGoalIMG from './images/midTermGoal.png'
-import MyAssetIMG from './images/myAsset.png'
-import ShortTermGoalIMG from './images/shortTermGoal.png'
 import LevelList from './LevelList'
 
 interface GrouppedLevelsProps {

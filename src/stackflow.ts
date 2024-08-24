@@ -6,9 +6,10 @@ import { stackflow } from '@stackflow/react'
 import Root from '~/activities/Root'
 
 import Level from './activities/Level'
+import QuizModal from './activities/QuizModal'
 import ShopActivity from './activities/ShopActivity'
 
-export type ActivitiesType = 'Root' | 'ShopActivity'
+export type ActivitiesType = 'Level' | 'QuizModal' | 'Root' | 'ShopActivity'
 
 export const { Stack, useFlow } = stackflow({
   transitionDuration: 350,
@@ -25,6 +26,7 @@ export const { Stack, useFlow } = stackflow({
         Root: '/',
         Level: '/level',
         ShopActivity: '/shop',
+        QuizModal: '/quiz/${quizId}',
       },
       fallbackActivity: () => 'Root',
     }),
@@ -33,5 +35,6 @@ export const { Stack, useFlow } = stackflow({
     Root,
     Level,
     ShopActivity,
+    QuizModal,
   },
 })
