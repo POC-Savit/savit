@@ -1,10 +1,10 @@
-import type { Schema } from '../resource'
+// import type { Schema } from '../resource'
 
-export const handler: Schema["UserInfo"]["functionHandler"] = async (event, context) => {
-  const start = performance.now();
+// export const handler: Schema["UserInfo"][] = async (event, context) => {
+//   const start = performance.now();
   
-  return {
-    content: `Echoing content: ${event.arguments.content}`,
-    executionDuration: performance.now() - start
-  };
-};
+//   return {
+//     content: `Echoing content: ${event.arguments.content}`,
+//     executionDuration: performance.now() - start
+//   };
+// };

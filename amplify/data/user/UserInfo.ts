@@ -1,9 +1,6 @@
 
-import { a, defineFunction } from "@aws-amplify/backend"
+import { a } from "@aws-amplify/backend"
 
-export const userInfoHandler = defineFunction({
-    entry: './handler.ts'
-})
 export const UserInfo = a
     .model({
     email: a.string(),
