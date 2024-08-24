@@ -1,6 +1,6 @@
 import { receive } from '@stackflow/compat-await-push'
-import { useSetAtom } from 'jotai'
-import { useState } from 'react'
+import { useAtom, useSetAtom } from 'jotai'
+import { useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
 import { type SavitMission } from 'types/SavitMission'
 
@@ -152,6 +152,7 @@ const Quiz = ({
   onCorrectAnswer,
   missionOrder,
 }: QuizProps) => {
+  console.log('##currentQuizCount', currentQuizCount)
   const [count, setCount] = useState(currentQuizCount)
   const totalQuizCount = quizIds.length
   const isComplete = count === totalQuizCount
@@ -161,7 +162,7 @@ const Quiz = ({
   const handleQuizClick = async () => {
     const { isCorrect } = await receive<{ isCorrect: boolean }>(
       push('QuizModal', {
-        quizId: quizIds[currentQuizCount - 1],
+        quizId: quizIds[currentQuizCount],
       })
     )
 
