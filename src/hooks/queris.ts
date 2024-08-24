@@ -34,11 +34,16 @@ export const fetchItemsWithUserinfo = () => Promise.all([fetchItems(), fetchUser
         ]
     }) 
 
+const hasItem = (userInfo: Schema["UserInfo"]["type"], item: ItemWithOwn) => {
+    const property = item.type === ItemType.FACE ? 'face' : 'head'
+
+    return new Set((userInfo.character?.own?.[property] ?? [])).has(item.name)
+}
 
 export const buyItem = async (item: ItemWithOwn) => {
     return fetchUserInfo()
         .then((userInfo) => {
-            if (item.name in (userInfo.character?.own ?? []) || 
+            if (hasItem(userInfo, item) || 
                 item.price > userInfo.credit
             ) return
             
@@ -52,11 +57,12 @@ export const buyItem = async (item: ItemWithOwn) => {
 export const equiItem = async (item: ItemWithOwn) => {
     return fetchUserInfo() 
     .then((userInfo) => {
-        if (!(item.name in (userInfo.character?.own ?? []))) return
+        if (!hasItem(userInfo, item)) return
         
         const property = item.type === ItemType.FACE ? 'face' : 'head'
-        if (userInfo.character?.current?.[property]) userInfo.character!!.current!![property] = item.name
-
+        if (userInfo.character?.current) userInfo.character!!.current!![property] = item.name
         return client.models.UserInfo.update(userInfo)
     })
 }
+
+
