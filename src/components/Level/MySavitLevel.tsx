@@ -1,4 +1,4 @@
-import IconStrair from '~/asset/icons/IconStrair'
+import IconStair from '~/asset/icons/IconStair'
 
 import MyLevelImg from '../../asset/images/myLevelImage.png'
 import * as css from './MySavitLevel.css'
@@ -17,7 +17,7 @@ const MySavitLevel = ({ myLevel }: MySavitLevelProps) => {
         <img alt="my level" className={css.image} src={MyLevelImg} />
       </div>
       <span className={css.levelBox}>
-        <IconStrair className={css.levelBoxIcon} />
+        <IconStair className={css.levelBoxIcon} />
         <span className={css.levelBoxText}>{myLevel}F</span>
       </span>
     </div>

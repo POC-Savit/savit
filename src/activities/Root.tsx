@@ -3,7 +3,7 @@ import { AppScreen } from '@stackflow/plugin-basic-ui'
 import IconSetting from '~/asset/icons/IconSetting'
 import IconShare from '~/asset/icons/IconShare'
 import IconShop from '~/asset/icons/IconShop'
-import IconStrair from '~/asset/icons/IconStrair'
+import IconStair from '~/asset/icons/IconStair'
 import ShowRoomNormal from '~/template/3d/ShowRoomNormal'
 
 import * as css from './Root.css'
@@ -31,7 +31,7 @@ function Root() {
         <IconSetting />
         <IconShare />
         <IconShop />
-        <IconStrair height={64} width={64} />
+        <IconStair height={64} width={64} />
       </div>
     </AppScreen>
   )
