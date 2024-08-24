@@ -2,8 +2,6 @@ import { style } from '@vanilla-extract/css'
 
 export const container = style([
   {
-    display: 'flex',
-    flexDirection: 'column',
     height: '100%',
   },
 ])
@@ -17,8 +15,6 @@ export const topLayer = style({
 })
 
 export const bottomLayer = style({
-  display: 'flex',
-  flex: 1,
   padding: '24px 20px',
 })
 

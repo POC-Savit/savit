@@ -21,5 +21,6 @@ export const level = style({
 })
 
 export const levelText = style({
+  width: '24px',
   fontWeight: '600',
 })
