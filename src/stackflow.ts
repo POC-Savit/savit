@@ -5,11 +5,13 @@ import { stackflow } from '@stackflow/react'
 
 import RootActivity from '~/activities/RootActivity'
 
+import AssetConnectBottomSheetActivity from './activities/AssetConnectBottomSheetActivity'
 import LevelActivity from './activities/LevelActivity'
 import QuizModal from './activities/QuizModal'
 import ShopActivity from './activities/ShopActivity'
 
 export type ActivitiesType =
+  | 'AssetConnectBottomSheetActivity'
   | 'Level'
   | 'NextLevelActivity'
   | 'QuizModal'
@@ -32,6 +34,7 @@ export const { Stack, useFlow } = stackflow({
         LevelActivity: '/level',
         ShopActivity: '/shop',
         QuizModal: '/quiz/${quizId}',
+        AssetConnectBottomSheetActivity: '/login',
       },
       fallbackActivity: () => 'RootActivity',
     }),
@@ -41,5 +44,6 @@ export const { Stack, useFlow } = stackflow({
     LevelActivity,
     ShopActivity,
     QuizModal,
+    AssetConnectBottomSheetActivity,
   },
 })
