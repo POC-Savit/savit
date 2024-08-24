@@ -25,7 +25,7 @@ export const fetchItemsWithUserinfo = () =>
         (item) =>
           ({
             ...item,
-            isOwned: item.name in (userIfno.character?.own?.face ?? []),
+            isOwned: new Set (userIfno.character?.own?.face ?? []).has(item.name),
             equipped: item.name === userIfno.character?.current?.face,
           }) as ItemWithOwn
       ),
@@ -33,7 +33,7 @@ export const fetchItemsWithUserinfo = () =>
         (item) =>
           ({
             ...item,
-            isOwned: item.name in (userIfno.character?.own?.head ?? []),
+            isOwned: new Set(userIfno.character?.own?.head ?? []).has(item.name),
             equipped: item.name === userIfno.character?.current?.head,
           }) as ItemWithOwn
       ),
