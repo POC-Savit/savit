@@ -4,4 +4,6 @@ export interface Item {
     name: string,
     price: number,
     type: ItemType,
+    equipped: boolean,
+    isOwned: boolean,
 }
