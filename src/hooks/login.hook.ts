@@ -31,8 +31,8 @@ export const useSignIn = () => {
         .then(resp => {
             const user = resp.data[0]
             setUser(user)
-            setAsset(JSON.parse(user.asset) as Asset)
-            
+            if (user.asset)
+                setAsset(JSON.parse(user.asset) as Asset)
         })
         
     }, [])
