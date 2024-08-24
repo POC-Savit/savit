@@ -19,7 +19,7 @@ export const fetchUserInfo = () => client.models.UserInfo.list()
     .then(resp => resp.data[0])
 
 export const fetchItems = () => client.queries.allItem({ authMode: 'apiKey'})
-    .then((resp) => JSON.parse(resp.data) as AllItem)
+    .then((resp) => JSON.parse(resp.data!!) as AllItem)
 
 type ItemWithOwn = Item & { isOwned: boolean, equipped: boolean }
 
