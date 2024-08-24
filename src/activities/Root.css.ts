@@ -9,3 +9,10 @@ export const container = style({
   width: '100%',
   height: '100%',
 })
+
+export const logo = style({
+  position: 'absolute',
+  top: 12,
+  left: 20.82,
+  zIndex: 10,
+})
