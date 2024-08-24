@@ -74,3 +74,13 @@ export const changeLevel = async (desired: number) => fetchUserInfo()
         
         return client.models.UserInfo.update(userInfo)
     })
+
+  export const unequipItem = async (type: ItemType) => {
+    return fetchUserInfo().then((userInfo) => {
+      const property = type === ItemType.FACE ? 'face' : 'head'
+      if (userInfo.character?.current)
+        userInfo.character!!.current!![property] = null
+      return client.models.UserInfo.update(userInfo)
+    })
+  }
+    

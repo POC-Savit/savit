@@ -4,7 +4,6 @@ import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/data";
 import { env } from "$amplify/env/sign-up-hook"
 import { generate } from 'random-words'
-import { v4 as uuid } from 'uuid'
 import { randomInt } from '../../../util/random'
 
 import {
