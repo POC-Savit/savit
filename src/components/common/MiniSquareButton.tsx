@@ -22,6 +22,7 @@ const MiniSquareButton = ({
   title,
   isSelected,
   iconType,
+  children,
   ...props
 }: MiniSquareButtonProps) => {
   const icon = useMemo(() => {
@@ -52,6 +53,7 @@ const MiniSquareButton = ({
     >
       {icon}
       {title && <span className={css.text}>{title}</span>}
+      {children}
     </button>
   )
 }

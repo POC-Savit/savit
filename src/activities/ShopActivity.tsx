@@ -20,7 +20,6 @@ const TAB_TEXT = {
 const TAGS = ['전체', '머리', '얼굴']
 
 const HEAD_ITEMS: Character.HeadType[] = [
-  'BeachHat',
   'Bulb',
   'Cake',
   'Coin',
@@ -30,6 +29,7 @@ const HEAD_ITEMS: Character.HeadType[] = [
   'Purse',
   'Tulip',
 ]
+
 const FACE_ITEMS: Character.FaceType[] = [
   'Band',
   'Bubble',
@@ -52,62 +52,68 @@ const ShopActivity = ({}: ShopActivityProps) => {
     <AppScreen appBar={{ title: '상점', backgroundColor: '#E3ECFF' }}>
       <div className={css.container}>
         <Shop />
-        <Tab
-          items={[TAB_TEXT.BUY_ITEMS, TAB_TEXT.WHOLE_ITEMS]}
-          onSelect={setSelectedTabItem}
-          selectedItem={selectedTabItem}
-        />
-        <div className={css.tags}>
-          {TAGS.map((item) => (
-            <Tag
-              key={item}
-              onClick={() => setSelectedTag(item)}
-              selected={item === selectedTag}
-              title={item}
-            />
-          ))}
-        </div>
-        <div className={css.buttons}>
-          {selectedTag !== '얼굴' &&
-            HEAD_ITEMS.map((item) =>
-              !isOnlyBuyItems ? (
-                <SquareButton
-                  isSelected={item === headItem}
-                  key={item}
-                  onClick={() => setHeadItem(item === headItem ? null : item)}
-                  title={item}
-                />
-              ) : (
-                item === headItem && (
+        <div className={css.bottomContainer}>
+          <Tab
+            items={[TAB_TEXT.BUY_ITEMS, TAB_TEXT.WHOLE_ITEMS]}
+            onSelect={setSelectedTabItem}
+            selectedItem={selectedTabItem}
+          />
+          <div className={css.tags}>
+            {TAGS.map((item) => (
+              <Tag
+                key={item}
+                onClick={() => setSelectedTag(item)}
+                selected={item === selectedTag}
+                title={item}
+              />
+            ))}
+          </div>
+          <div className={css.buttons}>
+            {selectedTag !== '얼굴' &&
+              HEAD_ITEMS.map((item) =>
+                !isOnlyBuyItems ? (
                   <SquareButton
                     isSelected={item === headItem}
                     key={item}
                     onClick={() => setHeadItem(item === headItem ? null : item)}
                     title={item}
                   />
+                ) : (
+                  item === headItem && (
+                    <SquareButton
+                      isSelected={item === headItem}
+                      key={item}
+                      onClick={() =>
+                        setHeadItem(item === headItem ? null : item)
+                      }
+                      title={item}
+                    />
+                  )
                 )
-              )
-            )}
-          {selectedTag !== '머리' &&
-            FACE_ITEMS.map((item) =>
-              !isOnlyBuyItems ? (
-                <SquareButton
-                  isSelected={item === faceItem}
-                  key={item}
-                  onClick={() => setFaceItem(item === faceItem ? null : item)}
-                  title={item}
-                />
-              ) : (
-                item === faceItem && (
+              )}
+            {selectedTag !== '머리' &&
+              FACE_ITEMS.map((item) =>
+                !isOnlyBuyItems ? (
                   <SquareButton
                     isSelected={item === faceItem}
                     key={item}
                     onClick={() => setFaceItem(item === faceItem ? null : item)}
                     title={item}
                   />
+                ) : (
+                  item === faceItem && (
+                    <SquareButton
+                      isSelected={item === faceItem}
+                      key={item}
+                      onClick={() =>
+                        setFaceItem(item === faceItem ? null : item)
+                      }
+                      title={item}
+                    />
+                  )
                 )
-              )
-            )}
+              )}
+          </div>
         </div>
         <BuyItemDrawer />
       </div>

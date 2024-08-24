@@ -1,3 +1,5 @@
+import CountUp from 'react-countup'
+
 import MiniSquareButton from '~/components/common/MiniSquareButton'
 import { useFlow } from '~/stackflow'
 
@@ -11,7 +13,11 @@ const Shop = ({}: ShopProps) => {
   return (
     <div className={css.container}>
       <ShowRoomNormal />
-      <MiniSquareButton className={css.point} iconType="Point" title="1,000" />
+      <MiniSquareButton className={css.point} iconType="Point">
+        <CountUp decimal="," duration={1} end={1000} start={0} suffix="F">
+          {({ countUpRef }) => <span className={css.text} ref={countUpRef} />}
+        </CountUp>
+      </MiniSquareButton>
       <MiniSquareButton
         className={css.returnButton}
         iconType="Return"
