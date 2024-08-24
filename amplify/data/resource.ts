@@ -7,6 +7,7 @@ import { Asset } from "./asset/Asset";
 import { StockAsset } from "./asset/StockAsset";
 import { SavingAsset } from "./asset/SavingAsset";
 import { UserInfo } from "./user/UserInfo";
+import { signUpHook } from "../auth/sign-up-hook/resource";
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -15,13 +16,7 @@ specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
-    .model({
-      content: a.string(),
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
-
-    // UserInformation
+   // UserInformation
     UserInfo,
 
     // Asset
@@ -34,7 +29,8 @@ const schema = a.schema({
       .returns(a.json())
       .handler(a.handler.function(allItemList))
       .authorization((allow) => [allow.publicApiKey()]),
-});
+})
+.authorization((allow) => [allow.resource(signUpHook)]);
 
 export type Schema = ClientSchema<typeof schema>;
 
