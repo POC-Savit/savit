@@ -15,10 +15,3 @@ export const mobileWrapper = style({
   height: '100%',
   boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
 })
-
-export const logo = style({
-  position: 'absolute',
-  top: 12,
-  left: 20.82,
-  zIndex: 10,
-})
