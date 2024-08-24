@@ -80,16 +80,6 @@ export const getStockAsset = /* GraphQL */ `query GetStockAsset($id: String!) {
   APITypes.GetStockAssetQueryVariables,
   APITypes.GetStockAssetQuery
 >;
-export const getTodo = /* GraphQL */ `query GetTodo($id: ID!) {
-  getTodo(id: $id) {
-    content
-    createdAt
-    id
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedQuery<APITypes.GetTodoQueryVariables, APITypes.GetTodoQuery>;
 export const getUserInfo = /* GraphQL */ `query GetUserInfo($id: ID!) {
   getUserInfo(id: $id) {
     character {
@@ -202,24 +192,6 @@ export const listStockAssets = /* GraphQL */ `query ListStockAssets(
   APITypes.ListStockAssetsQueryVariables,
   APITypes.ListStockAssetsQuery
 >;
-export const listTodos = /* GraphQL */ `query ListTodos(
-  $filter: ModelTodoFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      content
-      createdAt
-      id
-      updatedAt
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<APITypes.ListTodosQueryVariables, APITypes.ListTodosQuery>;
 export const listUserInfos = /* GraphQL */ `query ListUserInfos(
   $filter: ModelUserInfoFilterInput
   $limit: Int

@@ -88,22 +88,6 @@ export const createStockAsset = /* GraphQL */ `mutation CreateStockAsset(
   APITypes.CreateStockAssetMutationVariables,
   APITypes.CreateStockAssetMutation
 >;
-export const createTodo = /* GraphQL */ `mutation CreateTodo(
-  $condition: ModelTodoConditionInput
-  $input: CreateTodoInput!
-) {
-  createTodo(condition: $condition, input: $input) {
-    content
-    createdAt
-    id
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateTodoMutationVariables,
-  APITypes.CreateTodoMutation
->;
 export const createUserInfo = /* GraphQL */ `mutation CreateUserInfo(
   $condition: ModelUserInfoConditionInput
   $input: CreateUserInfoInput!
@@ -206,22 +190,6 @@ export const deleteStockAsset = /* GraphQL */ `mutation DeleteStockAsset(
   APITypes.DeleteStockAssetMutationVariables,
   APITypes.DeleteStockAssetMutation
 >;
-export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
-  $condition: ModelTodoConditionInput
-  $input: DeleteTodoInput!
-) {
-  deleteTodo(condition: $condition, input: $input) {
-    content
-    createdAt
-    id
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteTodoMutationVariables,
-  APITypes.DeleteTodoMutation
->;
 export const deleteUserInfo = /* GraphQL */ `mutation DeleteUserInfo(
   $condition: ModelUserInfoConditionInput
   $input: DeleteUserInfoInput!
@@ -323,22 +291,6 @@ export const updateStockAsset = /* GraphQL */ `mutation UpdateStockAsset(
 ` as GeneratedMutation<
   APITypes.UpdateStockAssetMutationVariables,
   APITypes.UpdateStockAssetMutation
->;
-export const updateTodo = /* GraphQL */ `mutation UpdateTodo(
-  $condition: ModelTodoConditionInput
-  $input: UpdateTodoInput!
-) {
-  updateTodo(condition: $condition, input: $input) {
-    content
-    createdAt
-    id
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateTodoMutationVariables,
-  APITypes.UpdateTodoMutation
 >;
 export const updateUserInfo = /* GraphQL */ `mutation UpdateUserInfo(
   $condition: ModelUserInfoConditionInput

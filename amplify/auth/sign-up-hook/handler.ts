@@ -7,6 +7,9 @@ import { generate } from 'random-words'
 
 import { 
     createUserInfo,
+    createAsset,
+    createSavingAsset,
+    createStockAsset,
 } from "./graphql/mutations";
 
 Amplify.configure(
@@ -57,7 +60,7 @@ export const handler: PostConfirmationTriggerHandler = async (event) => {
             },
             current: {}
         },
-        credit: 3000 + Math.floor(Math.random() * 1000000),
+        credit: 1000 + Math.floor(Math.random() * 10000),
         currentLevel: Math.floor(Math.random() * MAXIMUM_LEVLE_ON_HACKATHON),
       },
     },

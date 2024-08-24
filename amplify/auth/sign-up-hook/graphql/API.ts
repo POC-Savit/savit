@@ -48,14 +48,6 @@ export type StockAsset = {
   updatedAt: string,
 };
 
-export type Todo = {
-  __typename: "Todo",
-  content?: string | null,
-  createdAt: string,
-  id: string,
-  updatedAt: string,
-};
-
 export type UserInfo = {
   __typename: "UserInfo",
   character?: UserInfoCharacter | null,
@@ -186,14 +178,17 @@ export type ModelStockAssetFilterInput = {
   updatedAt?: ModelStringInput | null,
 };
 
-export type ModelTodoFilterInput = {
-  and?: Array< ModelTodoFilterInput | null > | null,
-  content?: ModelStringInput | null,
+export type ModelUserInfoFilterInput = {
+  and?: Array< ModelUserInfoFilterInput | null > | null,
   createdAt?: ModelStringInput | null,
+  credit?: ModelIntInput | null,
+  currentLevel?: ModelIntInput | null,
+  email?: ModelStringInput | null,
   id?: ModelIDInput | null,
-  not?: ModelTodoFilterInput | null,
-  or?: Array< ModelTodoFilterInput | null > | null,
+  not?: ModelUserInfoFilterInput | null,
+  or?: Array< ModelUserInfoFilterInput | null > | null,
   updatedAt?: ModelStringInput | null,
+  userName?: ModelStringInput | null,
 };
 
 export type ModelIDInput = {
@@ -210,25 +205,6 @@ export type ModelIDInput = {
   ne?: string | null,
   notContains?: string | null,
   size?: ModelSizeInput | null,
-};
-
-export type ModelTodoConnection = {
-  __typename: "ModelTodoConnection",
-  items:  Array<Todo | null >,
-  nextToken?: string | null,
-};
-
-export type ModelUserInfoFilterInput = {
-  and?: Array< ModelUserInfoFilterInput | null > | null,
-  createdAt?: ModelStringInput | null,
-  credit?: ModelIntInput | null,
-  currentLevel?: ModelIntInput | null,
-  email?: ModelStringInput | null,
-  id?: ModelIDInput | null,
-  not?: ModelUserInfoFilterInput | null,
-  or?: Array< ModelUserInfoFilterInput | null > | null,
-  updatedAt?: ModelStringInput | null,
-  userName?: ModelStringInput | null,
 };
 
 export type ModelUserInfoConnection = {
@@ -292,20 +268,6 @@ export type CreateStockAssetInput = {
   owner: string,
 };
 
-export type ModelTodoConditionInput = {
-  and?: Array< ModelTodoConditionInput | null > | null,
-  content?: ModelStringInput | null,
-  createdAt?: ModelStringInput | null,
-  not?: ModelTodoConditionInput | null,
-  or?: Array< ModelTodoConditionInput | null > | null,
-  updatedAt?: ModelStringInput | null,
-};
-
-export type CreateTodoInput = {
-  content?: string | null,
-  id?: string | null,
-};
-
 export type ModelUserInfoConditionInput = {
   and?: Array< ModelUserInfoConditionInput | null > | null,
   createdAt?: ModelStringInput | null,
@@ -354,10 +316,6 @@ export type DeleteStockAssetInput = {
   id: string,
 };
 
-export type DeleteTodoInput = {
-  id: string,
-};
-
 export type DeleteUserInfoInput = {
   id: string,
 };
@@ -382,11 +340,6 @@ export type UpdateStockAssetInput = {
   id: string,
   name?: string | null,
   owner?: string | null,
-};
-
-export type UpdateTodoInput = {
-  content?: string | null,
-  id: string,
 };
 
 export type UpdateUserInfoInput = {
@@ -458,13 +411,16 @@ export type ModelSubscriptionStockAssetFilterInput = {
   updatedAt?: ModelSubscriptionStringInput | null,
 };
 
-export type ModelSubscriptionTodoFilterInput = {
-  and?: Array< ModelSubscriptionTodoFilterInput | null > | null,
-  content?: ModelSubscriptionStringInput | null,
+export type ModelSubscriptionUserInfoFilterInput = {
+  and?: Array< ModelSubscriptionUserInfoFilterInput | null > | null,
   createdAt?: ModelSubscriptionStringInput | null,
+  credit?: ModelSubscriptionIntInput | null,
+  currentLevel?: ModelSubscriptionIntInput | null,
+  email?: ModelStringInput | null,
   id?: ModelSubscriptionIDInput | null,
-  or?: Array< ModelSubscriptionTodoFilterInput | null > | null,
+  or?: Array< ModelSubscriptionUserInfoFilterInput | null > | null,
   updatedAt?: ModelSubscriptionStringInput | null,
+  userName?: ModelSubscriptionStringInput | null,
 };
 
 export type ModelSubscriptionIDInput = {
@@ -480,18 +436,6 @@ export type ModelSubscriptionIDInput = {
   ne?: string | null,
   notContains?: string | null,
   notIn?: Array< string | null > | null,
-};
-
-export type ModelSubscriptionUserInfoFilterInput = {
-  and?: Array< ModelSubscriptionUserInfoFilterInput | null > | null,
-  createdAt?: ModelSubscriptionStringInput | null,
-  credit?: ModelSubscriptionIntInput | null,
-  currentLevel?: ModelSubscriptionIntInput | null,
-  email?: ModelStringInput | null,
-  id?: ModelSubscriptionIDInput | null,
-  or?: Array< ModelSubscriptionUserInfoFilterInput | null > | null,
-  updatedAt?: ModelSubscriptionStringInput | null,
-  userName?: ModelSubscriptionStringInput | null,
 };
 
 export type AllItemQueryVariables = {
@@ -571,20 +515,6 @@ export type GetStockAssetQuery = {
     id: string,
     name: string,
     owner: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type GetTodoQueryVariables = {
-  id: string,
-};
-
-export type GetTodoQuery = {
-  getTodo?:  {
-    __typename: "Todo",
-    content?: string | null,
-    createdAt: string,
-    id: string,
     updatedAt: string,
   } | null,
 };
@@ -675,26 +605,6 @@ export type ListStockAssetsQuery = {
       id: string,
       name: string,
       owner: string,
-      updatedAt: string,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type ListTodosQueryVariables = {
-  filter?: ModelTodoFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListTodosQuery = {
-  listTodos?:  {
-    __typename: "ModelTodoConnection",
-    items:  Array< {
-      __typename: "Todo",
-      content?: string | null,
-      createdAt: string,
-      id: string,
       updatedAt: string,
     } | null >,
     nextToken?: string | null,
@@ -801,21 +711,6 @@ export type CreateStockAssetMutation = {
   } | null,
 };
 
-export type CreateTodoMutationVariables = {
-  condition?: ModelTodoConditionInput | null,
-  input: CreateTodoInput,
-};
-
-export type CreateTodoMutation = {
-  createTodo?:  {
-    __typename: "Todo",
-    content?: string | null,
-    createdAt: string,
-    id: string,
-    updatedAt: string,
-  } | null,
-};
-
 export type CreateUserInfoMutationVariables = {
   condition?: ModelUserInfoConditionInput | null,
   input: CreateUserInfoInput,
@@ -910,21 +805,6 @@ export type DeleteStockAssetMutation = {
     id: string,
     name: string,
     owner: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type DeleteTodoMutationVariables = {
-  condition?: ModelTodoConditionInput | null,
-  input: DeleteTodoInput,
-};
-
-export type DeleteTodoMutation = {
-  deleteTodo?:  {
-    __typename: "Todo",
-    content?: string | null,
-    createdAt: string,
-    id: string,
     updatedAt: string,
   } | null,
 };
@@ -1027,21 +907,6 @@ export type UpdateStockAssetMutation = {
   } | null,
 };
 
-export type UpdateTodoMutationVariables = {
-  condition?: ModelTodoConditionInput | null,
-  input: UpdateTodoInput,
-};
-
-export type UpdateTodoMutation = {
-  updateTodo?:  {
-    __typename: "Todo",
-    content?: string | null,
-    createdAt: string,
-    id: string,
-    updatedAt: string,
-  } | null,
-};
-
 export type UpdateUserInfoMutationVariables = {
   condition?: ModelUserInfoConditionInput | null,
   input: UpdateUserInfoInput,
@@ -1136,20 +1001,6 @@ export type OnCreateStockAssetSubscription = {
     id: string,
     name: string,
     owner: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnCreateTodoSubscriptionVariables = {
-  filter?: ModelSubscriptionTodoFilterInput | null,
-};
-
-export type OnCreateTodoSubscription = {
-  onCreateTodo?:  {
-    __typename: "Todo",
-    content?: string | null,
-    createdAt: string,
-    id: string,
     updatedAt: string,
   } | null,
 };
@@ -1252,20 +1103,6 @@ export type OnDeleteStockAssetSubscription = {
   } | null,
 };
 
-export type OnDeleteTodoSubscriptionVariables = {
-  filter?: ModelSubscriptionTodoFilterInput | null,
-};
-
-export type OnDeleteTodoSubscription = {
-  onDeleteTodo?:  {
-    __typename: "Todo",
-    content?: string | null,
-    createdAt: string,
-    id: string,
-    updatedAt: string,
-  } | null,
-};
-
 export type OnDeleteUserInfoSubscriptionVariables = {
   email?: string | null,
   filter?: ModelSubscriptionUserInfoFilterInput | null,
@@ -1360,20 +1197,6 @@ export type OnUpdateStockAssetSubscription = {
     id: string,
     name: string,
     owner: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnUpdateTodoSubscriptionVariables = {
-  filter?: ModelSubscriptionTodoFilterInput | null,
-};
-
-export type OnUpdateTodoSubscription = {
-  onUpdateTodo?:  {
-    __typename: "Todo",
-    content?: string | null,
-    createdAt: string,
-    id: string,
     updatedAt: string,
   } | null,
 };

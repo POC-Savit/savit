@@ -88,19 +88,6 @@ export const onCreateStockAsset = /* GraphQL */ `subscription OnCreateStockAsset
   APITypes.OnCreateStockAssetSubscriptionVariables,
   APITypes.OnCreateStockAssetSubscription
 >;
-export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onCreateTodo(filter: $filter) {
-    content
-    createdAt
-    id
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnCreateTodoSubscriptionVariables,
-  APITypes.OnCreateTodoSubscription
->;
 export const onCreateUserInfo = /* GraphQL */ `subscription OnCreateUserInfo(
   $email: String
   $filter: ModelSubscriptionUserInfoFilterInput
@@ -203,19 +190,6 @@ export const onDeleteStockAsset = /* GraphQL */ `subscription OnDeleteStockAsset
   APITypes.OnDeleteStockAssetSubscriptionVariables,
   APITypes.OnDeleteStockAssetSubscription
 >;
-export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onDeleteTodo(filter: $filter) {
-    content
-    createdAt
-    id
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnDeleteTodoSubscriptionVariables,
-  APITypes.OnDeleteTodoSubscription
->;
 export const onDeleteUserInfo = /* GraphQL */ `subscription OnDeleteUserInfo(
   $email: String
   $filter: ModelSubscriptionUserInfoFilterInput
@@ -317,19 +291,6 @@ export const onUpdateStockAsset = /* GraphQL */ `subscription OnUpdateStockAsset
 ` as GeneratedSubscription<
   APITypes.OnUpdateStockAssetSubscriptionVariables,
   APITypes.OnUpdateStockAssetSubscription
->;
-export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onUpdateTodo(filter: $filter) {
-    content
-    createdAt
-    id
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnUpdateTodoSubscriptionVariables,
-  APITypes.OnUpdateTodoSubscription
 >;
 export const onUpdateUserInfo = /* GraphQL */ `subscription OnUpdateUserInfo(
   $email: String
