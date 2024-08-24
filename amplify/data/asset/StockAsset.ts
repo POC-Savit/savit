@@ -8,5 +8,5 @@ export const StockAsset = a.model({
     asset: a.belongsTo("Asset", "owner"),
   })
   .authorization((allow) => [
-    allow.ownerDefinedIn("owner"),
+    allow.publicApiKey()
   ])

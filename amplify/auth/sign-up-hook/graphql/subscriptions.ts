@@ -13,10 +13,8 @@ export const onCreateAsset = /* GraphQL */ `subscription OnCreateAsset(
   $owner: String
 ) {
   onCreateAsset(filter: $filter, owner: $owner) {
-    amount
     createdAt
     id
-    name
     owner
     savingAsset {
       nextToken
@@ -40,10 +38,8 @@ export const onCreateSavingAsset = /* GraphQL */ `subscription OnCreateSavingAss
 ) {
   onCreateSavingAsset(filter: $filter, owner: $owner) {
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -68,10 +64,8 @@ export const onCreateStockAsset = /* GraphQL */ `subscription OnCreateStockAsset
   onCreateStockAsset(filter: $filter, owner: $owner) {
     amount
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -116,10 +110,8 @@ export const onDeleteAsset = /* GraphQL */ `subscription OnDeleteAsset(
   $owner: String
 ) {
   onDeleteAsset(filter: $filter, owner: $owner) {
-    amount
     createdAt
     id
-    name
     owner
     savingAsset {
       nextToken
@@ -143,10 +135,8 @@ export const onDeleteSavingAsset = /* GraphQL */ `subscription OnDeleteSavingAss
 ) {
   onDeleteSavingAsset(filter: $filter, owner: $owner) {
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -171,10 +161,8 @@ export const onDeleteStockAsset = /* GraphQL */ `subscription OnDeleteStockAsset
   onDeleteStockAsset(filter: $filter, owner: $owner) {
     amount
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -219,10 +207,8 @@ export const onUpdateAsset = /* GraphQL */ `subscription OnUpdateAsset(
   $owner: String
 ) {
   onUpdateAsset(filter: $filter, owner: $owner) {
-    amount
     createdAt
     id
-    name
     owner
     savingAsset {
       nextToken
@@ -246,10 +232,8 @@ export const onUpdateSavingAsset = /* GraphQL */ `subscription OnUpdateSavingAss
 ) {
   onUpdateSavingAsset(filter: $filter, owner: $owner) {
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -274,10 +258,8 @@ export const onUpdateStockAsset = /* GraphQL */ `subscription OnUpdateStockAsset
   onUpdateStockAsset(filter: $filter, owner: $owner) {
     amount
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename

@@ -4,11 +4,9 @@
 
 export type Asset = {
   __typename: "Asset",
-  amount?: number | null,
   createdAt: string,
   id: string,
-  name: string,
-  owner: string,
+  owner?: string | null,
   savingAsset?: ModelSavingAssetConnection | null,
   stockAsset?: ModelStockAssetConnection | null,
   updatedAt: string,
@@ -24,7 +22,7 @@ export type SavingAsset = {
   __typename: "SavingAsset",
   asset?: Asset | null,
   balance?: number | null,
-  createdAt?: string | null,
+  createdAt: string,
   id: string,
   name: string,
   owner: string,
@@ -80,42 +78,14 @@ export type UserInfoCharacterOwn = {
 };
 
 export type ModelAssetFilterInput = {
-  amount?: ModelIntInput | null,
   and?: Array< ModelAssetFilterInput | null > | null,
   createdAt?: ModelStringInput | null,
   id?: ModelStringInput | null,
-  name?: ModelStringInput | null,
   not?: ModelAssetFilterInput | null,
   or?: Array< ModelAssetFilterInput | null > | null,
   owner?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
 };
-
-export type ModelIntInput = {
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-  between?: Array< number | null > | null,
-  eq?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ne?: number | null,
-};
-
-export enum ModelAttributeTypes {
-  _null = "_null",
-  binary = "binary",
-  binarySet = "binarySet",
-  bool = "bool",
-  list = "list",
-  map = "map",
-  number = "number",
-  numberSet = "numberSet",
-  string = "string",
-  stringSet = "stringSet",
-}
-
 
 export type ModelStringInput = {
   attributeExists?: boolean | null,
@@ -132,6 +102,20 @@ export type ModelStringInput = {
   notContains?: string | null,
   size?: ModelSizeInput | null,
 };
+
+export enum ModelAttributeTypes {
+  _null = "_null",
+  binary = "binary",
+  binarySet = "binarySet",
+  bool = "bool",
+  list = "list",
+  map = "map",
+  number = "number",
+  numberSet = "numberSet",
+  string = "string",
+  stringSet = "stringSet",
+}
+
 
 export type ModelSizeInput = {
   between?: Array< number | null > | null,
@@ -165,6 +149,18 @@ export type ModelSavingAssetFilterInput = {
   or?: Array< ModelSavingAssetFilterInput | null > | null,
   owner?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
+};
+
+export type ModelIntInput = {
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+  between?: Array< number | null > | null,
+  eq?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ne?: number | null,
 };
 
 export type ModelStockAssetFilterInput = {
@@ -216,10 +212,8 @@ export type ModelUserInfoConnection = {
 };
 
 export type ModelAssetConditionInput = {
-  amount?: ModelIntInput | null,
   and?: Array< ModelAssetConditionInput | null > | null,
   createdAt?: ModelStringInput | null,
-  name?: ModelStringInput | null,
   not?: ModelAssetConditionInput | null,
   or?: Array< ModelAssetConditionInput | null > | null,
   owner?: ModelStringInput | null,
@@ -227,10 +221,7 @@ export type ModelAssetConditionInput = {
 };
 
 export type CreateAssetInput = {
-  amount?: number | null,
   id?: string | null,
-  name: string,
-  owner: string,
 };
 
 export type ModelSavingAssetConditionInput = {
@@ -246,7 +237,6 @@ export type ModelSavingAssetConditionInput = {
 
 export type CreateSavingAssetInput = {
   balance?: number | null,
-  createdAt?: string | null,
   id?: string | null,
   name: string,
   owner: string,
@@ -313,11 +303,11 @@ export type DeleteAssetInput = {
 };
 
 export type DeleteSavingAssetInput = {
-  id: string,
+  owner: string,
 };
 
 export type DeleteStockAssetInput = {
-  id: string,
+  owner: string,
 };
 
 export type DeleteUserInfoInput = {
@@ -325,25 +315,21 @@ export type DeleteUserInfoInput = {
 };
 
 export type UpdateAssetInput = {
-  amount?: number | null,
   id: string,
-  name?: string | null,
-  owner?: string | null,
 };
 
 export type UpdateSavingAssetInput = {
   balance?: number | null,
-  createdAt?: string | null,
-  id: string,
+  id?: string | null,
   name?: string | null,
-  owner?: string | null,
+  owner: string,
 };
 
 export type UpdateStockAssetInput = {
   amount?: number | null,
-  id: string,
+  id?: string | null,
   name?: string | null,
-  owner?: string | null,
+  owner: string,
 };
 
 export type UpdateUserInfoInput = {
@@ -357,26 +343,12 @@ export type UpdateUserInfoInput = {
 };
 
 export type ModelSubscriptionAssetFilterInput = {
-  amount?: ModelSubscriptionIntInput | null,
   and?: Array< ModelSubscriptionAssetFilterInput | null > | null,
   createdAt?: ModelSubscriptionStringInput | null,
   id?: ModelSubscriptionStringInput | null,
-  name?: ModelSubscriptionStringInput | null,
   or?: Array< ModelSubscriptionAssetFilterInput | null > | null,
   owner?: ModelStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
-};
-
-export type ModelSubscriptionIntInput = {
-  between?: Array< number | null > | null,
-  eq?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  in?: Array< number | null > | null,
-  le?: number | null,
-  lt?: number | null,
-  ne?: number | null,
-  notIn?: Array< number | null > | null,
 };
 
 export type ModelSubscriptionStringInput = {
@@ -403,6 +375,18 @@ export type ModelSubscriptionSavingAssetFilterInput = {
   or?: Array< ModelSubscriptionSavingAssetFilterInput | null > | null,
   owner?: ModelStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
+};
+
+export type ModelSubscriptionIntInput = {
+  between?: Array< number | null > | null,
+  eq?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  in?: Array< number | null > | null,
+  le?: number | null,
+  lt?: number | null,
+  ne?: number | null,
+  notIn?: Array< number | null > | null,
 };
 
 export type ModelSubscriptionStockAssetFilterInput = {
@@ -458,11 +442,9 @@ export type GetAssetQueryVariables = {
 export type GetAssetQuery = {
   getAsset?:  {
     __typename: "Asset",
-    amount?: number | null,
     createdAt: string,
     id: string,
-    name: string,
-    owner: string,
+    owner?: string | null,
     savingAsset?:  {
       __typename: "ModelSavingAssetConnection",
       nextToken?: string | null,
@@ -476,7 +458,7 @@ export type GetAssetQuery = {
 };
 
 export type GetSavingAssetQueryVariables = {
-  id: string,
+  owner: string,
 };
 
 export type GetSavingAssetQuery = {
@@ -484,15 +466,13 @@ export type GetSavingAssetQuery = {
     __typename: "SavingAsset",
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     balance?: number | null,
-    createdAt?: string | null,
+    createdAt: string,
     id: string,
     name: string,
     owner: string,
@@ -501,7 +481,7 @@ export type GetSavingAssetQuery = {
 };
 
 export type GetStockAssetQueryVariables = {
-  id: string,
+  owner: string,
 };
 
 export type GetStockAssetQuery = {
@@ -510,11 +490,9 @@ export type GetStockAssetQuery = {
     amount?: number | null,
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     createdAt: string,
@@ -559,11 +537,9 @@ export type ListAssetsQuery = {
     __typename: "ModelAssetConnection",
     items:  Array< {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null >,
     nextToken?: string | null,
@@ -572,9 +548,9 @@ export type ListAssetsQuery = {
 
 export type ListSavingAssetsQueryVariables = {
   filter?: ModelSavingAssetFilterInput | null,
-  id?: string | null,
   limit?: number | null,
   nextToken?: string | null,
+  owner?: string | null,
   sortDirection?: ModelSortDirection | null,
 };
 
@@ -584,7 +560,7 @@ export type ListSavingAssetsQuery = {
     items:  Array< {
       __typename: "SavingAsset",
       balance?: number | null,
-      createdAt?: string | null,
+      createdAt: string,
       id: string,
       name: string,
       owner: string,
@@ -596,9 +572,9 @@ export type ListSavingAssetsQuery = {
 
 export type ListStockAssetsQueryVariables = {
   filter?: ModelStockAssetFilterInput | null,
-  id?: string | null,
   limit?: number | null,
   nextToken?: string | null,
+  owner?: string | null,
   sortDirection?: ModelSortDirection | null,
 };
 
@@ -650,11 +626,9 @@ export type CreateAssetMutationVariables = {
 export type CreateAssetMutation = {
   createAsset?:  {
     __typename: "Asset",
-    amount?: number | null,
     createdAt: string,
     id: string,
-    name: string,
-    owner: string,
+    owner?: string | null,
     savingAsset?:  {
       __typename: "ModelSavingAssetConnection",
       nextToken?: string | null,
@@ -677,15 +651,13 @@ export type CreateSavingAssetMutation = {
     __typename: "SavingAsset",
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     balance?: number | null,
-    createdAt?: string | null,
+    createdAt: string,
     id: string,
     name: string,
     owner: string,
@@ -704,11 +676,9 @@ export type CreateStockAssetMutation = {
     amount?: number | null,
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     createdAt: string,
@@ -749,11 +719,9 @@ export type DeleteAssetMutationVariables = {
 export type DeleteAssetMutation = {
   deleteAsset?:  {
     __typename: "Asset",
-    amount?: number | null,
     createdAt: string,
     id: string,
-    name: string,
-    owner: string,
+    owner?: string | null,
     savingAsset?:  {
       __typename: "ModelSavingAssetConnection",
       nextToken?: string | null,
@@ -776,15 +744,13 @@ export type DeleteSavingAssetMutation = {
     __typename: "SavingAsset",
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     balance?: number | null,
-    createdAt?: string | null,
+    createdAt: string,
     id: string,
     name: string,
     owner: string,
@@ -803,11 +769,9 @@ export type DeleteStockAssetMutation = {
     amount?: number | null,
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     createdAt: string,
@@ -848,11 +812,9 @@ export type UpdateAssetMutationVariables = {
 export type UpdateAssetMutation = {
   updateAsset?:  {
     __typename: "Asset",
-    amount?: number | null,
     createdAt: string,
     id: string,
-    name: string,
-    owner: string,
+    owner?: string | null,
     savingAsset?:  {
       __typename: "ModelSavingAssetConnection",
       nextToken?: string | null,
@@ -875,15 +837,13 @@ export type UpdateSavingAssetMutation = {
     __typename: "SavingAsset",
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     balance?: number | null,
-    createdAt?: string | null,
+    createdAt: string,
     id: string,
     name: string,
     owner: string,
@@ -902,11 +862,9 @@ export type UpdateStockAssetMutation = {
     amount?: number | null,
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     createdAt: string,
@@ -947,11 +905,9 @@ export type OnCreateAssetSubscriptionVariables = {
 export type OnCreateAssetSubscription = {
   onCreateAsset?:  {
     __typename: "Asset",
-    amount?: number | null,
     createdAt: string,
     id: string,
-    name: string,
-    owner: string,
+    owner?: string | null,
     savingAsset?:  {
       __typename: "ModelSavingAssetConnection",
       nextToken?: string | null,
@@ -974,15 +930,13 @@ export type OnCreateSavingAssetSubscription = {
     __typename: "SavingAsset",
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     balance?: number | null,
-    createdAt?: string | null,
+    createdAt: string,
     id: string,
     name: string,
     owner: string,
@@ -1001,11 +955,9 @@ export type OnCreateStockAssetSubscription = {
     amount?: number | null,
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     createdAt: string,
@@ -1046,11 +998,9 @@ export type OnDeleteAssetSubscriptionVariables = {
 export type OnDeleteAssetSubscription = {
   onDeleteAsset?:  {
     __typename: "Asset",
-    amount?: number | null,
     createdAt: string,
     id: string,
-    name: string,
-    owner: string,
+    owner?: string | null,
     savingAsset?:  {
       __typename: "ModelSavingAssetConnection",
       nextToken?: string | null,
@@ -1073,15 +1023,13 @@ export type OnDeleteSavingAssetSubscription = {
     __typename: "SavingAsset",
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     balance?: number | null,
-    createdAt?: string | null,
+    createdAt: string,
     id: string,
     name: string,
     owner: string,
@@ -1100,11 +1048,9 @@ export type OnDeleteStockAssetSubscription = {
     amount?: number | null,
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     createdAt: string,
@@ -1145,11 +1091,9 @@ export type OnUpdateAssetSubscriptionVariables = {
 export type OnUpdateAssetSubscription = {
   onUpdateAsset?:  {
     __typename: "Asset",
-    amount?: number | null,
     createdAt: string,
     id: string,
-    name: string,
-    owner: string,
+    owner?: string | null,
     savingAsset?:  {
       __typename: "ModelSavingAssetConnection",
       nextToken?: string | null,
@@ -1172,15 +1116,13 @@ export type OnUpdateSavingAssetSubscription = {
     __typename: "SavingAsset",
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     balance?: number | null,
-    createdAt?: string | null,
+    createdAt: string,
     id: string,
     name: string,
     owner: string,
@@ -1199,11 +1141,9 @@ export type OnUpdateStockAssetSubscription = {
     amount?: number | null,
     asset?:  {
       __typename: "Asset",
-      amount?: number | null,
       createdAt: string,
       id: string,
-      name: string,
-      owner: string,
+      owner?: string | null,
       updatedAt: string,
     } | null,
     createdAt: string,

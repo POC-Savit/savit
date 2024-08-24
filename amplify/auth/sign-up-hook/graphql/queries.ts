@@ -14,10 +14,8 @@ export const allItem = /* GraphQL */ `query AllItem {
 ` as GeneratedQuery<APITypes.AllItemQueryVariables, APITypes.AllItemQuery>;
 export const getAsset = /* GraphQL */ `query GetAsset($id: String!) {
   getAsset(id: $id) {
-    amount
     createdAt
     id
-    name
     owner
     savingAsset {
       nextToken
@@ -32,13 +30,11 @@ export const getAsset = /* GraphQL */ `query GetAsset($id: String!) {
   }
 }
 ` as GeneratedQuery<APITypes.GetAssetQueryVariables, APITypes.GetAssetQuery>;
-export const getSavingAsset = /* GraphQL */ `query GetSavingAsset($id: String!) {
-  getSavingAsset(id: $id) {
+export const getSavingAsset = /* GraphQL */ `query GetSavingAsset($owner: String!) {
+  getSavingAsset(owner: $owner) {
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -56,14 +52,12 @@ export const getSavingAsset = /* GraphQL */ `query GetSavingAsset($id: String!) 
   APITypes.GetSavingAssetQueryVariables,
   APITypes.GetSavingAssetQuery
 >;
-export const getStockAsset = /* GraphQL */ `query GetStockAsset($id: String!) {
-  getStockAsset(id: $id) {
+export const getStockAsset = /* GraphQL */ `query GetStockAsset($owner: String!) {
+  getStockAsset(owner: $owner) {
     amount
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -115,10 +109,8 @@ export const listAssets = /* GraphQL */ `query ListAssets(
     sortDirection: $sortDirection
   ) {
     items {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -133,16 +125,16 @@ export const listAssets = /* GraphQL */ `query ListAssets(
 >;
 export const listSavingAssets = /* GraphQL */ `query ListSavingAssets(
   $filter: ModelSavingAssetFilterInput
-  $id: String
   $limit: Int
   $nextToken: String
+  $owner: String
   $sortDirection: ModelSortDirection
 ) {
   listSavingAssets(
     filter: $filter
-    id: $id
     limit: $limit
     nextToken: $nextToken
+    owner: $owner
     sortDirection: $sortDirection
   ) {
     items {
@@ -164,16 +156,16 @@ export const listSavingAssets = /* GraphQL */ `query ListSavingAssets(
 >;
 export const listStockAssets = /* GraphQL */ `query ListStockAssets(
   $filter: ModelStockAssetFilterInput
-  $id: String
   $limit: Int
   $nextToken: String
+  $owner: String
   $sortDirection: ModelSortDirection
 ) {
   listStockAssets(
     filter: $filter
-    id: $id
     limit: $limit
     nextToken: $nextToken
+    owner: $owner
     sortDirection: $sortDirection
   ) {
     items {

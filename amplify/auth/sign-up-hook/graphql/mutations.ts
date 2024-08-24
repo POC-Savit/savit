@@ -13,10 +13,8 @@ export const createAsset = /* GraphQL */ `mutation CreateAsset(
   $input: CreateAssetInput!
 ) {
   createAsset(condition: $condition, input: $input) {
-    amount
     createdAt
     id
-    name
     owner
     savingAsset {
       nextToken
@@ -40,10 +38,8 @@ export const createSavingAsset = /* GraphQL */ `mutation CreateSavingAsset(
 ) {
   createSavingAsset(condition: $condition, input: $input) {
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -68,10 +64,8 @@ export const createStockAsset = /* GraphQL */ `mutation CreateStockAsset(
   createStockAsset(condition: $condition, input: $input) {
     amount
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -116,10 +110,8 @@ export const deleteAsset = /* GraphQL */ `mutation DeleteAsset(
   $input: DeleteAssetInput!
 ) {
   deleteAsset(condition: $condition, input: $input) {
-    amount
     createdAt
     id
-    name
     owner
     savingAsset {
       nextToken
@@ -143,10 +135,8 @@ export const deleteSavingAsset = /* GraphQL */ `mutation DeleteSavingAsset(
 ) {
   deleteSavingAsset(condition: $condition, input: $input) {
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -171,10 +161,8 @@ export const deleteStockAsset = /* GraphQL */ `mutation DeleteStockAsset(
   deleteStockAsset(condition: $condition, input: $input) {
     amount
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -219,10 +207,8 @@ export const updateAsset = /* GraphQL */ `mutation UpdateAsset(
   $input: UpdateAssetInput!
 ) {
   updateAsset(condition: $condition, input: $input) {
-    amount
     createdAt
     id
-    name
     owner
     savingAsset {
       nextToken
@@ -246,10 +232,8 @@ export const updateSavingAsset = /* GraphQL */ `mutation UpdateSavingAsset(
 ) {
   updateSavingAsset(condition: $condition, input: $input) {
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename
@@ -274,10 +258,8 @@ export const updateStockAsset = /* GraphQL */ `mutation UpdateStockAsset(
   updateStockAsset(condition: $condition, input: $input) {
     amount
     asset {
-      amount
       createdAt
       id
-      name
       owner
       updatedAt
       __typename

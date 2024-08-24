@@ -8,25 +8,26 @@ const client = generateClient<Schema>({
   authMode: 'iam',
 })
 
-const autoSignIn = (userName: string, password: string): Promise<boolean> => {
-  return signUp({
-    username: userName,
-    password,
-  })
-    .then(() => signIn({ username: userName, password }))
-    .then((resp) => resp.isSignedIn)
+const autoSignIn = (userName: string, password: string) => { 
+    return signUp({
+        username: userName,
+        password,
+    })
+    .then(() => signIn({username: userName, password }))
+    .then(resp => resp.isSignedIn)
 }
 
 export const useSignIn = (userName: string) => {
-  const [userInfo, setUser] = useState<Schema['UserInfo']['type']>()
-  const password = (generate(5) as string[]).join()
+    const [userInfo, setUser] = useState<Schema["UserInfo"]["type"]>()
+    const password = (generate(5) as string[]).join('')
+    
+    useEffect(() => {
+        getCurrentUser()
+        .catch(() => autoSignIn(userName, password))
+        .then(() => client.models.UserInfo.list({ authMode: 'userPool'}))
+        .then(resp => setUser(resp.data[0]))
+    }, [])
 
-  useEffect(() => {
-    getCurrentUser()
-      .catch(() => autoSignIn(userName, password))
-      .then(() => client.models.UserInfo.list({ authMode: 'userPool' }))
-      .then((resp) => setUser(resp.data[0]))
-  }, [])
 
   return userInfo
 }
