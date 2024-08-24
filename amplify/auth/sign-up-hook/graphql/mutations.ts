@@ -101,6 +101,7 @@ export const createUserInfo = /* GraphQL */ `mutation CreateUserInfo(
     currentLevel
     email
     id
+    owner
     updatedAt
     userName
     __typename
@@ -203,6 +204,7 @@ export const deleteUserInfo = /* GraphQL */ `mutation DeleteUserInfo(
     currentLevel
     email
     id
+    owner
     updatedAt
     userName
     __typename
@@ -305,6 +307,7 @@ export const updateUserInfo = /* GraphQL */ `mutation UpdateUserInfo(
     currentLevel
     email
     id
+    owner
     updatedAt
     userName
     __typename

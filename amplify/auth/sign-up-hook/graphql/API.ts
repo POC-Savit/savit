@@ -56,6 +56,7 @@ export type UserInfo = {
   currentLevel: number,
   email?: string | null,
   id: string,
+  owner?: string | null,
   updatedAt: string,
   userName?: string | null,
 };
@@ -187,6 +188,7 @@ export type ModelUserInfoFilterInput = {
   id?: ModelIDInput | null,
   not?: ModelUserInfoFilterInput | null,
   or?: Array< ModelUserInfoFilterInput | null > | null,
+  owner?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   userName?: ModelStringInput | null,
 };
@@ -276,6 +278,7 @@ export type ModelUserInfoConditionInput = {
   email?: ModelStringInput | null,
   not?: ModelUserInfoConditionInput | null,
   or?: Array< ModelUserInfoConditionInput | null > | null,
+  owner?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   userName?: ModelStringInput | null,
 };
@@ -286,6 +289,7 @@ export type CreateUserInfoInput = {
   currentLevel: number,
   email?: string | null,
   id?: string | null,
+  owner?: string | null,
   userName?: string | null,
 };
 
@@ -348,6 +352,7 @@ export type UpdateUserInfoInput = {
   currentLevel?: number | null,
   email?: string | null,
   id: string,
+  owner?: string | null,
   userName?: string | null,
 };
 
@@ -416,9 +421,10 @@ export type ModelSubscriptionUserInfoFilterInput = {
   createdAt?: ModelSubscriptionStringInput | null,
   credit?: ModelSubscriptionIntInput | null,
   currentLevel?: ModelSubscriptionIntInput | null,
-  email?: ModelStringInput | null,
+  email?: ModelSubscriptionStringInput | null,
   id?: ModelSubscriptionIDInput | null,
   or?: Array< ModelSubscriptionUserInfoFilterInput | null > | null,
+  owner?: ModelStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   userName?: ModelSubscriptionStringInput | null,
 };
@@ -534,6 +540,7 @@ export type GetUserInfoQuery = {
     currentLevel: number,
     email?: string | null,
     id: string,
+    owner?: string | null,
     updatedAt: string,
     userName?: string | null,
   } | null,
@@ -627,6 +634,7 @@ export type ListUserInfosQuery = {
       currentLevel: number,
       email?: string | null,
       id: string,
+      owner?: string | null,
       updatedAt: string,
       userName?: string | null,
     } | null >,
@@ -727,6 +735,7 @@ export type CreateUserInfoMutation = {
     currentLevel: number,
     email?: string | null,
     id: string,
+    owner?: string | null,
     updatedAt: string,
     userName?: string | null,
   } | null,
@@ -825,6 +834,7 @@ export type DeleteUserInfoMutation = {
     currentLevel: number,
     email?: string | null,
     id: string,
+    owner?: string | null,
     updatedAt: string,
     userName?: string | null,
   } | null,
@@ -923,6 +933,7 @@ export type UpdateUserInfoMutation = {
     currentLevel: number,
     email?: string | null,
     id: string,
+    owner?: string | null,
     updatedAt: string,
     userName?: string | null,
   } | null,
@@ -1006,8 +1017,8 @@ export type OnCreateStockAssetSubscription = {
 };
 
 export type OnCreateUserInfoSubscriptionVariables = {
-  email?: string | null,
   filter?: ModelSubscriptionUserInfoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnCreateUserInfoSubscription = {
@@ -1021,6 +1032,7 @@ export type OnCreateUserInfoSubscription = {
     currentLevel: number,
     email?: string | null,
     id: string,
+    owner?: string | null,
     updatedAt: string,
     userName?: string | null,
   } | null,
@@ -1104,8 +1116,8 @@ export type OnDeleteStockAssetSubscription = {
 };
 
 export type OnDeleteUserInfoSubscriptionVariables = {
-  email?: string | null,
   filter?: ModelSubscriptionUserInfoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnDeleteUserInfoSubscription = {
@@ -1119,6 +1131,7 @@ export type OnDeleteUserInfoSubscription = {
     currentLevel: number,
     email?: string | null,
     id: string,
+    owner?: string | null,
     updatedAt: string,
     userName?: string | null,
   } | null,
@@ -1202,8 +1215,8 @@ export type OnUpdateStockAssetSubscription = {
 };
 
 export type OnUpdateUserInfoSubscriptionVariables = {
-  email?: string | null,
   filter?: ModelSubscriptionUserInfoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnUpdateUserInfoSubscription = {
@@ -1217,6 +1230,7 @@ export type OnUpdateUserInfoSubscription = {
     currentLevel: number,
     email?: string | null,
     id: string,
+    owner?: string | null,
     updatedAt: string,
     userName?: string | null,
   } | null,

@@ -89,10 +89,10 @@ export const onCreateStockAsset = /* GraphQL */ `subscription OnCreateStockAsset
   APITypes.OnCreateStockAssetSubscription
 >;
 export const onCreateUserInfo = /* GraphQL */ `subscription OnCreateUserInfo(
-  $email: String
   $filter: ModelSubscriptionUserInfoFilterInput
+  $owner: String
 ) {
-  onCreateUserInfo(email: $email, filter: $filter) {
+  onCreateUserInfo(filter: $filter, owner: $owner) {
     character {
       __typename
     }
@@ -101,6 +101,7 @@ export const onCreateUserInfo = /* GraphQL */ `subscription OnCreateUserInfo(
     currentLevel
     email
     id
+    owner
     updatedAt
     userName
     __typename
@@ -191,10 +192,10 @@ export const onDeleteStockAsset = /* GraphQL */ `subscription OnDeleteStockAsset
   APITypes.OnDeleteStockAssetSubscription
 >;
 export const onDeleteUserInfo = /* GraphQL */ `subscription OnDeleteUserInfo(
-  $email: String
   $filter: ModelSubscriptionUserInfoFilterInput
+  $owner: String
 ) {
-  onDeleteUserInfo(email: $email, filter: $filter) {
+  onDeleteUserInfo(filter: $filter, owner: $owner) {
     character {
       __typename
     }
@@ -203,6 +204,7 @@ export const onDeleteUserInfo = /* GraphQL */ `subscription OnDeleteUserInfo(
     currentLevel
     email
     id
+    owner
     updatedAt
     userName
     __typename
@@ -293,10 +295,10 @@ export const onUpdateStockAsset = /* GraphQL */ `subscription OnUpdateStockAsset
   APITypes.OnUpdateStockAssetSubscription
 >;
 export const onUpdateUserInfo = /* GraphQL */ `subscription OnUpdateUserInfo(
-  $email: String
   $filter: ModelSubscriptionUserInfoFilterInput
+  $owner: String
 ) {
-  onUpdateUserInfo(email: $email, filter: $filter) {
+  onUpdateUserInfo(filter: $filter, owner: $owner) {
     character {
       __typename
     }
@@ -305,6 +307,7 @@ export const onUpdateUserInfo = /* GraphQL */ `subscription OnUpdateUserInfo(
     currentLevel
     email
     id
+    owner
     updatedAt
     userName
     __typename

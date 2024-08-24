@@ -90,6 +90,7 @@ export const getUserInfo = /* GraphQL */ `query GetUserInfo($id: ID!) {
     currentLevel
     email
     id
+    owner
     updatedAt
     userName
     __typename
@@ -204,6 +205,7 @@ export const listUserInfos = /* GraphQL */ `query ListUserInfos(
       currentLevel
       email
       id
+      owner
       updatedAt
       userName
       __typename

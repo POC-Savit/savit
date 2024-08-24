@@ -1,5 +1,13 @@
+import { Schema } from "amplify/data/resource"
+import { generateClient } from "aws-amplify/api"
 import { signIn, signUp, getCurrentUser } from "aws-amplify/auth"
 import { generate } from "random-words"
+import { useEffect, useState } from "react"
+
+const client = generateClient<Schema>({
+    authMode: "iam",
+});
+  
 
 const autoSignIn = (userName: string, password: string): Promise<boolean> => { 
     return signUp({
@@ -11,10 +19,15 @@ const autoSignIn = (userName: string, password: string): Promise<boolean> => {
 }
 
 export const useSignIn = (userName: string) => {
+    const [userInfo, setUser] = useState<Schema["UserInfo"]["type"]>()
     const password = (generate(5) as string[]).join()
     
-    getCurrentUser()
-    .then(console.log)
-    .catch(() => autoSignIn(userName, password))
-    
+    useEffect(() => {
+        getCurrentUser()
+        .catch(() => autoSignIn(userName, password))
+        .then(() => client.models.UserInfo.list({ authMode: 'userPool'}))
+        .then(resp => setUser(resp.data[0]))
+    }, [])
+
+    return userInfo
 }
