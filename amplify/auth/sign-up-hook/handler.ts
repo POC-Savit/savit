@@ -56,6 +56,7 @@ export const handler: PostConfirmationTriggerHandler = async (event) => {
     query: createUserInfo,
     variables: {
       input: {
+        id: event.userName,
         owner,
         userName: event.request.userAttributes.email,
         email: event.request.userAttributes.email, 
@@ -66,7 +67,7 @@ export const handler: PostConfirmationTriggerHandler = async (event) => {
             },
             current: {}
         },
-        credit: 1000 +randomInt(10000),
+        credit: randomInt(500),
         currentLevel: randomInt(MAXIMUM_LEVLE_ON_HACKATHON),
         asset: JSON.stringify({
           savingAsset: savingAsset, 
@@ -83,10 +84,10 @@ const banks = ['kb', 'kakao', 'hana', 'toss']
 
 const fetchSavingAsset = (owner: string): SavingAsset => ({
   name: `${banks[randomInt(4)]}`,
-  balance: randomInt(70),
+  balance: randomInt(10),
 })
 
 const fetchStockAsset = (owner: string): StockAsset=> ({
   name: `${generate()}`,
-  amount: randomInt(100),
+  amount: randomInt(10),
 })
