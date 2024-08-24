@@ -1,18 +1,7 @@
+import { type SavitMission } from 'types/SavitMission'
+
 import CheckBox from '../common/CheckBox'
 import * as css from './NextMissions.css'
-
-export type SavitMission =
-  | {
-      type: 'mission'
-      text: string
-      isComplete: boolean
-    }
-  | {
-      type: 'quiz'
-      text: string
-      currentQuizCount: number
-      totalQuizCount: number
-    }
 
 interface NextMissionsProps {
   nextLevel: number
