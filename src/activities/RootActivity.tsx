@@ -17,12 +17,6 @@ const RootActivity = () => {
     </button>
   )
 
-  const UserInfo = () => (
-    <button className={css.logo}>
-      <img height="20px" src="/logo.png" width="83.914px" />
-    </button>
-  )
-
   return (
     <AppScreen appBar={{ renderLeft: Logo, backgroundColor: '#E3ECFF' }}>
       <div className={css.container}>

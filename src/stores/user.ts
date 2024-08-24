@@ -1,4 +1,4 @@
-import type { Nullable, ObjectType } from 'type-util'
+import type { ObjectType } from 'type-util'
 
 import { Schema } from 'amplify/data/resource'
 import { atom } from 'jotai'
