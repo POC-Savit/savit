@@ -10,15 +10,15 @@ interface MySavitLevelProps {
 const MySavitLevel = ({ myLevel }: MySavitLevelProps) => {
   return (
     <div className={css.container}>
-      <span>
+      <h2 className={css.myLevel}>
         나의 <strong className={css.leveltext}>세이빗 레벨</strong>
-      </span>
+      </h2>
       <div className={css.imageBox}>
         <img alt="my level" className={css.image} src={MyLevelImg} />
       </div>
       <span className={css.levelBox}>
         <IconStrair className={css.levelBoxIcon} />
-        {myLevel}F
+        <span className={css.levelBoxText}>{myLevel}F</span>
       </span>
     </div>
   )

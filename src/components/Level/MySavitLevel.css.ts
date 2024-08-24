@@ -9,6 +9,14 @@ export const container = style([
   },
 ])
 
+export const myLevel = style({
+  fontSize: '16px',
+  fontStyle: 'normal',
+  fontWeight: '800',
+  lineHeight: 'normal',
+  letterSpacing: '-0.64px',
+})
+
 export const leveltext = style({
   color: '#5872FF',
 })
@@ -43,5 +51,8 @@ export const levelBox = style({
 
 export const levelBoxIcon = style({
   marginRight: '1.5px',
-  transform: 'translateY(-1px)',
+})
+
+export const levelBoxText = style({
+  transform: 'translateY(2px)',
 })

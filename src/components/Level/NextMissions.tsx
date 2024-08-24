@@ -1,6 +1,7 @@
 import { type SavitMission } from 'types/SavitMission'
 
 import CheckBox from '../common/CheckBox'
+import Title from '../common/Title'
 import * as css from './NextMissions.css'
 
 interface NextMissionsProps {
@@ -11,7 +12,7 @@ interface NextMissionsProps {
 const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
   return (
     <div className={css.container}>
-      <span className={css.title}>{nextLevel}F 달성 미션!</span>
+      <Title>{nextLevel}F 달성 미션!</Title>
       {nextMissions.map((mission) => {
         switch (mission.type) {
           case 'mission':

@@ -19,6 +19,7 @@ export const topLayer = style({
 export const bottomLayer = style({
   display: 'flex',
   flex: 1,
+  padding: '24px 20px',
 })
 
 export const divider = style({
