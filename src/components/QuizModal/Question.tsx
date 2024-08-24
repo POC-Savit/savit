@@ -4,13 +4,22 @@ import { IconO, IconX } from './OXIcon'
 import * as css from './Question.css'
 
 interface QuestionProps {
+  onSubmited?: (isCorrect: boolean) => void
   quiz: Quiz
 }
 
-const Question = ({ quiz }: QuestionProps) => {
+const Question = ({ quiz, onSubmited }: QuestionProps) => {
   const isOX = quiz.choices.length === 2
 
   console.log('quiz', quiz)
+
+  const handleAnswerButtonClick = (answerIdx: number) => {
+    const isCorrect = quiz.answerIdx === answerIdx
+
+    if (onSubmited) {
+      onSubmited(isCorrect)
+    }
+  }
 
   return (
     <div className={css.container}>
@@ -19,8 +28,8 @@ const Question = ({ quiz }: QuestionProps) => {
         {
           isOX ? (
             <div className={css.oxButton}>
-              <OXButton type="O" />
-              <OXButton type="X" />
+              <OXButton onClick={handleAnswerButtonClick} type="O" />
+              <OXButton onClick={handleAnswerButtonClick} type="X" />
             </div>
           ) : null // TODO. 객관식
         }
@@ -31,10 +40,19 @@ const Question = ({ quiz }: QuestionProps) => {
 
 export default Question
 
-const OXButton = ({ type }: { type: 'O' | 'X' }) => {
+const OXButton = ({
+  type,
+  onClick,
+}: {
+  type: 'O' | 'X'
+  onClick: (idx: number) => void
+}) => {
   return (
     <button
       className={css.answerButton}
+      onClick={() => {
+        onClick(type === 'O' ? 0 : 1)
+      }}
       style={{
         backgroundColor:
           type === 'O' ? 'rgba(88,114,255,0.1)' : 'rgba(255,82,82,0.1)',

@@ -2,15 +2,15 @@ import { style } from '@vanilla-extract/css'
 
 export const container = style([
   {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
     padding: '46px 24px 24px',
   },
 ])
 
 export const titleArea = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
   marginBottom: '12px',
 })
 
@@ -36,4 +36,19 @@ export const title = style({
   color: '#5872FF',
   textAlign: 'center',
   letterSpacing: '-0.88px',
+})
+
+export const closeButton = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  padding: '20px 16px',
+  fontSize: '18px',
+  fontStyle: 'normal',
+  fontWeight: 500,
+  lineHeight: 'normal',
+  color: '#A2A3B0',
+  textAlign: 'right',
+  letterSpacing: '-0.72px',
 })

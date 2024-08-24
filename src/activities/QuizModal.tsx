@@ -5,6 +5,7 @@ import { MOCK_QUIZ } from 'types/quiz'
 
 import Question from '~/components/QuizModal/Question'
 import QuestionResult from '~/components/QuizModal/QuestionResult'
+import { useFlow } from '~/stackflow'
 
 import * as css from './QuizModal.css'
 
@@ -18,6 +19,7 @@ const QuizModal = ({ params: { quizId } }: QuizModalProps) => {
   const quiz = MOCK_QUIZ[quizId]
   const [isSubmitted, setIsSubmitted] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const { pop } = useFlow()
 
   useLayoutEffect(() => {
     if (containerRef.current) {
@@ -25,6 +27,15 @@ const QuizModal = ({ params: { quizId } }: QuizModalProps) => {
       parrent?.style.setProperty('margin', '0px 20px')
     }
   })
+
+  const handleSubmited = (isCorrect: boolean) => {
+    console.log('isCorrect', isCorrect)
+    setIsSubmitted(true)
+  }
+
+  const handleClose = () => {
+    pop()
+  }
 
   return (
     <Modal
@@ -41,7 +52,16 @@ const QuizModal = ({ params: { quizId } }: QuizModalProps) => {
           </div>
           <h2 className={css.title}>레벨업 퀴즈</h2>
         </div>
-        <div>{isSubmitted ? <QuestionResult /> : <Question quiz={quiz} />}</div>
+        <div>
+          {isSubmitted ? (
+            <QuestionResult quiz={quiz} />
+          ) : (
+            <Question onSubmited={handleSubmited} quiz={quiz} />
+          )}
+        </div>
+        <button className={css.closeButton} onClick={handleClose}>
+          {isSubmitted ? '닫기' : '다음에 풀기'}
+        </button>
       </div>
     </Modal>
   )
