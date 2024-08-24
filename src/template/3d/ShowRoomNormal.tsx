@@ -6,13 +6,11 @@ import {
   Select,
   Selection,
 } from '@react-three/postprocessing'
-import { useActivity } from '@stackflow/react'
 import gsap from 'gsap'
 import { useAtomValue } from 'jotai'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 import { ObjectType } from 'type-util'
 
-import MiniSquareButton from '~/components/common/MiniSquareButton'
 import BaseBody from '~/components/models/Body/BaseBody'
 import Bomb from '~/components/models/Event/Bomb'
 import UFO from '~/components/models/Event/UFO'
@@ -31,7 +29,6 @@ import Flowers from '~/components/models/Head/Flowers'
 import Heart from '~/components/models/Head/Heart'
 import Purse from '~/components/models/Head/Purse'
 import Tulip from '~/components/models/Head/Tulip'
-import { useFlow } from '~/stackflow'
 import { Character } from '~/stores'
 
 import * as css from './ShowRoom.css'
@@ -65,55 +62,11 @@ const EVENT_ITEM = {
 const EVENT_ITEM_ARR = Object.keys(EVENT_ITEM)
 
 const ShowRoomNormal = () => {
-  const { push } = useFlow()
-  const { name } = useActivity()
-  console.log(name)
-
-  const handleStairClick = () => {
-    push('Level', {})
-  }
-
-  const handleShopClick = () => {
-    push('ShopActivity', {})
-  }
-
   return (
     <div className={css.showRoom}>
       <Canvas camera={{ position: [0, 0, 3], fov: 60 }} shadows>
         <Inner />
       </Canvas>
-      {name !== 'ShopActivity' && (
-        <>
-          <MiniSquareButton
-            iconType="Stair"
-            onClick={handleStairClick}
-            style={{
-              position: 'absolute',
-              bottom: '15px',
-              left: '20px',
-            }}
-            title="3F"
-          />
-          <MiniSquareButton
-            iconType="Share"
-            onClick={handleShopClick}
-            style={{
-              position: 'absolute',
-              bottom: '15px',
-              right: '72px',
-            }}
-          />
-          <MiniSquareButton
-            iconType="Shop"
-            onClick={handleShopClick}
-            style={{
-              position: 'absolute',
-              bottom: '15px',
-              right: '20px',
-            }}
-          />
-        </>
-      )}
     </div>
   )
 }

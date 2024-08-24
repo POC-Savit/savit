@@ -3,13 +3,17 @@ import { historySyncPlugin } from '@stackflow/plugin-history-sync'
 import { basicRendererPlugin } from '@stackflow/plugin-renderer-basic'
 import { stackflow } from '@stackflow/react'
 
-import Root from '~/activities/Root'
+import RootActivity from '~/activities/RootActivity'
 
 import Level from './activities/Level'
 import QuizModal from './activities/QuizModal'
 import ShopActivity from './activities/ShopActivity'
 
-export type ActivitiesType = 'Level' | 'QuizModal' | 'Root' | 'ShopActivity'
+export type ActivitiesType =
+  | 'Level'
+  | 'QuizModal'
+  | 'RootActivity'
+  | 'ShopActivity'
 
 export const { Stack, useFlow } = stackflow({
   transitionDuration: 350,
@@ -23,16 +27,16 @@ export const { Stack, useFlow } = stackflow({
     }),
     historySyncPlugin({
       routes: {
-        Root: '/',
+        RootActivity: '/',
         Level: '/level',
         ShopActivity: '/shop',
         QuizModal: '/quiz/${quizId}',
       },
-      fallbackActivity: () => 'Root',
+      fallbackActivity: () => 'RootActivity',
     }),
   ],
   activities: {
-    Root,
+    RootActivity,
     Level,
     ShopActivity,
     QuizModal,
