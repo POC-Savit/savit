@@ -45,6 +45,18 @@ export const buyItem = async (item: ItemWithOwn) => {
             userInfo.credit -= item.price
             const property = item.type === ItemType.FACE ? 'face' : 'head'
             userInfo.character?.own?.[property]?.push(item.name)
-            return userInfo
+            return client.models.UserInfo.update(userInfo)
         })
+}
+
+export const equiItem = async (item: ItemWithOwn) => {
+    return fetchUserInfo() 
+    .then((userInfo) => {
+        if (!(item.name in (userInfo.character?.own ?? []))) return
+        
+        const property = item.type === ItemType.FACE ? 'face' : 'head'
+        if (userInfo.character?.current?.[property]) userInfo.character!!.current!![property] = item.name
+
+        return client.models.UserInfo.update(userInfo)
+    })
 }
