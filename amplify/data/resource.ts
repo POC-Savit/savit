@@ -3,6 +3,10 @@ import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 import {
   allItemList
 } from '../functions/item/resource'
+import { Asset } from "./asset/Asset";
+import { StockAsset } from "./asset/StockAsset";
+import { SavingAsset } from "./asset/SavingAsset";
+import { UserInfo } from "./user/UserInfo";
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -16,6 +20,14 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
+
+    // UserInformation
+    UserInfo,
+
+    // Asset
+    Asset,
+    StockAsset,
+    SavingAsset,
 
     allItem: a
       .query()
