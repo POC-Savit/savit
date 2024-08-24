@@ -1,18 +1,18 @@
+const prettierConfig = {
+  trailingComma: 'es5',
+  tabWidth: 2,
+  semi: false,
+  singleQuote: true,
+}
+
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  extends: ['tonyfromundefined'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'prettier/prettier': ['error', prettierConfig, { usePrettierrc: false }],
+    semi: ['error', 'never'],
+    // '@typescript-eslint/semi': ['error', 'never'],
+    'react/react-in-jsx-scope': 'off',
+    'react/no-unknown-property': 'off',
   },
 }

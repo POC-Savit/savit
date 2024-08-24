@@ -18,7 +18,23 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots": ["./node_modules/@types", "./@types"],
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "amplify": ["./amplify/"]
+    }
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "compilerOptions": {
+      "module": "commonjs",
+      "paths": {
+        "~/*": ["./src/*"],
+        "amplify": ["./amplify/"]
+      }
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
