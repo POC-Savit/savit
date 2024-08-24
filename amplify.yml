@@ -4,7 +4,7 @@ backend:
     build:
       commands:
         - npm ci --cache .npm --prefer-offline
-        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+        npx ampx generate outputs --branch backend --app-id d1hg71ahw10kma
 frontend:
   phases:
     build:
