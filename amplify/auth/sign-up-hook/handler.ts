@@ -80,12 +80,14 @@ export const handler: PostConfirmationTriggerHandler = async (event) => {
   return event;
 };
 
+const banks = ['kb', 'kakao', 'hana', 'toss']
+
 const fetchSavingAsset = (owner: string): SavingAsset => ({
-  name: `${generate()}은행`,
+  name: `${banks[randomInt(4)]}`,
   balance: 10000 + randomInt(100000000),
 })
 
 const fetchStockAsset = (owner: string): StockAsset=> ({
-  name: `${generate()}은행`,
+  name: `${generate()}`,
   amount: randomInt(100),
 })
