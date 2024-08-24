@@ -1,0 +1,18 @@
+type HeadType =
+  | 'BeachHat'
+  | 'Bulb'
+  | 'Cake'
+  | 'Coin'
+  | 'Crown'
+  | 'Flowers'
+  | 'Heart'
+  | 'Purse'
+  | 'Tulip'
+type FaceType =
+  | 'Band'
+  | 'Bubble'
+  | 'Earphone'
+  | 'Glasses'
+  | 'Headphones'
+  | 'Sunglasses'
+type EventType = 'Bomb' | 'URO'
