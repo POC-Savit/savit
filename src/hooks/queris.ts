@@ -2,7 +2,6 @@ import { Schema } from 'amplify/data/resource'
 import { generateClient } from 'aws-amplify/api'
 import { ItemType } from 'types/character.type'
 import { Item } from 'types/Item.type'
-import { AllItem } from 'types/response/AllItem.type'
 
 const client = generateClient<Schema>({
   authMode: 'userPool',
@@ -18,31 +17,6 @@ export const fetchItems = () =>
 
 export type ItemWithOwn = { isOwned: boolean; equipped: boolean } & Item
 
-export const fetchItemsWithUserinfo = () =>
-  Promise.all([fetchItems(), fetchUserInfo()]).then(([items, userIfno]) => {
-    return [
-      ...items.face.map(
-        (item) =>
-          ({
-            ...item,
-            isOwned: new Set(userIfno.character?.own?.face ?? []).has(
-              item.name
-            ),
-            equipped: item.name === userIfno.character?.current?.face,
-          }) as ItemWithOwn
-      ),
-      ...items.head.map(
-        (item) =>
-          ({
-            ...item,
-            isOwned: new Set(userIfno.character?.own?.head ?? []).has(
-              item.name
-            ),
-            equipped: item.name === userIfno.character?.current?.head,
-          }) as ItemWithOwn
-      ),
-    ]
-  })
 
 const hasItem = (userInfo: Schema['UserInfo']['type'], item: ItemWithOwn) => {
   const property = item.type === ItemType.FACE ? 'face' : 'head'
