@@ -1,6 +1,6 @@
 import { SVGProps } from 'react'
 
-const IconStrair = (props: SVGProps<SVGSVGElement>) => (
+const IconStair = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
     height="24"
@@ -9,12 +9,12 @@ const IconStrair = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <g clip-path="url(#clip0_215_2217)">
+    <g clipPath="url(#clip0_215_2217)">
       <path
         d="M4 14.6667V20H20V4H14.6667V9.33333H9.33333V14.6667H4Z"
         fill="currentColor"
         stroke="currentColor"
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
     </g>
     <defs>
@@ -25,4 +25,4 @@ const IconStrair = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
-export default IconStrair
+export default IconStair
