@@ -1,5 +1,6 @@
 import { receive } from '@stackflow/compat-await-push'
 import { useState } from 'react'
+import Confetti from 'react-confetti'
 import { type SavitMission } from 'types/SavitMission'
 
 import { useFlow } from '~/stackflow'
@@ -14,6 +15,9 @@ interface NextMissionsProps {
 }
 
 const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
+  const { push } = useFlow()
+  const [isViewConfeti, setIsViewConfeti] = useState(false)
+
   const handleCorrectAnswer = (isComplete: boolean, missionOrder: number) => {
     if (nextMissions[missionOrder].type === 'quiz') {
       nextMissions[missionOrder].currentQuizCount += 1
@@ -30,8 +34,14 @@ const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
 
     if (isAllComplete) {
       setTimeout(() => {
-        alert('다음 레벨로 이동합니다.')
+        push('NextLevelCongratuationActivity', { level: nextLevel })
       }, 500)
+    } else {
+      setIsViewConfeti(true)
+
+      setTimeout(() => {
+        setIsViewConfeti(false)
+      }, 2000)
     }
   }
 
@@ -63,6 +73,7 @@ const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
             )
         }
       })}
+      {isViewConfeti && <Confetti />}
     </div>
   )
 }

@@ -17,6 +17,9 @@ const CheckBox = ({ isChecked, onChange, className }: CheckBoxProps) => {
     <div
       className={`${css.container} ${className}`}
       onClick={handleCheckBoxClick}
+      style={{
+        backgroundColor: isChecked ? '#5872FF' : '#F4F5FA',
+      }}
     >
       {isChecked && <IconCheck />}
     </div>

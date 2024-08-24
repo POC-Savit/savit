@@ -8,6 +8,7 @@ import RootActivity from '~/activities/RootActivity'
 import AssetConnectBottomSheetActivity from './activities/AssetConnectBottomSheetActivity'
 import DownloadModalActivity from './activities/DownloadModalActivity'
 import LevelActivity from './activities/LevelActivity'
+import NextLevelCongratuationActivity from './activities/NextLevelCongratuationActivity'
 import QuizModal from './activities/QuizModal'
 import ShopActivity from './activities/ShopActivity'
 
@@ -15,7 +16,9 @@ export type ActivitiesType =
   | 'AssetConnectBottomSheetActivity'
   | 'DownloadModalActivity'
   | 'Level'
+  | 'LevelActivity'
   | 'NextLevelActivity'
+  | 'NextLevelCongratuationActivity'
   | 'QuizModal'
   | 'RootActivity'
   | 'ShopActivity'
@@ -38,6 +41,7 @@ export const { Stack, useFlow } = stackflow({
         QuizModal: '/quiz/${quizId}',
         AssetConnectBottomSheetActivity: '/login',
         DownloadModalActivity: '/download',
+        NextLevelCongratuationActivity: '/next-level-congratulation',
       },
       fallbackActivity: () => 'RootActivity',
     }),
@@ -49,5 +53,6 @@ export const { Stack, useFlow } = stackflow({
     QuizModal,
     AssetConnectBottomSheetActivity,
     DownloadModalActivity,
+    NextLevelCongratuationActivity,
   },
 })

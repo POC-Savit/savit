@@ -1,3 +1,3 @@
 import { atom } from 'jotai'
 
-export const currentLevel = atom<number>(0)
+export const currentLevel = atom<number>(1)
