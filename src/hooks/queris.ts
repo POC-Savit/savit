@@ -1,11 +1,6 @@
 
 import { Schema } from 'amplify/data/resource'
 import { generateClient } from 'aws-amplify/api'
-import { getCurrentUser, signIn, signUp } from 'aws-amplify/auth'
-import { generate } from 'random-words'
-import { v4 as uuid} from 'uuid'
-import { useEffect, useState } from 'react'
-import { Asset } from '../../types/Asset'
 import { AllItem } from 'types/response/AllItem.type'
 import { Item } from 'types/Item.type'
 import { ItemType } from 'types/character.type'
