@@ -6,8 +6,9 @@ import { stackflow } from '@stackflow/react'
 import Root from '~/activities/Root'
 
 import Level from './activities/Level'
+import ShopActivity from './activities/ShopActivity'
 
-export type ActivitiesType = 'Root'
+export type ActivitiesType = 'Root' | 'ShopActivity'
 
 export const { Stack, useFlow } = stackflow({
   transitionDuration: 350,
@@ -23,6 +24,7 @@ export const { Stack, useFlow } = stackflow({
       routes: {
         Root: '/',
         Level: '/level',
+        ShopActivity: '/shop',
       },
       fallbackActivity: () => 'Root',
     }),
@@ -30,5 +32,6 @@ export const { Stack, useFlow } = stackflow({
   activities: {
     Root,
     Level,
+    ShopActivity,
   },
 })

@@ -6,24 +6,66 @@ import {
   Select,
   Selection,
 } from '@react-three/postprocessing'
+import { useActivity } from '@stackflow/react'
 import gsap from 'gsap'
-import { useEffect, useRef, useState } from 'react'
+import { useAtomValue } from 'jotai'
+import { ReactElement, useEffect, useRef, useState } from 'react'
+import { ObjectType } from 'type-util'
 
 import MiniSquareButton from '~/components/common/MiniSquareButton'
-import { BaseBody } from '~/components/models/Body/BaseBody'
+import BaseBody from '~/components/models/Body/BaseBody'
+import Band from '~/components/models/Face/Band'
+import Bubble from '~/components/models/Face/Bubble'
+import Earphone from '~/components/models/Face/Earphone'
+import Glasses from '~/components/models/Face/Glasses'
+import Headphones from '~/components/models/Face/Headphones'
+import Sunglasses from '~/components/models/Face/Sunglasses'
+import BeachHat from '~/components/models/Head/BeachHat'
+import Bulb from '~/components/models/Head/Bulb'
+import Cake from '~/components/models/Head/Cake'
+import Coin from '~/components/models/Head/Coin'
+import Crown from '~/components/models/Head/Crown'
+import Flowers from '~/components/models/Head/Flowers'
+import Heart from '~/components/models/Head/Heart'
+import Purse from '~/components/models/Head/Purse'
+import Tulip from '~/components/models/Head/Tulip'
 import { useFlow } from '~/stackflow'
+import { Character } from '~/stores'
 
 import * as css from './ShowRoom.css'
 
+const HEAD_ITEM = {
+  BeachHat: <BeachHat />,
+  Bulb: <Bulb />,
+  Cake: <Cake />,
+  Coin: <Coin />,
+  Crown: <Crown />,
+  Flowers: <Flowers />,
+  Heart: <Heart />,
+  Purse: <Purse />,
+  Tulip: <Tulip />,
+} as ObjectType<ReactElement>
+
+const FACE_ITEM = {
+  Band: <Band />,
+  Bubble: <Bubble />,
+  Earphone: <Earphone />,
+  Glasses: <Glasses />,
+  Headphones: <Headphones />,
+  Sunglasses: <Sunglasses />,
+} as ObjectType<ReactElement>
+
 const ShowRoomNormal = () => {
   const { push } = useFlow()
+  const { name } = useActivity()
+  console.log(name)
 
   const handleStairClick = () => {
     push('Level', {})
   }
 
   const handleShopClick = () => {
-    // push('Shop', {})
+    push('ShopActivity', {})
   }
 
   return (
@@ -31,36 +73,38 @@ const ShowRoomNormal = () => {
       <Canvas camera={{ position: [0, 0, 3], fov: 60 }} shadows>
         <Inner />
       </Canvas>
-      <MiniSquareButton
-        iconType="Stair"
-        onClick={handleStairClick}
-        style={{
-          position: 'absolute',
-          bottom: '15px',
-          left: '20px',
-        }}
-        title="3F"
-      />
-
-      <MiniSquareButton
-        iconType="Share"
-        onClick={handleShopClick}
-        style={{
-          position: 'absolute',
-          bottom: '15px',
-          right: '72px',
-        }}
-      />
-
-      <MiniSquareButton
-        iconType="Shop"
-        onClick={handleShopClick}
-        style={{
-          position: 'absolute',
-          bottom: '15px',
-          right: '20px',
-        }}
-      />
+      {name !== 'ShopActivity' && (
+        <>
+          <MiniSquareButton
+            iconType="Stair"
+            onClick={handleStairClick}
+            style={{
+              position: 'absolute',
+              bottom: '15px',
+              left: '20px',
+            }}
+            title="3F"
+          />
+          <MiniSquareButton
+            iconType="Share"
+            onClick={handleShopClick}
+            style={{
+              position: 'absolute',
+              bottom: '15px',
+              right: '72px',
+            }}
+          />
+          <MiniSquareButton
+            iconType="Shop"
+            onClick={handleShopClick}
+            style={{
+              position: 'absolute',
+              bottom: '15px',
+              right: '20px',
+            }}
+          />
+        </>
+      )}
     </div>
   )
 }
@@ -71,6 +115,8 @@ const Inner = () => {
   const [isClick, setIsClick] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0, z: 3 })
   const isOutline = false
+  const headItem = useAtomValue(Character.headItem)
+  const faceItem = useAtomValue(Character.faceItem)
 
   useEffect(() => {
     function cameraAnimate() {
@@ -98,7 +144,6 @@ const Inner = () => {
   return (
     <>
       <OrbitControls
-        autoRotate={!isClick}
         enablePan={true}
         enableZoom={false}
         maxAzimuthAngle={0}
@@ -107,11 +152,10 @@ const Inner = () => {
         ref={ref}
         target={[0, 0.6, 0]}
       />
-      <axesHelper args={[10]} />
       <ambientLight color={0xd1dcfc} intensity={0.5} />
       <directionalLight
         castShadow
-        color={0xd1dcfc}
+        color={0xffffff}
         intensity={1.5}
         position={[2.5, 5, 5]}
         shadow-mapSize={[512, 512]}
@@ -130,10 +174,11 @@ const Inner = () => {
             castShadow
             onClick={() => setIsClick((prev) => !prev)}
             onPointerOut={() => setIsClick(false)}
-            position={[2.25, -0, -0.85]}
             receiveShadow
           >
             <BaseBody />
+            {headItem && HEAD_ITEM[headItem]}
+            {faceItem && FACE_ITEM[faceItem]}
           </group>
         </Select>
       </Selection>

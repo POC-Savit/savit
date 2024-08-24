@@ -1,18 +1,12 @@
-import { getUrl, GetUrlWithPathOutput } from "aws-amplify/storage"
-import { useEffect, useState } from "react"
+import { getUrl } from 'aws-amplify/storage'
 
-
-export const getObjectUrl = (path: string) => {
-    const [link, setLink] = useState<GetUrlWithPathOutput>()
-
-    useEffect(() => {
-        getUrl({
-          path,
-          options: {
-            expiresIn: 300,
-          }
-        }).then(setLink)
-      }, [])
-
-      return link?.url.toString()
+export const getObjectUrl = async (path: string) => {
+  return (
+    await getUrl({
+      path,
+      options: {
+        expiresIn: 300,
+      },
+    })
+  ).url.toString()
 }

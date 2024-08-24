@@ -4,14 +4,19 @@ import '@dotlottie/player-component'
 
 // https://lottiefiles.com/tools/lottie-to-dotlottie?utm_source=dotlottieio
 
-export type Props = {
-  loop?: boolean
+export interface DotLottieProps {
   autoplay?: boolean
+  loop?: boolean
   source: string
   style?: ObjectType
 }
 
-const DotLottie = ({ loop = false, autoplay = true, source, style }: Props) => (
+const DotLottie = ({
+  loop = false,
+  autoplay = true,
+  source,
+  style,
+}: DotLottieProps) => (
   <dotlottie-player
     autoplay={autoplay}
     loop={loop}

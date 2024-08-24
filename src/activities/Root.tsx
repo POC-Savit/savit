@@ -2,10 +2,6 @@ import { AppScreen } from '@stackflow/plugin-basic-ui'
 import { useSetAtom } from 'jotai'
 import { useEffect } from 'react'
 
-import IconSetting from '~/asset/icons/IconSetting'
-import IconShare from '~/asset/icons/IconShare'
-import IconShop from '~/asset/icons/IconShop'
-import IconStair from '~/asset/icons/IconStair'
 import { User } from '~/stores'
 import ShowRoomNormal from '~/template/3d/ShowRoomNormal'
 
@@ -28,18 +24,6 @@ function Root() {
       <div className={css.container}>
         <ShowRoomNormal />
         Temp
-      </div>
-      <div
-        style={{
-          backgroundColor: '#5872FF',
-          color: 'white',
-          opacity: 0.8,
-        }}
-      >
-        <IconSetting />
-        <IconShare />
-        <IconShop />
-        <IconStair height={64} width={64} />
       </div>
     </AppScreen>
   )
