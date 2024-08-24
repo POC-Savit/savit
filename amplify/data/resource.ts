@@ -1,5 +1,9 @@
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 
+import {
+  allItemList
+} from '../functions/item/resource'
+
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
 adding a new "isDone" field as a boolean. The authorization rule below
@@ -12,6 +16,12 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
+
+    allItem: a
+      .query()
+      .returns(a.json())
+      .handler(a.handler.function(allItemList))
+      .authorization((allow) => [allow.publicApiKey()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
