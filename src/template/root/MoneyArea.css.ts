@@ -1,10 +1,12 @@
 import { style } from '@vanilla-extract/css'
 
 export const container = style({
+  zIndex: 1,
   width: 'calc(100% - 40px)',
   height: '100%',
   padding: '24px 20px 20px 20px',
   overflow: 'auto',
+  background: '#fff',
 })
 
 export const topContainer = style({

@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css'
 
 export const container = style([
   {
+    zIndex: 1,
     display: 'flex',
     flexDirection: 'column',
     gap: '24px',
@@ -9,6 +10,7 @@ export const container = style([
     justifyContent: 'center',
     width: '100%',
     height: '100%',
+    background: '#fff',
   },
 ])
 

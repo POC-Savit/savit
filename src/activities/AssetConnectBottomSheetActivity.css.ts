@@ -22,11 +22,13 @@ export const title = style({
 })
 
 export const subTitle = style({
+  width: '100%',
   marginTop: '12px',
   fontSize: '16px',
   fontWeight: 500,
   lineHeight: '24px',
   color: '#A2A3B0',
+  textAlign: 'left',
   letterSpacing: '-0.64px',
 })
 
@@ -41,7 +43,7 @@ export const button = style({
   gap: '10px',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '354px',
+  width: '100%',
   padding: '20px 16px',
   fontSize: '18px',
   fontWeight: 600,

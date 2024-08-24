@@ -7,7 +7,7 @@ import {
   Selection,
 } from '@react-three/postprocessing'
 import gsap from 'gsap'
-import { useAtomValue } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 import { ObjectType } from 'type-util'
 
@@ -29,7 +29,7 @@ import Flowers from '~/components/models/Head/Flowers'
 import Heart from '~/components/models/Head/Heart'
 import Purse from '~/components/models/Head/Purse'
 import Tulip from '~/components/models/Head/Tulip'
-import { Character } from '~/stores'
+import { Character, UI, User } from '~/stores'
 
 import * as css from './ShowRoom.css'
 
@@ -60,10 +60,34 @@ const EVENT_ITEM = {
 } as ObjectType<ReactElement>
 
 const EVENT_ITEM_ARR = Object.keys(EVENT_ITEM)
+const FLOOR = ['1F', '2F', '3F', '4F', '5F'].reverse()
 
 const ShowRoomNormal = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  const currentLevel = useAtomValue(User.currentLevel)
+
+  useEffect(() => {
+    if (!ref.current) {
+      return
+    }
+    ref.current.style.setProperty(
+      'transform',
+      `translateY(calc(${currentLevel}*300px))`
+    )
+  }, [currentLevel])
+
   return (
     <div className={css.showRoom}>
+      <div className={css.map} ref={ref}>
+        {FLOOR.map((item) => (
+          <img
+            alt={item}
+            height="300px"
+            key={item}
+            src={`/castle/${item}.png`}
+          />
+        ))}
+      </div>
       <Canvas camera={{ position: [0, 0, 3], fov: 60 }} shadows>
         <Inner />
       </Canvas>
@@ -73,7 +97,7 @@ const ShowRoomNormal = () => {
 
 const Inner = () => {
   const ref = useRef(null)
-  const camera = useThree((state) => state.camera)
+  const { gl, scene, camera } = useThree()
   const [isClick, setIsClick] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0, z: 3 })
   const isOutline = false
@@ -81,6 +105,13 @@ const Inner = () => {
   const faceItem = useAtomValue(Character.faceItem)
 
   const [eventStep, setEventStep] = useState(2)
+
+  const setCurrentImage = useSetAtom(UI.currentImage)
+  useEffect(() => {
+    gl.render(scene, camera)
+    const screenshot = gl.domElement.toDataURL()
+    setCurrentImage(screenshot)
+  }, [headItem, faceItem])
 
   useEffect(() => {
     function cameraAnimate() {

@@ -36,3 +36,13 @@ export const shop = style([
     bottom: '15px',
   },
 ])
+
+export const text = style({
+  top: '10px',
+  paddingTop: '2px',
+  paddingLeft: '4px',
+  fontSize: '18px',
+  fontWeight: 600,
+  color: '#FFF',
+  letterSpacing: '-0.72px',
+})
