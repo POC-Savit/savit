@@ -2,7 +2,7 @@ import type { Nullable } from 'type-util'
 
 import { atom } from 'jotai'
 
-import { fetchItems, fetchItemsWithUserinfo, ItemWithOwn } from '~/hooks/queris'
+import { fetchItems, ItemWithOwn } from '~/hooks/queris'
 
 import { User } from '.'
 

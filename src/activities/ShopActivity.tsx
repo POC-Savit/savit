@@ -57,7 +57,6 @@ const ShopActivity = ({}: ShopActivityProps) => {
   const [currentSelected, setCurrentSelected] = useAtom(
     Character.currentSelected
   )
-  console.log(items)
 
   return (
     <AppScreen appBar={{ title: '상점', backgroundColor: '#E3ECFF' }}>
