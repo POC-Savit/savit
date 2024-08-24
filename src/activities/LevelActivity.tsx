@@ -9,7 +9,7 @@ import NextMissions from '~/components/Level/NextMissions'
 import { useFlow } from '~/stackflow'
 import { User } from '~/stores'
 
-import * as css from './Level.css'
+import * as css from './LevelActivity.css'
 
 interface LevelProps {}
 

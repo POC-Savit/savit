@@ -76,14 +76,14 @@ interface MissionProps {
   text: string
 }
 
-const Mission = ({ isComplete, text, missionOrder }: MissionProps) => {
-  const handleMissionClick = async () => {
-    // if (isComplete) {
-    //   return
-    // }
-    // await receive(push('MissionModal'))
-    // onComplete(true, missionOrder)
-  }
+const Mission = ({ isComplete, text }: MissionProps) => {
+  // const handleMissionClick = async () => {
+  //   if (isComplete) {
+  //     return
+  //   }
+  //   await receive(push('MissionModal'))
+  //   onComplete(true, missionOrder)
+  // }
 
   return (
     <div className={css.mission}>

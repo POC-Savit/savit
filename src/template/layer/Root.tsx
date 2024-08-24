@@ -10,7 +10,7 @@ const Root = ({}: ShopProps) => {
   const { push } = useFlow()
 
   const handleStairClick = () => {
-    push('Level', {})
+    push('LevelActivity', {})
   }
 
   const handleShopClick = () => {

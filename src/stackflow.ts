@@ -5,12 +5,13 @@ import { stackflow } from '@stackflow/react'
 
 import RootActivity from '~/activities/RootActivity'
 
-import Level from './activities/Level'
+import LevelActivity from './activities/LevelActivity'
 import QuizModal from './activities/QuizModal'
 import ShopActivity from './activities/ShopActivity'
 
 export type ActivitiesType =
   | 'Level'
+  | 'NextLevelActivity'
   | 'QuizModal'
   | 'RootActivity'
   | 'ShopActivity'
@@ -28,7 +29,7 @@ export const { Stack, useFlow } = stackflow({
     historySyncPlugin({
       routes: {
         RootActivity: '/',
-        Level: '/level',
+        LevelActivity: '/level',
         ShopActivity: '/shop',
         QuizModal: '/quiz/${quizId}',
       },
@@ -37,7 +38,7 @@ export const { Stack, useFlow } = stackflow({
   ],
   activities: {
     RootActivity,
-    Level,
+    LevelActivity,
     ShopActivity,
     QuizModal,
   },
