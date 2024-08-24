@@ -1,8 +1,6 @@
 import { AppScreen } from '@stackflow/plugin-basic-ui'
 import { useAtomValue } from 'jotai'
-import { useEffect, useState } from 'react'
 
-import { useFlow } from '~/stackflow'
 import { UI } from '~/stores'
 import Root from '~/template/layer/Root'
 import ConnectBankAccount from '~/template/root/ConnectBankAccount'
