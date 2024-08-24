@@ -2,7 +2,7 @@ import type { Nullable } from 'type-util'
 
 import { atom } from 'jotai'
 
-import { fetchItems, ItemWithOwn } from '~/hooks/queris'
+import { fetchItemsWithUserinfo, ItemWithOwn } from '~/hooks/queris'
 
 import { User } from '.'
 
@@ -103,7 +103,7 @@ export const headItem = atom<Nullable<HeadType>>(null)
 
 export const items = atom<ItemWithOwn[]>([])
 export const getItems = atom(null, async (_get, set) => {
-  const response = await fetchItems()
+  const response = await fetchItemsWithUserinfo()
   set(items, response)
   await set(User.getUserInfo)
   response.forEach((item) => {

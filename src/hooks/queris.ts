@@ -4,7 +4,6 @@ import { ItemType } from 'types/character.type'
 import { Item } from 'types/Item.type'
 import { AllItem } from 'types/response/AllItem.type'
 
-
 const client = generateClient<Schema>({
   authMode: 'userPool',
 })
@@ -17,7 +16,7 @@ export const fetchItems = () =>
     .allItem({ authMode: 'apiKey' })
     .then((resp) => JSON.parse(resp.data!!) as AllItem)
 
-  type ItemWithOwn = { isOwned: boolean; equipped: boolean } & Item
+export type ItemWithOwn = { isOwned: boolean; equipped: boolean } & Item
 
 export const fetchItemsWithUserinfo = () =>
   Promise.all([fetchItems(), fetchUserInfo()]).then(([items, userIfno]) => {
@@ -26,7 +25,9 @@ export const fetchItemsWithUserinfo = () =>
         (item) =>
           ({
             ...item,
-            isOwned: new Set (userIfno.character?.own?.face ?? []).has(item.name),
+            isOwned: new Set(userIfno.character?.own?.face ?? []).has(
+              item.name
+            ),
             equipped: item.name === userIfno.character?.current?.face,
           }) as ItemWithOwn
       ),
@@ -34,7 +35,9 @@ export const fetchItemsWithUserinfo = () =>
         (item) =>
           ({
             ...item,
-            isOwned: new Set(userIfno.character?.own?.head ?? []).has(item.name),
+            isOwned: new Set(userIfno.character?.own?.head ?? []).has(
+              item.name
+            ),
             equipped: item.name === userIfno.character?.current?.head,
           }) as ItemWithOwn
       ),
