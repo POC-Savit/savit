@@ -1,6 +1,7 @@
 import { AppScreen } from '@stackflow/plugin-basic-ui'
 import { useStack } from '@stackflow/react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Confetti from 'react-confetti'
 
 import useConfetti from '~/hooks/useConfetti'
 import { useFlow } from '~/stackflow'
@@ -22,11 +23,18 @@ const NextLevelCongratuationActivity = ({
 
   const { pop } = useFlow()
   const { activities } = useStack()
+  const [isViewConfeti, setIsViewConfeti] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {
       popEmoji()
     }, 500)
+
+    setIsViewConfeti(true)
+
+    setTimeout(() => {
+      setIsViewConfeti(false)
+    }, 3000)
   }, [])
 
   const handleCTAClick = () => {
@@ -63,6 +71,7 @@ const NextLevelCongratuationActivity = ({
           </button>
         </div>
       </div>
+      {isViewConfeti && <Confetti />}
     </AppScreen>
   )
 }

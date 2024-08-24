@@ -8,6 +8,7 @@ import RootActivity from '~/activities/RootActivity'
 import AssetConnectBottomSheetActivity from './activities/AssetConnectBottomSheetActivity'
 import DownloadModalActivity from './activities/DownloadModalActivity'
 import LevelActivity from './activities/LevelActivity'
+import MissionActivity from './activities/MissionActivity'
 import NextLevelCongratuationActivity from './activities/NextLevelCongratuationActivity'
 import QuizModal from './activities/QuizModal'
 import ShopActivity from './activities/ShopActivity'
@@ -38,6 +39,7 @@ export const { Stack, useFlow } = stackflow({
         RootActivity: '/',
         LevelActivity: '/level',
         ShopActivity: '/shop',
+        MissionActivity: '/mission/${missionId}',
         QuizModal: '/quiz/${quizId}',
         AssetConnectBottomSheetActivity: '/login',
         DownloadModalActivity: '/download',
@@ -54,5 +56,6 @@ export const { Stack, useFlow } = stackflow({
     AssetConnectBottomSheetActivity,
     DownloadModalActivity,
     NextLevelCongratuationActivity,
+    MissionActivity,
   },
 })
