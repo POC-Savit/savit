@@ -3,8 +3,8 @@ import type { Handler } from 'aws-lambda';
 import { AllItem } from '../../../types/response/AllItem.type'
 import { ItemType } from '../../../types/character.type';
 
-export const handler: Handler = async (event, context): Promise<AllItem> => {
-    return {
+export const handler: Handler = async (event, context): Promise<string> => {
+    return JSON.stringify({
         head: [
             { name: 'BeachHat', price: 0, type: ItemType.HEAD},
             { name: 'Bulb', price: 0, type: ItemType.HEAD},
@@ -24,5 +24,5 @@ export const handler: Handler = async (event, context): Promise<AllItem> => {
             { name: 'Headphones', price: 0, type: ItemType.FACE},
             { name: 'Sunglasses', price: 0, type: ItemType.FACE},
         ]
-    }
+    })
 };

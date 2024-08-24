@@ -18,7 +18,7 @@ const schema = a.schema({
   
     allItem: a
       .query()
-      .returns(a.json())
+      .returns(a.string())
       .handler(a.handler.function(allItemList))
       .authorization((allow) => [allow.publicApiKey()]),
 })
