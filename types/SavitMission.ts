@@ -3,6 +3,7 @@ export type SavitMission =
       type: 'mission'
       text: string
       isComplete: boolean
+      missionId: string
     }
   | {
       type: 'quiz'
@@ -11,3 +12,8 @@ export type SavitMission =
       totalQuizCount: number
       quizsIds: string[]
     }
+
+export type Mission = {
+  missionId: string
+  missionName?: string
+}
