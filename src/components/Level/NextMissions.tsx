@@ -19,7 +19,6 @@ interface NextMissionsProps {
 const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
   const { push } = useFlow()
   const [isViewConfeti, setIsViewConfeti] = useState(false)
-  const setCurrentLevel = useSetAtom(User.currentLevel)
 
   const handleCorrectAnswer = (isComplete: boolean, missionOrder: number) => {
     if (nextMissions[missionOrder].type === 'quiz') {
@@ -38,7 +37,6 @@ const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
     if (isAllComplete) {
       setTimeout(() => {
         push('NextLevelCongratuationActivity', { level: nextLevel })
-        setCurrentLevel(nextLevel)
       }, 500)
     } else {
       if (isComplete) {

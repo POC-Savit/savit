@@ -1,10 +1,12 @@
 import { AppScreen } from '@stackflow/plugin-basic-ui'
 import { useStack } from '@stackflow/react'
+import { useSetAtom } from 'jotai'
 import { useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
 
 import useConfetti from '~/hooks/useConfetti'
 import { useFlow } from '~/stackflow'
+import { User } from '~/stores'
 
 import * as css from './NextLevelCongratuationActivity.css'
 
@@ -20,6 +22,8 @@ const NextLevelCongratuationActivity = ({
   params: { level },
 }: NextLevelCongratuationActivityProps) => {
   const { popEmoji } = useConfetti()
+
+  const setCurrentLevel = useSetAtom(User.currentLevel)
 
   const { pop } = useFlow()
   const { activities } = useStack()
@@ -39,12 +43,17 @@ const NextLevelCongratuationActivity = ({
 
   const handleCTAClick = () => {
     pop()
+    setCurrentLevel((prev) => prev + 1)
   }
 
   const handleNextButtonClick = () => {
     activities.forEach(() => {
       pop()
     })
+
+    setTimeout(() => {
+      setCurrentLevel((prev) => prev + 1)
+    }, 60)
   }
 
   return (
