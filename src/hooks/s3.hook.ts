@@ -14,5 +14,5 @@ export const getObjectUrl = (path: string) => {
         }).then(setLink)
       }, [])
 
-      return link
+      return link?.url.toString()
 }
