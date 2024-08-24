@@ -26,3 +26,10 @@ export const buttons = style({
     content: '',
   },
 })
+export const bottomContainer = style({
+  position: 'relative',
+  zIndex: 1,
+  height: '100%',
+  overflow: 'hidden',
+  background: '#fff',
+})

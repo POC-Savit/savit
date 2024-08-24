@@ -6,12 +6,14 @@ import { stackflow } from '@stackflow/react'
 import RootActivity from '~/activities/RootActivity'
 
 import AssetConnectBottomSheetActivity from './activities/AssetConnectBottomSheetActivity'
+import DownloadModalActivity from './activities/DownloadModalActivity'
 import LevelActivity from './activities/LevelActivity'
 import QuizModal from './activities/QuizModal'
 import ShopActivity from './activities/ShopActivity'
 
 export type ActivitiesType =
   | 'AssetConnectBottomSheetActivity'
+  | 'DownloadModalActivity'
   | 'Level'
   | 'NextLevelActivity'
   | 'QuizModal'
@@ -35,6 +37,7 @@ export const { Stack, useFlow } = stackflow({
         ShopActivity: '/shop',
         QuizModal: '/quiz/${quizId}',
         AssetConnectBottomSheetActivity: '/login',
+        DownloadModalActivity: '/download',
       },
       fallbackActivity: () => 'RootActivity',
     }),
@@ -45,5 +48,6 @@ export const { Stack, useFlow } = stackflow({
     ShopActivity,
     QuizModal,
     AssetConnectBottomSheetActivity,
+    DownloadModalActivity,
   },
 })

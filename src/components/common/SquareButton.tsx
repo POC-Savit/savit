@@ -7,14 +7,14 @@ type Props = {
   title: string
   isSelected?: boolean
   isOwned?: boolean
-  price?: string
+  price?: number
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 function SquareButton({
   title,
   isSelected,
   isOwned = false,
-  price = '20',
+  price = 20,
   ...props
 }: Props) {
   return (
