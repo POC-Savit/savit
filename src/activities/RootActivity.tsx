@@ -4,11 +4,11 @@ import CountUp from 'react-countup'
 import IconPoint from '~/asset/icons/IconPoint'
 import BankContainer from '~/components/root/BankContainer'
 import Banner from '~/components/root/Banner'
-import ShowRoomNormal from '~/template/3d/ShowRoomNormal'
+import Root from '~/template/layer/Root'
 
-import * as css from './Root.css'
+import * as css from './RootActivity.css'
 
-const Root = () => {
+const RootActivity = () => {
   const Logo = () => (
     <button className={css.logo}>
       <img height="20px" src="/logo.png" width="83.914px" />
@@ -18,7 +18,7 @@ const Root = () => {
   return (
     <AppScreen appBar={{ renderLeft: Logo, backgroundColor: '#E3ECFF' }}>
       <div className={css.container}>
-        <ShowRoomNormal />
+        <Root />
         <div className={css.scrollContainer}>
           <div className={css.topContainer}>
             <h2 className={css.titleText}>
@@ -69,4 +69,4 @@ const Root = () => {
   )
 }
 
-export default Root
+export default RootActivity
