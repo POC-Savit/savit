@@ -148,7 +148,6 @@ const Quiz = ({
   onCorrectAnswer,
   missionOrder,
 }: QuizProps) => {
-  console.log('##currentQuizCount', currentQuizCount)
   const [count, setCount] = useState(currentQuizCount)
   const totalQuizCount = quizIds.length
   const isComplete = count === totalQuizCount

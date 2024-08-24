@@ -12,12 +12,10 @@ const Tabs = ({ selectedItem, items, onSelect }: Props) => {
   const selectedIndex = items.findIndex((item) => item === selectedItem)
   const ref = useRef<HTMLDivElement>(null)
 
-  console.log(selectedIndex)
   useEffect(() => {
     if (!ref.current) {
       return
     }
-    console.log(`translateX(${selectedIndex * 100}%)`)
     ref.current.style.setProperty(
       'transform',
       `translateX(${selectedIndex * 100}%)`

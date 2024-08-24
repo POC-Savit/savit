@@ -31,8 +31,12 @@ export const answerButton = style({
   lineHeight: 'normal',
   textAlign: 'center',
   letterSpacing: '-0.88px',
+  cursor: 'pointer',
   borderRadius: '32px',
   transition: 'all 0.3s ease-in-out',
+  ':hover': {
+    transform: 'scale(1.05)',
+  },
   ':active': {
     opacity: 0.1,
   },

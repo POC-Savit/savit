@@ -8,7 +8,7 @@ import SquareButton from '~/components/common/SquareButton'
 import Tab from '~/components/common/Tab'
 import Tag from '~/components/common/Tag'
 import { equiItem, unequipItem } from '~/hooks/queris'
-import { Character, UI } from '~/stores'
+import { Character } from '~/stores'
 import Shop from '~/template/layer/Shop'
 
 import * as css from './ShopActivity.css'
@@ -21,25 +21,25 @@ const TAB_TEXT = {
 }
 const TAGS = ['전체', '머리', '얼굴']
 
-const HEAD_ITEMS: Character.HeadType[] = [
-  'Bulb',
-  'Cake',
-  'Coin',
-  'Crown',
-  'Flowers',
-  'Heart',
-  'Purse',
-  'Tulip',
-]
+// const HEAD_ITEMS: Character.HeadType[] = [
+//   'Bulb',
+//   'Cake',
+//   'Coin',
+//   'Crown',
+//   'Flowers',
+//   'Heart',
+//   'Purse',
+//   'Tulip',
+// ]
 
-const FACE_ITEMS: Character.FaceType[] = [
-  'Band',
-  'Bubble',
-  'Earphone',
-  'Glasses',
-  'Headphones',
-  'Sunglasses',
-]
+// const FACE_ITEMS: Character.FaceType[] = [
+//   'Band',
+//   'Bubble',
+//   'Earphone',
+//   'Glasses',
+//   'Headphones',
+//   'Sunglasses',
+// ]
 
 const ShopActivity = ({}: ShopActivityProps) => {
   const [selectedTag, setSelectedTag] = useState<string>(TAGS[0])

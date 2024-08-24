@@ -31,7 +31,7 @@ const Root = ({}: ShopProps) => {
     <div className={css.container}>
       <ShowRoomNormal />
       <MiniSquareButton
-        className={css.stair}
+        className={css.stairShake}
         iconType="Stair"
         onClick={handleStairClick}
       >
@@ -46,12 +46,12 @@ const Root = ({}: ShopProps) => {
         </CountUp>
       </MiniSquareButton>
       <MiniSquareButton
-        className={css.share}
+        className={css.shareShake}
         iconType="Share"
         onClick={handleDownloadCLik}
       />
       <MiniSquareButton
-        className={css.shop}
+        className={css.shopShake}
         iconType="Shop"
         onClick={handleShopClick}
       />

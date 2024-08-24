@@ -68,10 +68,10 @@ const MoneyArea = ({}: MoneyAreaProps) => {
             title: 'KB 특별한 적금',
           },
           ...asset,
-        ].map((item) => (
+        ].map((item, index) => (
           <BankContainer
             imgLink={`/${item.name}.png`}
-            key={item.name}
+            key={item.name + index}
             mainText={item.title}
             plusMoney={item.balance}
             subText={'적금 성공'}
