@@ -12,7 +12,6 @@ interface ShopProps {}
 
 const Root = ({}: ShopProps) => {
   const { push } = useFlow()
-
   const currentLevel = useAtomValue(User.currentLevel)
 
   const handleStairClick = () => {

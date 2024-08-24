@@ -1,8 +1,11 @@
 import { receive } from '@stackflow/compat-await-push'
+import { useSetAtom } from 'jotai'
 import { useState } from 'react'
+import Confetti from 'react-confetti'
 import { type SavitMission } from 'types/SavitMission'
 
 import { useFlow } from '~/stackflow'
+import { User } from '~/stores'
 
 import CheckBox from '../common/CheckBox'
 import Title from '../common/Title'
@@ -14,6 +17,10 @@ interface NextMissionsProps {
 }
 
 const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
+  const { push } = useFlow()
+  const [isViewConfeti, setIsViewConfeti] = useState(false)
+  const setCurrentLevel = useSetAtom(User.currentLevel)
+
   const handleCorrectAnswer = (isComplete: boolean, missionOrder: number) => {
     if (nextMissions[missionOrder].type === 'quiz') {
       nextMissions[missionOrder].currentQuizCount += 1
@@ -30,8 +37,17 @@ const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
 
     if (isAllComplete) {
       setTimeout(() => {
-        alert('다음 레벨로 이동합니다.')
+        push('NextLevelCongratuationActivity', { level: nextLevel })
+        setCurrentLevel(nextLevel)
       }, 500)
+    } else {
+      if (isComplete) {
+        setIsViewConfeti(true)
+
+        setTimeout(() => {
+          setIsViewConfeti(false)
+        }, 2000)
+      }
     }
   }
 
@@ -45,6 +61,7 @@ const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
               <Mission
                 isComplete={mission.isComplete}
                 key={mission.text}
+                missionId={mission.missionId}
                 missionOrder={order}
                 onComplete={handleCorrectAnswer}
                 text={mission.text}
@@ -63,6 +80,7 @@ const NextMissions = ({ nextLevel, nextMissions }: NextMissionsProps) => {
             )
         }
       })}
+      {isViewConfeti && <Confetti />}
     </div>
   )
 }
@@ -71,34 +89,49 @@ export default NextMissions
 
 interface MissionProps {
   isComplete: boolean
+  missionId: string
   missionOrder: number
   onComplete: (isComplete: boolean, missionOrder: number) => void
   text: string
 }
 
-const Mission = ({ isComplete, text }: MissionProps) => {
-  // const handleMissionClick = async () => {
-  //   if (isComplete) {
-  //     return
-  //   }
-  //   await receive(push('MissionModal'))
-  //   onComplete(true, missionOrder)
-  // }
+const Mission = ({
+  isComplete,
+  text,
+  missionId,
+  missionOrder,
+  onComplete,
+}: MissionProps) => {
+  const { push } = useFlow()
+  const [isCompleted, setIsCompleted] = useState(isComplete)
+
+  const handleMissionClick = async () => {
+    if (isCompleted) {
+      return
+    }
+    const data = await receive<{
+      isComplete: boolean
+    }>(push('MissionActivity', { missionId, missionName: text }))
+
+    onComplete(data.isComplete, missionOrder)
+    setIsCompleted(data.isComplete)
+  }
 
   return (
     <div className={css.mission}>
       <div className={css.missionLeft}>
-        <CheckBox isChecked={isComplete} />
+        <CheckBox isChecked={isCompleted} />
         {text}
       </div>
       <div
         className={css.missionRight}
+        onClick={handleMissionClick}
         style={{
-          color: isComplete ? '#5F5F71' : '#5872FF',
-          textDecorationLine: isComplete ? 'none' : 'underline',
+          color: isCompleted ? '#5F5F71' : '#5872FF',
+          textDecorationLine: isCompleted ? 'none' : 'underline',
         }}
       >
-        {isComplete ? '달성완료' : '미션수행'}
+        {isCompleted ? '달성완료' : '미션수행'}
       </div>
     </div>
   )
