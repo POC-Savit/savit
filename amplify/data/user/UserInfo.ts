@@ -12,13 +12,14 @@ export const UserInfo = a
         head: a.string().array(),
         }),
         current: a.customType({
-        face: a.string(),
-        head: a.string(),
-        })
+            face: a.string(),
+            head: a.string(),
+        }),
     }),
+    asset: a.string(),
     credit: a.integer().required(),
     currentLevel: a.integer().required()
-    })
+})
     .authorization((allow) => [
         allow.ownerDefinedIn("owner"),
     ])

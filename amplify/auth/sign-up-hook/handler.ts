@@ -9,10 +9,8 @@ import { randomInt } from '../../../util/random'
 
 import {
     createUserInfo,
-    createAsset,
-    createSavingAsset,
-    createStockAsset,
 } from "./graphql/mutations";
+import { StockAsset, SavingAsset } from "../../../types/Asset";
 
 Amplify.configure(
 {
@@ -50,7 +48,11 @@ const MAXIMUM_LEVLE_ON_HACKATHON = 5
 
 export const handler: PostConfirmationTriggerHandler = async (event) => {
   const owner = `${event.request.userAttributes.sub}::${event.userName}`
-  console.log(owner)
+
+  const savingAsset = [...Array(randomInt(5)).keys()].map(() => fetchSavingAsset(owner))
+  const stockAsset = [...Array(randomInt(5)).keys()].map(() => fetchStockAsset(owner))
+  console.log(savingAsset, stockAsset)
+
   await client.graphql({
     query: createUserInfo,
     variables: {
@@ -67,56 +69,23 @@ export const handler: PostConfirmationTriggerHandler = async (event) => {
         },
         credit: 1000 +randomInt(10000),
         currentLevel: randomInt(MAXIMUM_LEVLE_ON_HACKATHON),
+        asset: JSON.stringify({
+          savingAsset: savingAsset, 
+          stockAsset: stockAsset,
+        })
       },
     },
   });
-  console.log('created UserInfo')
-
-  await client.graphql({
-    query: createAsset,
-    variables: {
-      input: {
-        id: owner,
-      },
-    },
-  });
-  console.log('created Asset')
-
-  for (let i = 0; i < randomInt(5); ++i) {
-    await fetchSavingAsset(owner)
-      .catch(console.log)
-  }
-  console.log('created SavingAsset')
-
-  for (let i = 0; i < randomInt(5); ++i) { 
-    await fetchStockAsset(owner)
-      .catch(console.log)
-  }
-  console.log('created StockAsset')
 
   return event;
 };
 
-const fetchSavingAsset = async (owner: string) => client.graphql({
-  query: createSavingAsset,
-  variables: {
-    input: {
-      id: uuid(),
-      owner,
-      name: `${generate()}은행`,
-      balance: 10000 + randomInt(100000000),
-    },
-  },
-});
+const fetchSavingAsset = (owner: string): SavingAsset => ({
+  name: `${generate()}은행`,
+  balance: 10000 + randomInt(100000000),
+})
 
-const fetchStockAsset = async (owner: string) => client.graphql({
-  query: createStockAsset,
-  variables: {
-    input: {
-      id: uuid(),
-      owner,
-      name: `${generate()}은행`,
-      amount: randomInt(100),
-    },
-  },
-});
+const fetchStockAsset = (owner: string): StockAsset=> ({
+  name: `${generate()}은행`,
+  amount: randomInt(100),
+})

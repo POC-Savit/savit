@@ -8,85 +8,12 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
-export const createAsset = /* GraphQL */ `mutation CreateAsset(
-  $condition: ModelAssetConditionInput
-  $input: CreateAssetInput!
-) {
-  createAsset(condition: $condition, input: $input) {
-    createdAt
-    id
-    owner
-    savingAsset {
-      nextToken
-      __typename
-    }
-    stockAsset {
-      nextToken
-      __typename
-    }
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateAssetMutationVariables,
-  APITypes.CreateAssetMutation
->;
-export const createSavingAsset = /* GraphQL */ `mutation CreateSavingAsset(
-  $condition: ModelSavingAssetConditionInput
-  $input: CreateSavingAssetInput!
-) {
-  createSavingAsset(condition: $condition, input: $input) {
-    asset {
-      createdAt
-      id
-      owner
-      updatedAt
-      __typename
-    }
-    balance
-    createdAt
-    id
-    name
-    owner
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateSavingAssetMutationVariables,
-  APITypes.CreateSavingAssetMutation
->;
-export const createStockAsset = /* GraphQL */ `mutation CreateStockAsset(
-  $condition: ModelStockAssetConditionInput
-  $input: CreateStockAssetInput!
-) {
-  createStockAsset(condition: $condition, input: $input) {
-    amount
-    asset {
-      createdAt
-      id
-      owner
-      updatedAt
-      __typename
-    }
-    createdAt
-    id
-    name
-    owner
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateStockAssetMutationVariables,
-  APITypes.CreateStockAssetMutation
->;
 export const createUserInfo = /* GraphQL */ `mutation CreateUserInfo(
   $condition: ModelUserInfoConditionInput
   $input: CreateUserInfoInput!
 ) {
   createUserInfo(condition: $condition, input: $input) {
+    asset
     character {
       __typename
     }
@@ -105,85 +32,12 @@ export const createUserInfo = /* GraphQL */ `mutation CreateUserInfo(
   APITypes.CreateUserInfoMutationVariables,
   APITypes.CreateUserInfoMutation
 >;
-export const deleteAsset = /* GraphQL */ `mutation DeleteAsset(
-  $condition: ModelAssetConditionInput
-  $input: DeleteAssetInput!
-) {
-  deleteAsset(condition: $condition, input: $input) {
-    createdAt
-    id
-    owner
-    savingAsset {
-      nextToken
-      __typename
-    }
-    stockAsset {
-      nextToken
-      __typename
-    }
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteAssetMutationVariables,
-  APITypes.DeleteAssetMutation
->;
-export const deleteSavingAsset = /* GraphQL */ `mutation DeleteSavingAsset(
-  $condition: ModelSavingAssetConditionInput
-  $input: DeleteSavingAssetInput!
-) {
-  deleteSavingAsset(condition: $condition, input: $input) {
-    asset {
-      createdAt
-      id
-      owner
-      updatedAt
-      __typename
-    }
-    balance
-    createdAt
-    id
-    name
-    owner
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteSavingAssetMutationVariables,
-  APITypes.DeleteSavingAssetMutation
->;
-export const deleteStockAsset = /* GraphQL */ `mutation DeleteStockAsset(
-  $condition: ModelStockAssetConditionInput
-  $input: DeleteStockAssetInput!
-) {
-  deleteStockAsset(condition: $condition, input: $input) {
-    amount
-    asset {
-      createdAt
-      id
-      owner
-      updatedAt
-      __typename
-    }
-    createdAt
-    id
-    name
-    owner
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteStockAssetMutationVariables,
-  APITypes.DeleteStockAssetMutation
->;
 export const deleteUserInfo = /* GraphQL */ `mutation DeleteUserInfo(
   $condition: ModelUserInfoConditionInput
   $input: DeleteUserInfoInput!
 ) {
   deleteUserInfo(condition: $condition, input: $input) {
+    asset
     character {
       __typename
     }
@@ -202,85 +56,12 @@ export const deleteUserInfo = /* GraphQL */ `mutation DeleteUserInfo(
   APITypes.DeleteUserInfoMutationVariables,
   APITypes.DeleteUserInfoMutation
 >;
-export const updateAsset = /* GraphQL */ `mutation UpdateAsset(
-  $condition: ModelAssetConditionInput
-  $input: UpdateAssetInput!
-) {
-  updateAsset(condition: $condition, input: $input) {
-    createdAt
-    id
-    owner
-    savingAsset {
-      nextToken
-      __typename
-    }
-    stockAsset {
-      nextToken
-      __typename
-    }
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateAssetMutationVariables,
-  APITypes.UpdateAssetMutation
->;
-export const updateSavingAsset = /* GraphQL */ `mutation UpdateSavingAsset(
-  $condition: ModelSavingAssetConditionInput
-  $input: UpdateSavingAssetInput!
-) {
-  updateSavingAsset(condition: $condition, input: $input) {
-    asset {
-      createdAt
-      id
-      owner
-      updatedAt
-      __typename
-    }
-    balance
-    createdAt
-    id
-    name
-    owner
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateSavingAssetMutationVariables,
-  APITypes.UpdateSavingAssetMutation
->;
-export const updateStockAsset = /* GraphQL */ `mutation UpdateStockAsset(
-  $condition: ModelStockAssetConditionInput
-  $input: UpdateStockAssetInput!
-) {
-  updateStockAsset(condition: $condition, input: $input) {
-    amount
-    asset {
-      createdAt
-      id
-      owner
-      updatedAt
-      __typename
-    }
-    createdAt
-    id
-    name
-    owner
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateStockAssetMutationVariables,
-  APITypes.UpdateStockAssetMutation
->;
 export const updateUserInfo = /* GraphQL */ `mutation UpdateUserInfo(
   $condition: ModelUserInfoConditionInput
   $input: UpdateUserInfoInput!
 ) {
   updateUserInfo(condition: $condition, input: $input) {
+    asset
     character {
       __typename
     }

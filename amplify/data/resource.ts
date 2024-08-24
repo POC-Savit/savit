@@ -3,9 +3,6 @@ import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 import {
   allItemList
 } from '../functions/item/resource'
-import { Asset } from "./asset/Asset";
-import { StockAsset } from "./asset/StockAsset";
-import { SavingAsset } from "./asset/SavingAsset";
 import { UserInfo } from "./user/UserInfo";
 import { signUpHook } from "../auth/sign-up-hook/resource";
 
@@ -18,12 +15,7 @@ specifies that any user authenticated via an API key can "create", "read",
 const schema = a.schema({
    // UserInformation
     UserInfo,
-
-    // Asset
-    Asset,
-    StockAsset,
-    SavingAsset,
-
+  
     allItem: a
       .query()
       .returns(a.json())
