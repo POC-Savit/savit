@@ -32,6 +32,15 @@ export const icon = style({
   position: 'absolute',
   top: '50%',
   left: '50%',
+  zIndex: 2,
+  width: '36px',
+  height: '36px',
   color: '#fff',
   transform: 'translate(-50%, -50%)',
 })
+
+export const selectedImage = style([
+  {
+    opacity: 0.5,
+  },
+])

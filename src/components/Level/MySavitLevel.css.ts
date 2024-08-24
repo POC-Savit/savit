@@ -31,6 +31,7 @@ export const imageBox = style({
 export const image = style({
   width: '100%',
   height: '100%',
+  objectFit: 'contain',
 })
 
 export const levelBox = style({

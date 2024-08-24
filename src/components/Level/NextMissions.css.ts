@@ -21,6 +21,7 @@ export const title = style({
 export const mission = style({
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
   fontSize: '16px',
   fontStyle: 'normal',
   fontWeight: '500',
@@ -33,4 +34,12 @@ export const missionLeft = style({
   display: 'flex',
   gap: '8px',
   alignItems: 'center',
+})
+
+export const missionRight = style({
+  fontSize: '14px',
+  fontStyle: 'normal',
+  fontWeight: '600',
+  lineHeight: 'normal',
+  letterSpacing: '-0.56px',
 })

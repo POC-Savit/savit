@@ -14,6 +14,8 @@ import { ObjectType } from 'type-util'
 
 import MiniSquareButton from '~/components/common/MiniSquareButton'
 import BaseBody from '~/components/models/Body/BaseBody'
+import Bomb from '~/components/models/Event/Bomb'
+import UFO from '~/components/models/Event/UFO'
 import Band from '~/components/models/Face/Band'
 import Bubble from '~/components/models/Face/Bubble'
 import Earphone from '~/components/models/Face/Earphone'
@@ -54,6 +56,13 @@ const FACE_ITEM = {
   Headphones: <Headphones />,
   Sunglasses: <Sunglasses />,
 } as ObjectType<ReactElement>
+
+const EVENT_ITEM = {
+  Bomb: <Bomb />,
+  UFO: <UFO />,
+} as ObjectType<ReactElement>
+
+const EVENT_ITEM_ARR = Object.keys(EVENT_ITEM)
 
 const ShowRoomNormal = () => {
   const { push } = useFlow()
@@ -118,6 +127,8 @@ const Inner = () => {
   const headItem = useAtomValue(Character.headItem)
   const faceItem = useAtomValue(Character.faceItem)
 
+  const [eventStep, setEventStep] = useState(2)
+
   useEffect(() => {
     function cameraAnimate() {
       if (ref.current) {
@@ -172,13 +183,17 @@ const Inner = () => {
         <Select enabled={isOutline}>
           <group
             castShadow
-            onClick={() => setIsClick((prev) => !prev)}
+            onClick={() => {
+              setIsClick((prev) => !prev)
+              setEventStep((prev) => (prev + 1) % 2)
+            }}
             onPointerOut={() => setIsClick(false)}
             receiveShadow
           >
             <BaseBody />
             {headItem && HEAD_ITEM[headItem]}
             {faceItem && FACE_ITEM[faceItem]}
+            {eventStep !== 2 && EVENT_ITEM[EVENT_ITEM_ARR[eventStep]]}
           </group>
         </Select>
       </Selection>
