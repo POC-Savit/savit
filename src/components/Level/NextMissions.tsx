@@ -1,6 +1,6 @@
 import { receive } from '@stackflow/compat-await-push'
-import { useAtom, useSetAtom } from 'jotai'
-import { useEffect, useState } from 'react'
+import { useSetAtom } from 'jotai'
+import { useState } from 'react'
 import Confetti from 'react-confetti'
 import { type SavitMission } from 'types/SavitMission'
 
