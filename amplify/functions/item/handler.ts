@@ -52,7 +52,7 @@ export const handler: Handler = async (event, context): Promise<string> => {
       .then(resp => resp?.data?.getUserInfo as Schema["UserInfo"]["type"]);
       
       if (!userInfo) return ''
-      
+    console.log(userInfo.character?.own?.face, userInfo.character?.own?.head)
     return JSON.stringify([ 
         ...[
             { name: 'BeachHat', price: 50, type: ItemType.HEAD},
