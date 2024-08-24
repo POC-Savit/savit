@@ -14,7 +14,7 @@
     "user_verification_types": [
       "email"
     ],
-    "mfa_configuration": "OFF",
+    "mfa_configuration": "NONE",
     "password_policy": {
       "min_length": 8,
       "require_numbers": true,
@@ -105,6 +105,10 @@
       "enums": {},
       "nonModels": {}
     }
+  },
+  "storage": {
+    "aws_region": "ap-northeast-2",
+    "bucket_name": "amplify-d3atq1ucbtldk2-main-br-savitbucketabca863f-4anulnpjz6ie"
   },
   "version": "1"
 }
