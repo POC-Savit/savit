@@ -303,11 +303,11 @@ export type DeleteAssetInput = {
 };
 
 export type DeleteSavingAssetInput = {
-  owner: string,
+  id: string,
 };
 
 export type DeleteStockAssetInput = {
-  owner: string,
+  id: string,
 };
 
 export type DeleteUserInfoInput = {
@@ -320,16 +320,16 @@ export type UpdateAssetInput = {
 
 export type UpdateSavingAssetInput = {
   balance?: number | null,
-  id?: string | null,
+  id: string,
   name?: string | null,
-  owner: string,
+  owner?: string | null,
 };
 
 export type UpdateStockAssetInput = {
   amount?: number | null,
-  id?: string | null,
+  id: string,
   name?: string | null,
-  owner: string,
+  owner?: string | null,
 };
 
 export type UpdateUserInfoInput = {
@@ -373,7 +373,7 @@ export type ModelSubscriptionSavingAssetFilterInput = {
   id?: ModelSubscriptionStringInput | null,
   name?: ModelSubscriptionStringInput | null,
   or?: Array< ModelSubscriptionSavingAssetFilterInput | null > | null,
-  owner?: ModelStringInput | null,
+  owner?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
 };
 
@@ -396,7 +396,7 @@ export type ModelSubscriptionStockAssetFilterInput = {
   id?: ModelSubscriptionStringInput | null,
   name?: ModelSubscriptionStringInput | null,
   or?: Array< ModelSubscriptionStockAssetFilterInput | null > | null,
-  owner?: ModelStringInput | null,
+  owner?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
 };
 
@@ -458,7 +458,7 @@ export type GetAssetQuery = {
 };
 
 export type GetSavingAssetQueryVariables = {
-  owner: string,
+  id: string,
 };
 
 export type GetSavingAssetQuery = {
@@ -481,7 +481,7 @@ export type GetSavingAssetQuery = {
 };
 
 export type GetStockAssetQueryVariables = {
-  owner: string,
+  id: string,
 };
 
 export type GetStockAssetQuery = {
@@ -548,9 +548,9 @@ export type ListAssetsQuery = {
 
 export type ListSavingAssetsQueryVariables = {
   filter?: ModelSavingAssetFilterInput | null,
+  id?: string | null,
   limit?: number | null,
   nextToken?: string | null,
-  owner?: string | null,
   sortDirection?: ModelSortDirection | null,
 };
 
@@ -572,9 +572,9 @@ export type ListSavingAssetsQuery = {
 
 export type ListStockAssetsQueryVariables = {
   filter?: ModelStockAssetFilterInput | null,
+  id?: string | null,
   limit?: number | null,
   nextToken?: string | null,
-  owner?: string | null,
   sortDirection?: ModelSortDirection | null,
 };
 
@@ -922,7 +922,6 @@ export type OnCreateAssetSubscription = {
 
 export type OnCreateSavingAssetSubscriptionVariables = {
   filter?: ModelSubscriptionSavingAssetFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnCreateSavingAssetSubscription = {
@@ -946,7 +945,6 @@ export type OnCreateSavingAssetSubscription = {
 
 export type OnCreateStockAssetSubscriptionVariables = {
   filter?: ModelSubscriptionStockAssetFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnCreateStockAssetSubscription = {
@@ -1015,7 +1013,6 @@ export type OnDeleteAssetSubscription = {
 
 export type OnDeleteSavingAssetSubscriptionVariables = {
   filter?: ModelSubscriptionSavingAssetFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnDeleteSavingAssetSubscription = {
@@ -1039,7 +1036,6 @@ export type OnDeleteSavingAssetSubscription = {
 
 export type OnDeleteStockAssetSubscriptionVariables = {
   filter?: ModelSubscriptionStockAssetFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnDeleteStockAssetSubscription = {
@@ -1108,7 +1104,6 @@ export type OnUpdateAssetSubscription = {
 
 export type OnUpdateSavingAssetSubscriptionVariables = {
   filter?: ModelSubscriptionSavingAssetFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnUpdateSavingAssetSubscription = {
@@ -1132,7 +1127,6 @@ export type OnUpdateSavingAssetSubscription = {
 
 export type OnUpdateStockAssetSubscriptionVariables = {
   filter?: ModelSubscriptionStockAssetFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnUpdateStockAssetSubscription = {

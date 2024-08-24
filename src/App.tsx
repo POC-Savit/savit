@@ -1,12 +1,9 @@
-import { generate } from 'random-words'
-
 import * as css from './App.css'
 import { useSignIn } from './hooks/login.hook'
 import { Stack } from './stackflow'
-import { v4 as uuid } from 'uuid'
 
 function App() {
-  const userInfo = useSignIn(`${uuid()}@naver.com`)
+  const userInfo = useSignIn()
   console.log(userInfo)
   
   return (

@@ -2,6 +2,7 @@ import { Schema } from 'amplify/data/resource'
 import { generateClient } from 'aws-amplify/api'
 import { getCurrentUser, signIn, signUp } from 'aws-amplify/auth'
 import { generate } from 'random-words'
+import { v4 as uuid} from 'uuid'
 import { useEffect, useState } from 'react'
 
 const client = generateClient<Schema>({
@@ -17,7 +18,8 @@ const autoSignIn = (userName: string, password: string) => {
     .then(resp => resp.isSignedIn)
 }
 
-export const useSignIn = (userName: string) => {
+const userName = `${uuid()}@naver.com`
+export const useSignIn = () => {
     const [userInfo, setUser] = useState<Schema["UserInfo"]["type"]>()
     const password = (generate(5) as string[]).join('')
     

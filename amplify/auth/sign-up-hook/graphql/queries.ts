@@ -30,8 +30,8 @@ export const getAsset = /* GraphQL */ `query GetAsset($id: String!) {
   }
 }
 ` as GeneratedQuery<APITypes.GetAssetQueryVariables, APITypes.GetAssetQuery>;
-export const getSavingAsset = /* GraphQL */ `query GetSavingAsset($owner: String!) {
-  getSavingAsset(owner: $owner) {
+export const getSavingAsset = /* GraphQL */ `query GetSavingAsset($id: String!) {
+  getSavingAsset(id: $id) {
     asset {
       createdAt
       id
@@ -52,8 +52,8 @@ export const getSavingAsset = /* GraphQL */ `query GetSavingAsset($owner: String
   APITypes.GetSavingAssetQueryVariables,
   APITypes.GetSavingAssetQuery
 >;
-export const getStockAsset = /* GraphQL */ `query GetStockAsset($owner: String!) {
-  getStockAsset(owner: $owner) {
+export const getStockAsset = /* GraphQL */ `query GetStockAsset($id: String!) {
+  getStockAsset(id: $id) {
     amount
     asset {
       createdAt
@@ -125,16 +125,16 @@ export const listAssets = /* GraphQL */ `query ListAssets(
 >;
 export const listSavingAssets = /* GraphQL */ `query ListSavingAssets(
   $filter: ModelSavingAssetFilterInput
+  $id: String
   $limit: Int
   $nextToken: String
-  $owner: String
   $sortDirection: ModelSortDirection
 ) {
   listSavingAssets(
     filter: $filter
+    id: $id
     limit: $limit
     nextToken: $nextToken
-    owner: $owner
     sortDirection: $sortDirection
   ) {
     items {
@@ -156,16 +156,16 @@ export const listSavingAssets = /* GraphQL */ `query ListSavingAssets(
 >;
 export const listStockAssets = /* GraphQL */ `query ListStockAssets(
   $filter: ModelStockAssetFilterInput
+  $id: String
   $limit: Int
   $nextToken: String
-  $owner: String
   $sortDirection: ModelSortDirection
 ) {
   listStockAssets(
     filter: $filter
+    id: $id
     limit: $limit
     nextToken: $nextToken
-    owner: $owner
     sortDirection: $sortDirection
   ) {
     items {

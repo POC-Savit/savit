@@ -34,9 +34,8 @@ export const onCreateAsset = /* GraphQL */ `subscription OnCreateAsset(
 >;
 export const onCreateSavingAsset = /* GraphQL */ `subscription OnCreateSavingAsset(
   $filter: ModelSubscriptionSavingAssetFilterInput
-  $owner: String
 ) {
-  onCreateSavingAsset(filter: $filter, owner: $owner) {
+  onCreateSavingAsset(filter: $filter) {
     asset {
       createdAt
       id
@@ -59,9 +58,8 @@ export const onCreateSavingAsset = /* GraphQL */ `subscription OnCreateSavingAss
 >;
 export const onCreateStockAsset = /* GraphQL */ `subscription OnCreateStockAsset(
   $filter: ModelSubscriptionStockAssetFilterInput
-  $owner: String
 ) {
-  onCreateStockAsset(filter: $filter, owner: $owner) {
+  onCreateStockAsset(filter: $filter) {
     amount
     asset {
       createdAt
@@ -131,9 +129,8 @@ export const onDeleteAsset = /* GraphQL */ `subscription OnDeleteAsset(
 >;
 export const onDeleteSavingAsset = /* GraphQL */ `subscription OnDeleteSavingAsset(
   $filter: ModelSubscriptionSavingAssetFilterInput
-  $owner: String
 ) {
-  onDeleteSavingAsset(filter: $filter, owner: $owner) {
+  onDeleteSavingAsset(filter: $filter) {
     asset {
       createdAt
       id
@@ -156,9 +153,8 @@ export const onDeleteSavingAsset = /* GraphQL */ `subscription OnDeleteSavingAss
 >;
 export const onDeleteStockAsset = /* GraphQL */ `subscription OnDeleteStockAsset(
   $filter: ModelSubscriptionStockAssetFilterInput
-  $owner: String
 ) {
-  onDeleteStockAsset(filter: $filter, owner: $owner) {
+  onDeleteStockAsset(filter: $filter) {
     amount
     asset {
       createdAt
@@ -228,9 +224,8 @@ export const onUpdateAsset = /* GraphQL */ `subscription OnUpdateAsset(
 >;
 export const onUpdateSavingAsset = /* GraphQL */ `subscription OnUpdateSavingAsset(
   $filter: ModelSubscriptionSavingAssetFilterInput
-  $owner: String
 ) {
-  onUpdateSavingAsset(filter: $filter, owner: $owner) {
+  onUpdateSavingAsset(filter: $filter) {
     asset {
       createdAt
       id
@@ -253,9 +248,8 @@ export const onUpdateSavingAsset = /* GraphQL */ `subscription OnUpdateSavingAss
 >;
 export const onUpdateStockAsset = /* GraphQL */ `subscription OnUpdateStockAsset(
   $filter: ModelSubscriptionStockAssetFilterInput
-  $owner: String
 ) {
-  onUpdateStockAsset(filter: $filter, owner: $owner) {
+  onUpdateStockAsset(filter: $filter) {
     amount
     asset {
       createdAt

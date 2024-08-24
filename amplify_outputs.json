@@ -49,6 +49,13 @@
               "isRequired": false,
               "attributes": []
             },
+            "owner": {
+              "name": "owner",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
             "userName": {
               "name": "userName",
               "isArray": false,
@@ -109,7 +116,7 @@
                 "rules": [
                   {
                     "provider": "userPools",
-                    "ownerField": "email",
+                    "ownerField": "owner",
                     "allow": "owner",
                     "identityClaim": "cognito:username",
                     "operations": [
@@ -137,27 +144,6 @@
               "isArray": false,
               "type": "String",
               "isRequired": true,
-              "attributes": []
-            },
-            "owner": {
-              "name": "owner",
-              "isArray": false,
-              "type": "String",
-              "isRequired": true,
-              "attributes": []
-            },
-            "name": {
-              "name": "name",
-              "isArray": false,
-              "type": "String",
-              "isRequired": true,
-              "attributes": []
-            },
-            "amount": {
-              "name": "amount",
-              "isArray": false,
-              "type": "Int",
-              "isRequired": false,
               "attributes": []
             },
             "stockAsset": {
@@ -333,10 +319,8 @@
               "properties": {
                 "rules": [
                   {
-                    "provider": "userPools",
-                    "ownerField": "owner",
-                    "allow": "owner",
-                    "identityClaim": "cognito:username",
+                    "allow": "public",
+                    "provider": "apiKey",
                     "operations": [
                       "create",
                       "update",
@@ -385,13 +369,6 @@
               "isRequired": false,
               "attributes": []
             },
-            "createdAt": {
-              "name": "createdAt",
-              "isArray": false,
-              "type": "AWSDate",
-              "isRequired": false,
-              "attributes": []
-            },
             "asset": {
               "name": "asset",
               "isArray": false,
@@ -406,6 +383,14 @@
                   "owner"
                 ]
               }
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
             },
             "updatedAt": {
               "name": "updatedAt",
@@ -436,10 +421,8 @@
               "properties": {
                 "rules": [
                   {
-                    "provider": "userPools",
-                    "ownerField": "owner",
-                    "allow": "owner",
-                    "identityClaim": "cognito:username",
+                    "allow": "public",
+                    "provider": "apiKey",
                     "operations": [
                       "create",
                       "update",
@@ -533,10 +516,6 @@
         }
       }
     }
-  },
-  "storage": {
-    "aws_region": "ap-northeast-2",
-    "bucket_name": "amplify-d3atq1ucbtldk2-main-br-savitbucketabca863f-4anulnpjz6ie"
   },
   "version": "1"
 }
