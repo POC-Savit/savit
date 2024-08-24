@@ -1,4 +1,6 @@
+import { send } from '@stackflow/compat-await-push'
 import { Modal } from '@stackflow/plugin-basic-ui'
+import { useActivity } from '@stackflow/react'
 import MyAssetImg from 'public/LevelImages/myAsset.png'
 import { useLayoutEffect, useRef, useState } from 'react'
 import { MOCK_QUIZ } from 'types/quiz'
@@ -20,6 +22,9 @@ const QuizModal = ({ params: { quizId } }: QuizModalProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const { pop } = useFlow()
+  const { id } = useActivity()
+
+  const isCorrectRef = useRef<boolean>(false)
 
   useLayoutEffect(() => {
     if (containerRef.current) {
@@ -29,21 +34,26 @@ const QuizModal = ({ params: { quizId } }: QuizModalProps) => {
   })
 
   const handleSubmited = (isCorrect: boolean) => {
-    console.log('isCorrect', isCorrect)
     setIsSubmitted(true)
+    isCorrectRef.current = isCorrect
+    console.log('isCorrect', isCorrect)
   }
 
   const handleClose = () => {
     pop()
+    send({
+      activityId: id,
+      data: {
+        isCorrect: isCorrectRef.current,
+      },
+    })
   }
 
   return (
     <Modal
       borderRadius="36px"
       dimBackgroundColor="rgba(0, 0, 0, 0.5)"
-      // onOutsideClick={(e) => {
-      //   e.preventDefault()
-      // }}
+      onOutsideClick={handleClose}
     >
       <div className={css.container} ref={containerRef}>
         <div className={css.titleArea}>

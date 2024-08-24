@@ -11,8 +11,6 @@ interface QuestionProps {
 const Question = ({ quiz, onSubmited }: QuestionProps) => {
   const isOX = quiz.choices.length === 2
 
-  console.log('quiz', quiz)
-
   const handleAnswerButtonClick = (answerIdx: number) => {
     const isCorrect = quiz.answerIdx === answerIdx
 
