@@ -84,7 +84,7 @@ const banks = ['kb', 'kakao', 'hana', 'toss']
 
 const fetchSavingAsset = (owner: string): SavingAsset => ({
   name: `${banks[randomInt(4)]}`,
-  balance: 10000 + randomInt(100000000),
+  balance: randomInt(70),
 })
 
 const fetchStockAsset = (owner: string): StockAsset=> ({
