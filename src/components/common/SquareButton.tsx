@@ -15,7 +15,13 @@ function SquareButton({ title, isSelected, ...props }: Props) {
       type="button"
     >
       {isSelected && <IconCheck className={css.icon} />}
-      {title}
+      <img
+        alt={title}
+        className={isSelected ? css.selectedImage : ''}
+        height="70px"
+        src={`/${title}.png`}
+        width="70px"
+      />
     </button>
   )
 }
