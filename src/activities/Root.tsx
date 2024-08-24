@@ -1,9 +1,12 @@
 import { AppScreen } from '@stackflow/plugin-basic-ui'
+import { useSetAtom } from 'jotai'
+import { useEffect } from 'react'
 
 import IconSetting from '~/asset/icons/IconSetting'
 import IconShare from '~/asset/icons/IconShare'
 import IconShop from '~/asset/icons/IconShop'
 import IconStair from '~/asset/icons/IconStair'
+import { User } from '~/stores'
 import ShowRoomNormal from '~/template/3d/ShowRoomNormal'
 
 import * as css from './Root.css'
@@ -14,6 +17,11 @@ function Root() {
       <img height="20px" src="/logo.png" width="83.914px" />
     </button>
   )
+
+  const setCurrentLevel = useSetAtom(User.currentLevel)
+  useEffect(() => {
+    setCurrentLevel(3)
+  }, [])
 
   return (
     <AppScreen appBar={{ renderLeft: Logo, backgroundColor: '#E3ECFF' }}>

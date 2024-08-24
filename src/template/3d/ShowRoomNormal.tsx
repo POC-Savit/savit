@@ -9,16 +9,58 @@ import {
 import gsap from 'gsap'
 import { useEffect, useRef, useState } from 'react'
 
+import MiniSquareButton from '~/components/common/MiniSquareButton'
 import { BaseBody } from '~/components/models/Body/BaseBody'
+import { useFlow } from '~/stackflow'
 
 import * as css from './ShowRoom.css'
 
 const ShowRoomNormal = () => {
+  const { push } = useFlow()
+
+  const handleStairClick = () => {
+    push('Level', {})
+  }
+
+  const handleShopClick = () => {
+    // push('Shop', {})
+  }
+
   return (
     <div className={css.showRoom}>
       <Canvas camera={{ position: [0, 0, 3], fov: 60 }} shadows>
         <Inner />
       </Canvas>
+      <MiniSquareButton
+        iconType="Stair"
+        onClick={handleStairClick}
+        style={{
+          position: 'absolute',
+          bottom: '15px',
+          left: '20px',
+        }}
+        title="3F"
+      />
+
+      <MiniSquareButton
+        iconType="Share"
+        onClick={handleShopClick}
+        style={{
+          position: 'absolute',
+          bottom: '15px',
+          right: '72px',
+        }}
+      />
+
+      <MiniSquareButton
+        iconType="Shop"
+        onClick={handleShopClick}
+        style={{
+          position: 'absolute',
+          bottom: '15px',
+          right: '20px',
+        }}
+      />
     </div>
   )
 }

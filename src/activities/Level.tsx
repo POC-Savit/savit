@@ -1,4 +1,5 @@
 import { AppScreen } from '@stackflow/plugin-basic-ui'
+import { useAtomValue } from 'jotai'
 import { MockSavitLevels } from 'types/SavitLevel'
 import { MockSavitMissions } from 'types/SavitMission'
 
@@ -7,15 +8,15 @@ import AllLevels from '~/components/Level/AllLevels'
 import MySavitLevel from '~/components/Level/MySavitLevel'
 import NextMissions from '~/components/Level/NextMissions'
 import { useFlow } from '~/stackflow'
+import { User } from '~/stores'
 
 import * as css from './Level.css'
 
 interface LevelProps {}
 
-const CURRENT_LEVEL = 3
-
 const Level = ({}: LevelProps) => {
   const { pop } = useFlow()
+  const currentLevel = useAtomValue(User.currentLevel)
 
   return (
     <AppScreen
@@ -31,15 +32,15 @@ const Level = ({}: LevelProps) => {
     >
       <div className={css.container}>
         <div className={css.topLayer}>
-          <MySavitLevel myLevel={CURRENT_LEVEL} />
+          <MySavitLevel myLevel={currentLevel} />
           <NextMissions
-            nextLevel={CURRENT_LEVEL + 1}
+            nextLevel={currentLevel + 1}
             nextMissions={MockSavitMissions}
           />
         </div>
         <div className={css.divider} />
         <div className={css.bottomLayer}>
-          <AllLevels allSavitLevels={MockSavitLevels} myLevel={CURRENT_LEVEL} />
+          <AllLevels allSavitLevels={MockSavitLevels} myLevel={currentLevel} />
         </div>
       </div>
     </AppScreen>
