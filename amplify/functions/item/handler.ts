@@ -44,14 +44,16 @@ Amplify.configure(output)
 //     );
 
 export const handler: Handler = async (event, context): Promise<string> => {
-
+    console.log('start')
     const client = generateClient<Schema>({});
+    console.log('start1')
     const userInfo = await client.graphql({
         query: getUserInfo,
         variables: {
             id: ''
         },
       });
+    console.log('start2')
     console.log(userInfo)
     return JSON.stringify({
         head: [
