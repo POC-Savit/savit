@@ -8,9 +8,10 @@ import GrouppedLevels from './GrouppedLevels'
 
 interface AllLevelsProps {
   allSavitLevels: SavitLevel[]
+  myLevel: number
 }
 
-const AllLevels = ({ allSavitLevels }: AllLevelsProps) => {
+const AllLevels = ({ allSavitLevels, myLevel }: AllLevelsProps) => {
   const groupedLevels = sequenceGroupPartition(
     allSavitLevels,
     (mission) => mission.group.key
@@ -23,6 +24,7 @@ const AllLevels = ({ allSavitLevels }: AllLevelsProps) => {
         <GrouppedLevels
           key={groupedLevels.groupType}
           levels={groupedLevels.list}
+          myLevel={myLevel}
         />
       ))}
     </div>

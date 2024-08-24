@@ -39,7 +39,7 @@ const Level = ({}: LevelProps) => {
         </div>
         <div className={css.divider} />
         <div className={css.bottomLayer}>
-          <AllLevels allSavitLevels={MockSavitLevels} />
+          <AllLevels allSavitLevels={MockSavitLevels} myLevel={CURRENT_LEVEL} />
         </div>
       </div>
     </AppScreen>
