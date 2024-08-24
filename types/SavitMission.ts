@@ -9,7 +9,6 @@ export type SavitMission =
       type: 'quiz'
       text: string
       currentQuizCount: number
-      totalQuizCount: number
       quizsIds: string[]
     }
 

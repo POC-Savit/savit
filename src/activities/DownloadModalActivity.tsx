@@ -4,7 +4,7 @@ import { useAtomValue } from 'jotai'
 import IconDownload from '~/asset/icons/IconDownload'
 import IconLogo from '~/asset/icons/IconSavit'
 import IconStair from '~/asset/icons/IconStair'
-import { UI } from '~/stores'
+import { UI, User } from '~/stores'
 
 import * as css from './DownloadModalActivity.css'
 
@@ -12,6 +12,7 @@ interface DownloadModalActivityProps {}
 
 const DownloadModalActivity = ({}: DownloadModalActivityProps) => {
   const currentImage = useAtomValue(UI.currentImage)
+  const currentLevel = useAtomValue(User.currentLevel)
 
   return (
     <>
@@ -23,7 +24,7 @@ const DownloadModalActivity = ({}: DownloadModalActivityProps) => {
           <img className={css.image} src={currentImage} />
           <div className={css.badge}>
             <IconStair className={css.icon} />
-            <div className={css.badgeText}>3F</div>
+            <div className={css.badgeText}>{currentLevel}F</div>
           </div>
           <a
             className={css.button}
