@@ -4,7 +4,7 @@ export const container = style({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   justifyContent: 'space-around',
   width: '100%',
   height: '100%',
