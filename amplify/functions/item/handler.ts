@@ -13,35 +13,34 @@ import {
 import { generateClient } from 'aws-amplify/api';
 import { Schema } from '../../data/resource';
 
-// @ts-ignore
-Amplify.configure(output)
-// Amplify.configure(
-//     {
-//         API: {
-//           GraphQL: {
-//             endpoint: "",//env.AMPLIFY_DATA_GRAPHQL_ENDPOINT,
-//             region: env.AWS_REGION,
-//             defaultAuthMode: "iam",
-//           },
-//         },
-//       },
-//       {
-//         Auth: {
-//           credentialsProvider: {
-//             getCredentialsAndIdentityId: async () => ({
-//               credentials: {
-//                 accessKeyId: env.AWS_ACCESS_KEY_ID,
-//                 secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
-//                 sessionToken: env.AWS_SESSION_TOKEN,
-//               },
-//             }),
-//             clearCredentialsAndIdentityId: () => {
-//               /* noop */
-//             },
-//           },
-//         },
-//       }
-//     );
+Amplify.configure(
+    {
+      API: {
+        GraphQL: {
+          endpoint: process.env.AMPLIFY_DATA_GRAPHQL_ENDPOINT as string,
+          region: process.env.AWS_REGION,
+          defaultAuthMode: "iam",
+        },
+      },
+    },
+    {
+      Auth: {
+        credentialsProvider: {
+          getCredentialsAndIdentityId: async () => ({
+            credentials: {
+              accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
+              secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
+              sessionToken: process.env.AWS_SESSION_TOKEN as string,
+            },
+          }),
+          clearCredentialsAndIdentityId: () => {
+            /* noop */
+          },
+        },
+      },
+    },
+  );
+  
 
 export const handler: Handler = async (event, context): Promise<string> => {
     console.log('start')
