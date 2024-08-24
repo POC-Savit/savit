@@ -14,6 +14,7 @@ const Question = ({ quiz, onSubmited }: QuestionProps) => {
   const handleAnswerButtonClick = (answerIdx: number) => {
     const isCorrect = quiz.answerIdx === answerIdx
 
+    console.log('##quiz.answerIdx === answerIdx', quiz.answerIdx, answerIdx)
     if (onSubmited) {
       onSubmited(isCorrect)
     }

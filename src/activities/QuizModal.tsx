@@ -2,7 +2,7 @@ import { send } from '@stackflow/compat-await-push'
 import { Modal } from '@stackflow/plugin-basic-ui'
 import { useActivity } from '@stackflow/react'
 import MyAssetImg from 'public/LevelImages/myAsset.png'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { MouseEventHandler, useLayoutEffect, useRef, useState } from 'react'
 import { MOCK_QUIZ } from 'types/quiz'
 
 import Question from '~/components/QuizModal/Question'
@@ -39,7 +39,9 @@ const QuizModal = ({ params: { quizId } }: QuizModalProps) => {
     console.log('isCorrect', isCorrect)
   }
 
-  const handleClose = () => {
+  const handleClose: MouseEventHandler<Element> = (e) => {
+    e.preventDefault()
+
     pop()
     send({
       activityId: id,

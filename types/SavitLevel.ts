@@ -48,6 +48,11 @@ export const MockSavitLevels: SavitLevel[] = [
         text: '저축 배분 목표 정하기',
         isComplete: false,
         missionId: '1',
+      },
+      {type: 'quiz',
+        text: 'Lv1 금융지식 퀴즈',
+        currentQuizCount: 0,
+        quizsIds: ['1','2']
       }
     ],
     group: MockLevelGroup.MyAsset
@@ -61,6 +66,12 @@ export const MockSavitLevels: SavitLevel[] = [
         text: '나의 수익 알아보기',
         isComplete: false,
         missionId: 'none',
+      },
+      {
+        type: 'quiz',
+        text: 'Lv2 금융지식 퀴즈',
+        currentQuizCount: 0,
+        quizsIds: ['3', '4'],
       }
     ],
     group: MockLevelGroup.MyAsset
@@ -71,16 +82,15 @@ export const MockSavitLevels: SavitLevel[] = [
     missions: [
       {
         type: 'mission',
-        text: '저축 배분 목표 정하기',
+        text: '나의 소비 알아보기',
         isComplete: false,
         missionId: 'none',
       },
       {
         type: 'quiz',
-        text: '금융지식 퀴즈',
-        currentQuizCount: 1,
-        totalQuizCount: 3,
-        quizsIds: ['1', '2', '3'],
+        text: 'Lv3 금융지식 퀴즈',
+        currentQuizCount: 0,
+        quizsIds: ['5', '6', '7'],
       },
     ],
     group: MockLevelGroup.MyAsset

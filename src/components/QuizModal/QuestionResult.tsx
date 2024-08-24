@@ -10,7 +10,11 @@ const QuestionResult = ({ quiz }: QuestionResultProps) => {
   const answer = quiz.choices[quiz.answerIdx]
   const isOX = quiz.choices.length === 2
 
-  const correct = isOX ? (answer === '0' ? 'O' : 'X') : answer
+  console.log('##answer', answer, typeof answer)
+
+  const correct = isOX ? (answer === '0' || answer === 'O' ? 'O' : 'X') : answer
+
+  console.log('##correct', correct)
 
   return (
     <div className={css.container}>
