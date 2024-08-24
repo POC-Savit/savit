@@ -3,8 +3,8 @@ import { a } from "@aws-amplify/backend"
 
 export const UserInfo = a
     .model({
+    email: a.string(),
     userName: a.string(),
-    id: a.string(),
     character: a.customType({
         own: a.customType({
         face: a.string().array(),
@@ -19,5 +19,5 @@ export const UserInfo = a
     currentLevel: a.integer().required()
     })
     .authorization((allow) => [
-        allow.ownerDefinedIn("id"),
+        allow.ownerDefinedIn("email"),
     ])
