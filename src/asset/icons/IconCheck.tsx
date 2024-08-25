@@ -9,7 +9,7 @@ const IconCheck = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <g clip-path="url(#clip0_211_2943)">
+    <g clipPath="url(#clip0_211_2943)">
       <path
         d="M8.33336 12.6434L15.9934 4.98254L17.1725 6.16088L8.33336 15L3.03003 9.69671L4.20836 8.51838L8.33336 12.6434Z"
         fill="currentColor"
