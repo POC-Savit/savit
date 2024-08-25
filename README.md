@@ -19,8 +19,8 @@ Financial service that gamifies saving and life cycle financial planning.
 ## Showcase
 
 <p align="center">
-<img src="https://github.com/POC-Savit/savit/blob/main/1.gif?raw=true" width="40%"></img>
-<img src="https://github.com/POC-Savit/savit/blob/main/2.gif?raw=true" width="40%"></img>
+<img src="https://github.com/POC-Savit/savit/blob/main/1.gif" width="40%"></img>
+<img src="https://github.com/POC-Savit/savit/blob/main/2.gif" width="40%"></img>
 </p>
 <p align="center">
 <img src="https://private-user-images.githubusercontent.com/17975472/361177832-3e221534-86ac-46c2-b438-3445c16b5a34.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQ1NDU4MzQsIm5iZiI6MTcyNDU0NTUzNCwicGF0aCI6Ii8xNzk3NTQ3Mi8zNjExNzc4MzItM2UyMjE1MzQtODZhYy00NmMyLWI0MzgtMzQ0NWMxNmI1YTM0LmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MjUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODI1VDAwMjUzNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTY3ZTcxZThjMjhkZDA0YWYzNGVlODMwYTQ3ZGNlZWIxYmZkMjc1MjNmYjhjZDJmODBlMzJhMzZiMmJmMzVkY2QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.QVVo9F0-FCGW78W4E0gencItKRCh-kO-3l0c9JduqcY" width="40%"></img>
