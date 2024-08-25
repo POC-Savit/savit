@@ -17,7 +17,7 @@ const AssetConnectBottomSheetActivity =
       <BottomSheet borderRadius="36px">
         <div className={css.container}>
           <div className={css.content}>
-            <h2 className={css.title}>원지님의 저축 자산을 연결해주세요</h2>
+            <h2 className={css.title}>닉네임님의 저축 자산을 연결해주세요</h2>
             <div className={css.subTitle}>
               가지고계신 저축 자산을 바탕으로 세이빗 서비스를 이용하실 수 있어요
             </div>

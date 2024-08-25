@@ -19,6 +19,7 @@ export const toast = style({
   gap: '4px',
   alignItems: 'center',
   justifyContent: 'center',
+  width: 'max-content',
   padding: '12px 20px',
   background: '#FFF',
   borderRadius: '24px',
