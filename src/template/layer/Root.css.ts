@@ -32,6 +32,27 @@ export const icon = style({
   color: '#FFC700',
 })
 
+export const info = style({
+  position: 'fixed',
+  top: '0px',
+  left: '50%',
+  zIndex: 100,
+  display: 'flex',
+  gap: '4px',
+  alignItems: 'center',
+  width: 'max-content',
+  padding: '12px 20px',
+  fontSize: '18px',
+  fontWeight: 600,
+  color: '#191919',
+  letterSpacing: '-0.72px',
+  background: 'rgba(255, 255, 255, 0.70)',
+  borderRadius: '24px',
+  boxShadow: '0px 0px 10px 0px rgba(88, 114, 255, 0.20)',
+  transition: 'all 0.2s ease-in-out',
+  transform: 'translate(-50%, -100%)',
+})
+
 export const stair = style([
   button,
   {

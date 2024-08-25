@@ -52,12 +52,43 @@ const Root = ({}: ShopProps) => {
     ref.current.style.setProperty('transform', `translate(-50%, -100%)`)
   }, [showToast])
 
+  const [showNewsToast, setShowNewsToast] = useState(false)
+  useEffect(() => {
+    if (!showToast) {
+      setTimeout(() => setShowNewsToast(true), 2000)
+    }
+  }, [showToast])
+  const infoRef = useRef<HTMLAnchorElement>(null)
+
+  useEffect(() => {
+    if (!infoRef.current || showToast) {
+      return
+    }
+    if (showNewsToast) {
+      infoRef.current.style.setProperty('transform', `translate(-50%, 50%)`)
+      setTimeout(() => {
+        setShowNewsToast(false)
+      }, 3000)
+      return
+    }
+    infoRef.current.style.setProperty('transform', `translate(-50%, -100%)`)
+  }, [showToast, showNewsToast])
+
   return (
     <div className={css.container}>
       <div className={css.toast} ref={ref}>
         <IconPoint className={css.icon} />
         <span>세이빗머니가 충전됐어요</span>
       </div>
+      <a
+        className={css.info}
+        href="https://news.naver.com/section/101"
+        ref={infoRef}
+        rel="noreferrer"
+        target="_blank"
+      >
+        🚨 오늘의 경제소식이 도착했어요
+      </a>
       <ShowRoomNormal />
       <MiniSquareButton
         className={css.stairShake}
