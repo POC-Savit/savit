@@ -29,8 +29,8 @@ export const IconX = (props: SVGProps<SVGSVGElement>) => (
   >
     <g id="&#235;&#139;&#171;&#234;&#184;&#176;">
       <g id="Group 5">
-        <path d="M40 8L8 40" id="Stroke 1" stroke="#FF5252" stroke-width="4" />
-        <path d="M40 40L8 8" id="Stroke 3" stroke="#FF5252" stroke-width="4" />
+        <path d="M40 8L8 40" id="Stroke 1" stroke="#FF5252" strokeWidth="4" />
+        <path d="M40 40L8 8" id="Stroke 3" stroke="#FF5252" strokeWidth="4" />
       </g>
     </g>
   </svg>

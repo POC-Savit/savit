@@ -12,7 +12,7 @@ const IconBack = (props: SVGProps<SVGSVGElement>) => (
     <path
       d="M15.9997 20L8 12.0003L15.9997 4"
       stroke="currentColor"
-      stroke-width="1.5"
+      strokeWidth="1.5"
     />
   </svg>
 )

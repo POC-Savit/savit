@@ -176,6 +176,7 @@ const Inner = () => {
           attach="shadow-camera"
         />
       </directionalLight>
+
       <Selection>
         <EffectComposer autoClear={false} enabled={true}>
           <Outline blur edgeStrength={50} visibleEdgeColor={0xff0000} />

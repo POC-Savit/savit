@@ -10,6 +10,27 @@ export const container = style([
   },
 ])
 
+export const toast = style({
+  position: 'fixed',
+  top: '0px',
+  left: '50%',
+  zIndex: 100,
+  display: 'inline-flex',
+  gap: '4px',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '12px 20px',
+  background: '#FFF',
+  borderRadius: '24px',
+  boxShadow: '0px 0px 10px 0px rgba(88, 114, 255, 0.20)',
+  transition: 'all 0.2s ease-in-out',
+  transform: 'translate(-50%, -100%)',
+})
+
+export const icon = style({
+  color: '#FFC700',
+})
+
 export const stair = style([
   button,
   {
@@ -64,7 +85,7 @@ const shake = keyframes({
 export const stairShake = style([
   stair,
   {
-    animation: `${shake} 5s`,
+    animation: `${shake} 10s`,
     animationIterationCount: 'infinite',
   },
 ])
