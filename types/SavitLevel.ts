@@ -98,13 +98,39 @@ export const MockSavitLevels: SavitLevel[] = [
   {
     level: 4,
     name: '나의 저축 배분 목표 설정하기',
-    missions: [],
+    missions: [
+      {
+        type: 'mission',
+        text: '저축 배분 목표 정하기',
+        isComplete: false,
+        missionId: '1',
+      },
+      {
+        type: 'quiz',
+        text: 'Lv4 금융지식 퀴즈',
+        currentQuizCount: 0,
+        quizsIds: ['1','2']
+      }
+    ],
     group: MockLevelGroup.MyAsset
   },
   {
     level: 5,
     name: '나의 주거래 은행 정하기',
-    missions: [],
+    missions: [
+      {
+        type: 'mission',
+        text: '주거래 은행 계좌 연동 및 만들기',
+        isComplete: false,
+        missionId: '1',
+      },
+      {
+        type: 'quiz',
+        text: 'Lv5 금융지식 퀴즈',
+        currentQuizCount: 0,
+        quizsIds: ['1','2']
+      }
+    ],
     group: MockLevelGroup.MyAsset
   },
   {
