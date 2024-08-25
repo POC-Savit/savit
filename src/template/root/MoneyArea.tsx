@@ -49,22 +49,22 @@ const MoneyArea = ({}: MoneyAreaProps) => {
         {[
           {
             name: 'kakao',
-            balance: 30,
+            balance: 35,
             title: '26주 적금',
           },
           {
             name: 'hana',
-            balance: 30,
+            balance: 25,
             title: '청년내일저축계좌',
           },
           {
             name: 'toss',
-            balance: 30,
+            balance: 10,
             title: '키워봐요 적금',
           },
           {
             name: 'kb',
-            balance: 30,
+            balance: 50,
             title: 'KB 특별한 적금',
           },
           ...asset,
