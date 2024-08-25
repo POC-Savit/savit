@@ -57,6 +57,7 @@ const ShopActivity = ({}: ShopActivityProps) => {
   const [currentSelected, setCurrentSelected] = useAtom(
     Character.currentSelected
   )
+  const unEquip = useSetAtom(Character.unEquip)
 
   return (
     <AppScreen appBar={{ title: '상점', backgroundColor: '#E3ECFF' }}>
@@ -97,11 +98,7 @@ const ShopActivity = ({}: ShopActivityProps) => {
                     return
                   }
                   if (item.equipped) {
-                    await unequipItem(
-                      item.type === ItemType.HEAD
-                        ? ItemType.HEAD
-                        : ItemType.FACE
-                    )
+                    await unEquip(item.type)
                   } else {
                     await equiItem(item)
                   }
