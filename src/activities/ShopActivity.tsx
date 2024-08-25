@@ -7,7 +7,7 @@ import BuyItemDrawer from '~/components/common/BuyItemDrawer'
 import SquareButton from '~/components/common/SquareButton'
 import Tab from '~/components/common/Tab'
 import Tag from '~/components/common/Tag'
-import { equiItem, unequipItem } from '~/hooks/queris'
+import { equiItem } from '~/hooks/queris'
 import { Character } from '~/stores'
 import Shop from '~/template/layer/Shop'
 
