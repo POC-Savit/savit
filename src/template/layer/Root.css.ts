@@ -1,4 +1,4 @@
-import { keyframes, style } from '@vanilla-extract/css'
+import { style } from '@vanilla-extract/css'
 
 import { button } from '~/components/common/MiniSquareButton.css'
 
@@ -9,6 +9,28 @@ export const container = style([
     height: '300px',
   },
 ])
+
+export const toast = style({
+  position: 'fixed',
+  top: '0px',
+  left: '50%',
+  zIndex: 100,
+  display: 'inline-flex',
+  gap: '4px',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 'max-content',
+  padding: '12px 20px',
+  background: '#FFF',
+  borderRadius: '24px',
+  boxShadow: '0px 0px 10px 0px rgba(88, 114, 255, 0.20)',
+  transition: 'all 0.2s ease-in-out',
+  transform: 'translate(-50%, -100%)',
+})
+
+export const icon = style({
+  color: '#FFC700',
+})
 
 export const stair = style([
   button,
@@ -47,40 +69,22 @@ export const text = style({
   letterSpacing: '-0.72px',
 })
 
-const shake = keyframes({
-  '0%': { transform: 'translate(1px, 1px) rotate(0deg);' },
-  '10%': { transform: 'translate(-1px, -2px) rotate(-1deg);' },
-  '100%': { transform: 'translate(1px, -2px) rotate(-1deg);' },
-  '20%': { transform: 'translate(-3px, 0px) rotate(1deg);' },
-  '30%': { transform: 'translate(3px, 2px) rotate(0deg);' },
-  '40%': { transform: 'translate(1px, -1px) rotate(1deg);' },
-  '50%': { transform: 'translate(-1px, 2px) rotate(-1deg);' },
-  '60%': { transform: 'translate(-3px, 1px) rotate(0deg);' },
-  '70%': { transform: 'translate(3px, 1px) rotate(-1deg);' },
-  '80%': { transform: 'translate(-1px, -1px) rotate(1deg);' },
-  '90%': { transform: 'translate(1px, 2px) rotate(0deg);' },
-})
+// const shake = keyframes({
+//   '0%': { transform: 'translate(1px, 1px) rotate(0deg);' },
+//   '10%': { transform: 'translate(-1px, -2px) rotate(-1deg);' },
+//   '100%': { transform: 'translate(1px, -2px) rotate(-1deg);' },
+//   '20%': { transform: 'translate(-3px, 0px) rotate(1deg);' },
+//   '30%': { transform: 'translate(3px, 2px) rotate(0deg);' },
+//   '40%': { transform: 'translate(1px, -1px) rotate(1deg);' },
+//   '50%': { transform: 'translate(-1px, 2px) rotate(-1deg);' },
+//   '60%': { transform: 'translate(-3px, 1px) rotate(0deg);' },
+//   '70%': { transform: 'translate(3px, 1px) rotate(-1deg);' },
+//   '80%': { transform: 'translate(-1px, -1px) rotate(1deg);' },
+//   '90%': { transform: 'translate(1px, 2px) rotate(0deg);' },
+// })
 
-export const stairShake = style([
-  stair,
-  {
-    animation: `${shake} 5s`,
-    animationIterationCount: 'infinite',
-  },
-])
+export const stairShake = style([stair])
 
-export const shareShake = style([
-  share,
-  {
-    animation: `${shake} 5s`,
-    animationIterationCount: 'infinite',
-  },
-])
+export const shareShake = style([share])
 
-export const shopShake = style([
-  shop,
-  {
-    animation: `${shake} 5s`,
-    animationIterationCount: 'infinite',
-  },
-])
+export const shopShake = style([shop])

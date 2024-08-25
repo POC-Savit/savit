@@ -19,7 +19,7 @@ const DownloadModalActivity = ({}: DownloadModalActivityProps) => {
       <Modal borderRadius="36px" dimBackgroundColor="rgba(0, 0, 0, 0.5)">
         <div className={css.container}>
           <div className={css.title}>
-            <span className={css.titleBold}>원지</span>님의 세이빗
+            <span className={css.titleBold}>닉네임</span>님의 세이빗
           </div>
           <img className={css.image} src={currentImage} />
           <div className={css.badge}>

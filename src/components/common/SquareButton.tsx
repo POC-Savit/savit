@@ -11,14 +11,14 @@ type Props = {
   isHide?: boolean
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
-function SquareButton({
+const SquareButton = ({
   title,
   isSelected,
   isOwned = false,
   price = 20,
   isHide,
   ...props
-}: Props) {
+}: Props) => {
   if (isHide) {
     return null
   }

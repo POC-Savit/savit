@@ -72,7 +72,7 @@ const ShowRoomNormal = () => {
     }
     ref.current.style.setProperty(
       'transform',
-      `translateY(calc(${currentLevel}*300px))`
+      `translateY(calc(${currentLevel - 1}*300px))`
     )
   }, [currentLevel])
 
@@ -176,6 +176,7 @@ const Inner = () => {
           attach="shadow-camera"
         />
       </directionalLight>
+
       <Selection>
         <EffectComposer autoClear={false} enabled={true}>
           <Outline blur edgeStrength={50} visibleEdgeColor={0xff0000} />

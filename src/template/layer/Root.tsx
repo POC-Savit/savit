@@ -1,6 +1,8 @@
 import { useAtomValue, useSetAtom } from 'jotai'
+import { useEffect, useRef, useState } from 'react'
 import CountUp from 'react-countup'
 
+import IconPoint from '~/asset/icons/IconPoint'
 import MiniSquareButton from '~/components/common/MiniSquareButton'
 import { useFlow } from '~/stackflow'
 import { UI, User } from '~/stores'
@@ -27,8 +29,35 @@ const Root = ({}: ShopProps) => {
     push('ShopActivity', {})
   }
 
+  const loginStatus = useAtomValue(UI.loginStatus)
+  const [showToast, setShowToast] = useState(false)
+
+  useEffect(() => {
+    if (loginStatus) {
+      setShowToast(true)
+    }
+  }, [loginStatus])
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!ref.current) {
+      return
+    }
+    if (showToast) {
+      ref.current.style.setProperty('transform', `translate(-50%, 50%)`)
+      setTimeout(() => {
+        setShowToast(false)
+      }, 3000)
+      return
+    }
+    ref.current.style.setProperty('transform', `translate(-50%, -100%)`)
+  }, [showToast])
+
   return (
     <div className={css.container}>
+      <div className={css.toast} ref={ref}>
+        <IconPoint className={css.icon} />
+        <span>세이빗머니가 충전됐어요</span>
+      </div>
       <ShowRoomNormal />
       <MiniSquareButton
         className={css.stairShake}
@@ -38,7 +67,7 @@ const Root = ({}: ShopProps) => {
         <CountUp
           decimal=","
           duration={10}
-          end={currentLevel + 1}
+          end={currentLevel}
           start={1}
           suffix="F"
         >

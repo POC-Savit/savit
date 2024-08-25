@@ -2,8 +2,8 @@ import type { GLTFType } from 'type-util'
 
 import { useGLTF } from '@react-three/drei'
 
-function BaseBody(props: any) {
-  const { nodes, materials } = useGLTF('/BaseBody.glb') as GLTFType
+const BaseBody = (props: any) => {
+  const { nodes, materials } = useGLTF('/Base Body_ver2.glb') as GLTFType
   return (
     <group {...props} dispose={null}>
       <group position={[-0.004, 0.653, 0.378]} scale={0.01}>
@@ -27,7 +27,7 @@ function BaseBody(props: any) {
       <mesh
         castShadow
         geometry={nodes.Body.geometry}
-        material={materials.Base}
+        material={materials['재질.1']}
         position={[0, 0.561, 0]}
         receiveShadow
         scale={0.01}
@@ -36,6 +36,6 @@ function BaseBody(props: any) {
   )
 }
 
-useGLTF.preload('/BaseBody.glb')
+useGLTF.preload('/Base Body_ver2.glb')
 
 export default BaseBody
