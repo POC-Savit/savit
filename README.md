@@ -9,9 +9,7 @@
 >
 > - [ShowCase](#showcase)
 > - [Proect Detail](#project-detail)
-> - [MVP](#mvp)
-> - [Technical Stack](#technical-stack)
-> - [Tech Stack](#tech-stack)
+> - [Technical Stack](#techinal-stack)
 > - [Getting Started](#getting-started)
 
 Financial service that gamifies saving and life cycle financial planning.
@@ -29,9 +27,13 @@ Financial service that gamifies saving and life cycle financial planning.
 
 ## Project Details
 
-![aa](/_doc/Project%20logo_Savit.png)
+![ourlogo](/_doc/Project%20logo_Savit.png)
 
 Propose a service that improves millennials saving habits and financial knowledge with customizing their own character using in-service money linked to real savings event data, and level-up missions based on life-cycle financial planning
+
+## Technical Stack
+
+![technicalstack](https://private-user-images.githubusercontent.com/16266103/361180567-27363168-10b3-4e5d-8c72-92c2bb7fa99b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQ1NTIyOTUsIm5iZiI6MTcyNDU1MTk5NSwicGF0aCI6Ii8xNjI2NjEwMy8zNjExODA1NjctMjczNjMxNjgtMTBiMy00ZTVkLThjNzItOTJjMmJiN2ZhOTliLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MjUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODI1VDAyMTMxNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU2OTlhZmEzMmVhYjVhZTQ1MTExMDQ5Zjg2MWNmMzQyZmY0OTJiNmRkMzJiODEzNDY3NDcwZTFiMTYwNDc5ZGYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.zhv7i1UrODd_PPbhhBN81BdPfbhLMuu-WPzETK9Vy6k)
 
 ## Getting Started
 
