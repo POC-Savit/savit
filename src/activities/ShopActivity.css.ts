@@ -14,8 +14,9 @@ export const tags = style({
 })
 
 export const buttons = style({
-  display: 'flex',
-  flexWrap: 'wrap',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(100px, auto))',
+  gap: '20px 10px',
   rowGap: '20px',
   justifyContent: 'space-between',
   maxHeight: 'calc(100% - 446.5px)',
