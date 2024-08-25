@@ -14,9 +14,6 @@ export const button = style({
   background: 'rgb(88,114,255, 0.2)',
   borderRadius: '10px',
   transition: 'all 0.3s ease-in-out',
-  ':hover': {
-    transform: 'scale(1.1)',
-  },
   ':active': {
     opacity: 0.1,
   },

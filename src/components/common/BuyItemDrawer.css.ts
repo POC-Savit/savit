@@ -46,9 +46,6 @@ export const button = style({
   background: '#5872FF',
   borderRadius: '20px',
   transition: 'all 0.2s ease-in-out',
-  ':hover': {
-    transform: 'scale(1.1)',
-  },
 })
 
 export const buttonText = style({

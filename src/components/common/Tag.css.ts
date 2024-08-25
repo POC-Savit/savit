@@ -12,9 +12,6 @@ export const container = style([
     background: '#F4F5FA',
     borderRadius: '20px',
     transition: 'all 0.2s ease-in-out',
-    ':hover': {
-      transform: 'scale(1.1)',
-    },
   },
 ])
 

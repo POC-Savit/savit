@@ -82,26 +82,8 @@ const shake = keyframes({
   '90%': { transform: 'translate(1px, 2px) rotate(0deg);' },
 })
 
-export const stairShake = style([
-  stair,
-  {
-    animation: `${shake} 10s`,
-    animationIterationCount: 'infinite',
-  },
-])
+export const stairShake = style([stair])
 
-export const shareShake = style([
-  share,
-  {
-    animation: `${shake} 5s`,
-    animationIterationCount: 'infinite',
-  },
-])
+export const shareShake = style([share])
 
-export const shopShake = style([
-  shop,
-  {
-    animation: `${shake} 5s`,
-    animationIterationCount: 'infinite',
-  },
-])
+export const shopShake = style([shop])
