@@ -2,7 +2,7 @@
   "name": "Savit",
   "short_name": "Savit",
   "start_url": "/index.html",
-  "scope": ".",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#5872FF",
@@ -11,15 +11,15 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icon/app-icon-32x32.png",
+      "src": "public/app_icon/app-icon-32x32.png",
       "sizes": "32x32"
     },
     {
-      "src": "icon/app-icon-64x64.png",
+      "src": "public/app_icon/app-icon-64x64.png",
       "sizes": "64x64"
     },
     {
-      "src": "icon/app-icon-192x192.png",
+      "src": "public/app_icon/app-icon-192x192.png",
       "sizes": "192x192"
     }
   ]

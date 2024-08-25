@@ -136,7 +136,14 @@ export const MockSavitLevels: SavitLevel[] = [
   {
     level: 6,
     name: '적금 계좌 만들기',
-    missions: [],
+    missions: [
+      {
+        type: 'mission',
+        text: '주거래 은행 계좌 연동 및 만들기',
+        isComplete: false,
+        missionId: '1',
+      },
+    ],
     group: MockLevelGroup.ShortTermGoal
   },
   {
