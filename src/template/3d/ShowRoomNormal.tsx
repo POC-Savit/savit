@@ -72,7 +72,7 @@ const ShowRoomNormal = () => {
     }
     ref.current.style.setProperty(
       'transform',
-      `translateY(calc(${currentLevel}*300px))`
+      `translateY(calc(${currentLevel - 1}*300px))`
     )
   }, [currentLevel])
 

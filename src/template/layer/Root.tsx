@@ -67,7 +67,7 @@ const Root = ({}: ShopProps) => {
         <CountUp
           decimal=","
           duration={10}
-          end={currentLevel + 1}
+          end={currentLevel}
           start={1}
           suffix="F"
         >
