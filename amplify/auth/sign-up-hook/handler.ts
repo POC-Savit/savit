@@ -66,7 +66,7 @@ export const handler: PostConfirmationTriggerHandler = async (event) => {
             },
             current: {}
         },
-        credit: 1000 +randomInt(10000),
+        credit: 100 + randomInt(400),
         currentLevel: randomInt(MAXIMUM_LEVLE_ON_HACKATHON),
         asset: JSON.stringify({
           savingAsset: savingAsset, 
