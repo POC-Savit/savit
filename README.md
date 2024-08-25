@@ -1,13 +1,20 @@
-
 | Service URL    | https://savit.yahoconut.com |
-|----------------|-----------------------------|
+| -------------- | --------------------------- |
 | Front Source   | [link](/src/)               |
 | Backend Source | [link](amplify/)            |
 
-
 # Savit
 
-Financial service that gamifies saving and life cycle financial planning
+> #### Table of Contents
+>
+> - [ShowCase](#showcase)
+> - [Proect Detail](#project-detail)
+> - [MVP](#mvp)
+> - [Technical Stack](#technical-stack)
+> - [Tech Stack](#tech-stack)
+> - [Getting Started](#getting-started)
+
+Financial service that gamifies saving and life cycle financial planning.
 
 ## Showcase
 
@@ -20,21 +27,20 @@ Financial service that gamifies saving and life cycle financial planning
 <img src="https://private-user-images.githubusercontent.com/17975472/361177849-c88392a6-bbf0-40b4-9911-40a4c6a5954f.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQ1NDU4ODUsIm5iZiI6MTcyNDU0NTU4NSwicGF0aCI6Ii8xNzk3NTQ3Mi8zNjExNzc4NDktYzg4MzkyYTYtYmJmMC00MGI0LTk5MTEtNDBhNGM2YTU5NTRmLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MjUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODI1VDAwMjYyNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFlMzJlMWMzYTNjYjg3YWY2ODlkNzIyZTJhYmI1ZjU2ZjFkYWZiN2QxOWQ0MjI4ZjU4NGJmYjA2YjIyNzQ1NjcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.udfbf7bbw_JOh-0FaeWvBP9xvtYDCzmjKspQCLBy8bU" width="40%"></img>
 </p>
 
-
 ## Project Details
 
 ![aa](/_doc/Project%20logo_Savit.png)
 
 Propose a service that improves millennials saving habits and financial knowledge with customizing their own character using in-service money linked to real savings event data, and level-up missions based on life-cycle financial planning
 
-
 ## Getting Started
+
 - node version >= 18.20.4
 
 ### Frontend
 
 ```bash
-$ npm intstall 
+$ npm intstall
 $ npm run dev # Front end 실행
 ```
 
@@ -42,4 +48,4 @@ $ npm run dev # Front end 실행
 
 We build Savit with many components of AWS using Amplify.
 so, It's difficult to test on local machine.
-try above frontend, It communicate wth server on the aws.
+try above frontend, It communicate with server on the aws.
