@@ -1,8 +1,13 @@
 import type { Nullable } from 'type-util'
 
 import { atom } from 'jotai'
+import { ItemType } from 'types/character.type'
 
-import { fetchItemsWithUserinfo, ItemWithOwn } from '~/hooks/queris'
+import {
+  fetchItemsWithUserinfo,
+  ItemWithOwn,
+  unequipItem,
+} from '~/hooks/queris'
 
 import { User } from '.'
 
@@ -115,6 +120,15 @@ export const getItems = atom(null, async (_get, set) => {
       set(faceItem, item.name as FaceType)
     }
   })
+})
+
+export const unEquip = atom(null, async (_get, set, type: ItemType) => {
+  await unequipItem(type === ItemType.HEAD ? ItemType.HEAD : ItemType.FACE)
+  if (type === ItemType.HEAD) {
+    set(headItem, null)
+    return
+  }
+  set(faceItem, null)
 })
 
 export const currentSelected = atom<Nullable<ItemWithOwn>>(null)
